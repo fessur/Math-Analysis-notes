@@ -1,0 +1,79 @@
+\documentclass[../main.tex]{subfiles}
+
+\setlength\parindent{5cm}
+\begin{document}
+\newpage
+\section{Понятия площади и объема. Пути. Термины, связанные с понятием 'путь'. Два подхода к определению кривой, эквивалентные пути. Термины, связанные с понятием 'кривая'.}
+\par
+Прежде чем определять понятие площади, сначала было бы неплохо поговорить об аддитивной функции промежутка. \\
+\[ \Let \left[ A,B\right] \in \R \qquad\Phi:\left\{ \left[ a,b\right]\right\}_{\left[ a,b\right]\in\left[ A,B\right]} \longrightarrow  \R\]
+\(\ \Phi\) называется \emph{аддитивной функцией промежутка}, если 
+\[ \forall \; a \leq c \leq b: \left[ a,b\right] \subseteq \left[ A,B\right]\quad\Phi \left( \left[ a,b\right]\right)= \Phi \left( \left[ a,c\right]\right)+ \Phi \left( \left[ c, b\right]\right)\]
+
+\begin{examples}
+    
+    ~
+
+    \begin{enumerate}
+        \item \( \Phi \left( \left[ a,b\right]\right)=\left| b-a\right|\) - длина промежутка
+        \item \( \Phi \left( \left[ a,b\right]  \right) = \begin{cases}
+            1, \text{если } 0 \in \left[ a,b\right)\\ 
+            0, \text{если } 0 \notin \left[ a,b\right) 
+        \end{cases} \)
+        \item \( f \in C\left[ A,B\right],\quad \Phi\left( \left[ a,b\right]\right)= \displaystyle\int\limits_{ a}^{ b} f(x)dx\) \\ Определённый интеграл - аддитивная функция промежутка
+    \end{enumerate}
+\end{examples}
+\[ \Let \; \Phi: \left\{ \left[ a,b\right]\right\}_{ \left[ a,b\right] \subseteq \left[ A,B\right]} \longrightarrow \R,\quad \rho \in C\left[ A,B\right],\quad \forall \; \left[ a,b\right] \subseteq \left[ A,B\right]\quad \Phi \left( \left[ a,b\right]\right)= \displaystyle\int\limits_{ a}^{ b} \rho (x)dx\]
+Тогда \( \rho\) называется \emph{плотностью} для \( \Phi \). 
+\begin{remark}
+
+    ~
+
+    Не всякая аддитивная функция промежутка имеет плотность. 
+    
+    Функция из примера 2 плотности не имеет, потому что в интеграле из определения плотности можно зафиксировать нижний предел
+    интегрирования. Зафиксируем его равным -10 и будем считать, что \( \Phi\) определена на всех подотрезках отрезка \( \left[ -10, 10\right]\). Тогда \( \forall \;x\in \left[ -10, 10\right]\quad \Phi (\left[ -10,x\right])= \displaystyle\int\limits_{ -10}^{ x} \rho (t)dt\) - 
+    это верно из определения плотности. С другой стороны, \( \displaystyle\int\limits_{-10}^{ x} \rho (t)dt\) - это первообразная функции \( \rho\) в точке \( x\) на отрезке \( \left[ -10,10\right]\) по теореме Барроу. Значит первообразная функции \( \rho\) в точке \( x\) равна \( \Phi \left( \left[ -10,x\right]\right)\). Эта первообразная дифференцируема на \( \left[ -10,10\right]\)
+    (потому что её производной по определению первообразной должна быть функция \( \rho\)), а значит эта первообразная должна быть непрерывной на \( \left[ -10, 10\right]\). А раз мы знаем, что первообразная функции \( \rho\) в точке \( x\) равна \( \Phi \left( \left[ -10, x\right]\right)\), давайте посмотрим, как ведёт себя \( \Phi\left( \left[ -10,x\right]\right) \).
+    На полуинтервале \( \left( -10, 0\right]\) она равна 0, т.к. число 0 не содержится в полуинтервале \(\left[ -10, 0\right)\). На полуинтервале \( \left( 0, 10\right]\quad\Phi \left( \left[ -10, x\right]\right)\) равна 1, т.к. на соответствующих полуинтервалах 0 уже содержится. 
+    Получается, что функция \( \Phi \left( [-10,x]\right)\) (которая равна первообразной \( \rho\) в точке \( x\)) имеет разрыв первого рода (скачок) в точке 0, что противоречит тому, что она должна быть непрерывной. 
+
+    То есть чтобы аддитивная функция промежутка имела плотность, необходимо хотя бы чтобы функция \( F(x) = \displaystyle\int\limits_{ x_{ 0}}^{ x} \rho (t)dt\) была непрерывна на \( \left[ A,B\right]\). А какая аддитивная функция промежутка точно имеет плотность? Ответ на 
+    этот вопрос даёт признак плотности.
+\end{remark}
+
+\begin{thm}[Признак плотности]
+    
+    \( \Let \; \Phi:\left\{ \left[ a,b\right]\right\}_{\left[ a,b\right] \subseteq \left[ A,B\right] } \longrightarrow \R\) - аддитивная функция промежутка,
+    \( \rho(x) \in C\left[ A,B\right] \) и
+    \[ \forall \;\left[ a, b\right] \subseteq \left[ A,B\right]\quad \min\limits_{ \left[ a,b\right]} \rho \cdot\left( b-a\right) \leq \Phi\left( \left[ a,b\right]\right) \leq \max\limits_{ \left[ a,b\right]} \rho\cdot\left( b-a\right) \]
+    Тогда \( \rho(x)\) - плотность \( \Phi\).
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \( \Let \; I= \displaystyle\int\limits_{ a}^{ b} \rho(x)dx\), \( X=\left\{ a=x_{ 0},x_{ 1}, \dots,x_{ n}=b\right\}\) - дробление \( \left[ a,b\right]\), \( T = \left\{ t_{ i}\right\}_{i=1}^{n}\) - его оснащение. Вспоминаем определение интеграла по Риману:
+    \[ \forall \; \varepsilon >0\quad \exists \; \delta >0:\quad \lambda (X)< \delta \implies \left| I- \sum\limits_{ i=1}^{ n} \rho(t_i) \Delta x_i\right|< \varepsilon \implies I- \varepsilon <\sum\limits_{ i=1}^{ n} \rho\left( t_i\right) \Delta x_i< I+ \varepsilon \]
+    Причём это верно для любого оснащения \( T\). Вспомним, что мы умеем оценивать \( \Phi\left( \left[ a,b\right]\right)\).
+    \[ \Phi\left( \left[ a,b\right]\right)= \sum\limits_{ k=1}^{ n} \Phi\left( \left[ x_{k-1}, x_k\right]\right) \leq \sum\limits_{ k=1}^{ n} \max\limits_{ \left[ x_{k-1},x_k\right]}\rho\;\cdot \Delta x_k= \sum\limits_{ k=1}^{ n} \rho\left( c_k\right) \Delta x_k\]
+    для некоторого \( c_k\in\left[ x_{k-1}, x_k\right]\). Заметим, что \( \sum\limits_{ k=1}^{ n} \rho\left( c_k\right) \Delta x_k\) - это сумма Римана, поэтому \( \sum\limits_{ k=1}^{ n} \rho\left( c_k\right) \Delta x_k < I + \varepsilon \).
+
+    Рассуждая аналогично, \[ \Phi\left( \left[ a,b\right]\right)= \sum\limits_{ k=1}^{ n} \Phi\left( \left[ x_{k-1}, x_k\right]\right) \geq \sum\limits_{ k=1}^{ n} \min\limits_{ \left[ x_{k-1}, x_k\right]} \rho \;\cdot \Delta x_k= \sum\limits_{ k=1}^{ n} \rho\left( \tilde{c_k}\right) \Delta x_k>I- \varepsilon \]
+
+    Таким образом, \[ \forall \; \varepsilon >0\quad I- \varepsilon <\Phi\left( \left[ a,b\right]\right)<I+ \varepsilon \implies \Phi\left( \left[ a,b\right]\right)=I \]
+\end{proof}
+\emph{Площадь} - неотрицательная функция множества, заданная на некой совокупности множеств \( D(S)\), которые называются \emph{квадрируемыми}. Более полное и подробное определение площади будет дано когда-нибудь позже, когда мы будем разбирать теорию меры, а пока ограничимся этим. \\
+
+{\parindent0pt \textbf{Свойства площади:}}
+
+\begin{enumerate}
+    \item \emph{Аддитивность.} Мы привыкли, что площадь аддитивна в том смысле, что если разрезать фигуру на 2 части, то площадь фигуры - это сумма площадей
+    обрезков. Но площадь аддитивна ещё и в таком смысле:
+    \[ A,B\in D\left( S\right),\quad A \cap B=\varnothing \implies S\left( A \cup B\right)=S\left( A\right)+S\left( B\right)\]
+    \item \emph{Инвариантность относительно изометрий (движений).} 
+    \[ \Let \;  u: \R^2 \longrightarrow \R^2\quad | \;\forall \;x,y\in\R^2\quad \left| \left| u\left( x\right)-u\left( y\right)\right|\right|=\left| \left| x-y\right|\right| \implies S\left( \left\{ u(p)\right\}_{p \in A}\right)=S(A)\]  
+    Отображение u, удовлетворяющее условию этого утверждения, называется \hypertarget{movement}{\emph{движением}}.
+\end{enumerate}
+Некоторые другие свойства площади рассмотрены в \hyperlink{q14}{соответствующем билете}.
+\end{document}

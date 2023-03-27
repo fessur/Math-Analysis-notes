@@ -1,0 +1,5 @@
+# Do not store vs code files
+.vsvode
+
+# Do not store latexmk build files
+out

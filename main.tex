@@ -1,0 +1,84 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[english, russian]{babel}            % russian text
+\usepackage{geometry}                           % page sizes
+\usepackage{wrapfig}                            % wrap a figure with text
+\usepackage{graphicx}                           % include graphics
+\usepackage{subfiles}                           % subfiles tex
+\usepackage{ragged2e}                           % ragged text
+\usepackage{indentfirst}                        % indent in the first sentence of a paragraph
+\usepackage{tikz}                               % \Let declaration
+\usepackage{amssymb}                            % sets of real and complex numbers
+\usepackage{amstext}                            % \Let declaration 
+\usepackage[bookmarks]{hyperref}                % refs in table of contents
+\usepackage{tocloft}                            % table of contents customization
+\usepackage{amsthm}                             % theorems
+\usepackage{amsmath}                            % cases
+
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+\renewcommand\cfttoctitlefont{\hfill\Large\bfseries}
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
+
+\newlength{\tempheight}
+\newcommand{\Let}[0]{%
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);%
+}}}}
+
+\newcommand{\R}[0]{\mathbb{R}}
+\renewcommand{\C}[0]{\mathbb{C}}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Пример}
+\newtheorem*{examples}{Примеры}
+\newtheorem*{remark}{Замечание}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Теорема}[section]
+
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=2cm}
+\geometry{bottom=3cm}
+
+\begin{document}
+\subfile{tex/title.tex}
+\tableofcontents
+\subfile{tex/question1.tex}
+\subfile{tex/question2.tex}
+\subfile{tex/question3.tex}
+\subfile{tex/question4.tex}
+\subfile{tex/question5.tex}
+\subfile{tex/question6.tex}
+\subfile{tex/question7.tex}
+\subfile{tex/question8.tex}
+\subfile{tex/question9.tex}
+\subfile{tex/question10.tex}
+\subfile{tex/question11.tex}
+\subfile{tex/question12.tex}
+\subfile{tex/question13.tex}
+\subfile{tex/question14.tex}
+\subfile{tex/question15.tex}
+\subfile{tex/question16.tex}
+\subfile{tex/question17.tex}
+\subfile{tex/question18.tex}
+\subfile{tex/question19.tex}
+\subfile{tex/question20.tex}
+\subfile{tex/question21.tex}
+\subfile{tex/question22.tex}
+\subfile{tex/question23.tex}
+\subfile{tex/question24.tex}
+\subfile{tex/question25.tex}
+\subfile{tex/question26.tex}
+\subfile{tex/question27.tex}
+\subfile{tex/question28.tex}
+\subfile{tex/question29.tex}
+\subfile{tex/question30.tex}
+\subfile{tex/question31.tex}
+\subfile{tex/question32.tex}
+\subfile{tex/question33.tex}
+\subfile{tex/question34.tex}
+\end{document}
