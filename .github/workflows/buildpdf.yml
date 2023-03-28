@@ -1,0 +1,52 @@
+name: Build and deploy latex sources to GitHub Pages
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: main.tex
+        args: -jobname=conspect -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+        compiler: latexmk
+    - name: Upload pdf document
+      uses: actions/upload-artifact@v2
+      with:
+        name: conspect
+        path: ./conspect.pdf
+  deploy:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    needs: [build]
+    steps:
+      - name: Variables
+        id: vars
+        run: |
+          echo "::set-output name=date::$(date +'%Y-%m-%d')"
+          echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: conspect
+      - name: Create Release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: conspect-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}
+          release_name: Конспекты PDF
+          draft: false
+          prerelease: false
+      - name: Upload pdf asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./conspect.pdf
+          asset_name: math_analysis.pdf
+          asset_content_type: application/pdf
