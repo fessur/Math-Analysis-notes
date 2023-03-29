@@ -136,4 +136,55 @@
     Тогда:
     \[ V\left( T_1 \cup T_2\right)=\underbrace{V\left( T_1 \cap T_2\right)}_{0}+V\left( T_1 \backslash T_2\right)+V\left( T_2 \backslash T_1\right)=V\left( T_1 \backslash T_2\right)+V\left( T_2 \backslash T_1\right)=V\left( T_1\right)+V\left( T_2\right)\]
 \end{proof}
+
+\paperline
+
+\emph{Путём} в \( \R ^n\) называется отображение \( \gamma \in C\left( \left[ a,b\right] \longrightarrow \R ^n\right),\quad a,b \in \R \).
+Такая запись означает, что \( \gamma =\left( \gamma _1, \gamma _2, \dots, \gamma _n\right),\quad \forall \;i\quad \gamma _i \in C\left[ a,b\right]\). При этом \( \gamma _i\left( t\right)\) называется \(i\)-й координатой точки \( t\).
+
+Лучше всего представлять это так, будто аргумент пути \( t\) - это время, а \( \gamma \left( t\right)\) - положение точки в этот момент времени. 
+
+\( \gamma \) называется \emph{гладким}, если \( \forall \;i\quad \gamma _i \in C^1\left[ a,b\right]\). 
+
+Если \( \exists \; \) дробление \( \left\{ x_i\right\}_{i=1}^k:\quad \forall \;i=1\dots k\quad \gamma |_{\left[ x_{i-1}, x_i\right]}\) - гладкий путь, то 
+\( \gamma \) называется \emph{кусочно-гладким}.
+
+\InsertBoxR{0}{
+    \begin{minipage}[t]{6cm} 
+        \includegraphics[width=\linewidth]{12_inverse.pdf} 
+    \end{minipage}
+}
+
+\emph{Носителем пути} называется образ отрезка \( \left[ a,b\right]\) при отображении \( \gamma \).
+\( \gamma \left( a\right)\) называется \emph{началом пути}, \( \gamma \left( b\right)\) называется \emph{концом пути}. 
+
+Если \( \gamma :\left[ a,b\right] \longrightarrow \R ^n\) - путь, то отображение \[ \gamma _-= \gamma \left( a+b-t\right),\quad t \in \left[ a,b\right]\]
+называется \emph{обратным путём} к \( \gamma \). 
+
+~
+
+Если \( \gamma \left( t_1\right)= \gamma \left( t_2\right) \implies t_1=t_2\), то \( \gamma \) называется \emph{простым (Жордановым) путём}. По факту это означает, что 
+путь не имеет самопересечений. А если 
+\begin{equation*}
+    \gamma \left( t_1\right)= \gamma \left( t_2\right) \implies 
+    \left[
+    \begin{aligned}
+        &\;t_1=t_2\\ 
+        &\;\left\{ t_1,t_2\right\}=\left\{ a,b\right\}
+    \end{aligned}
+    \right.
+\end{equation*}
+то путь называется \emph{простым замкнутым}. То есть он имеет не больше одного самопересечения, которое является его началом и концом. 
+
+~
+
+Под \emph{кривой} часто понимают траекторию простого или простого замкнутого пути. Это первый подход к определению кривой.
+
+Пути \( \gamma : \left[ a,b\right] \longrightarrow \R ^n\) и \( \tilde{ \gamma }: [ \tilde{a}, \tilde{b}] \longrightarrow \R ^n\) называются 
+\emph{эквивалентными}, если существует строго возрастающая сюръективная функция \( \varphi :\left[ a,b\right] \longrightarrow [ \tilde{a}, \tilde{b}]\) такая что 
+\[ \gamma = \tilde{ \gamma } \circ \varphi \]
+
+\begin{note}
+    Это действительно отношение эквивалентности.
+\end{note}
 \end{document}
