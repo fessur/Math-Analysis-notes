@@ -93,7 +93,47 @@
         \item \emph{Инвариантность относительно изометрий}\\
         \[ T\in\mathcal{T},\quad \Phi:\R^3 \longrightarrow \R^3\text{ - изометрия} \implies \Phi\left( T\right)\in\mathcal{T},\quad V\left( \Phi\left( T\right)\right)=V\left( T\right)\]
         \item \emph{Нормированность} \\
-        Если \( Q\) - прямоугольный параллелепипед со сторонами \( a,b,c\), то \( Q\in\mathcal{T},\quad V\left( Q\right)=abc\)
+        Если \( Q\) - прямоугольный параллелепипед со сторонами \( a,b,c\), то \( Q\in\mathcal{T},\quad V\left( Q\right)=abc\).\\ 
+        Если при этом одно из чисел \( a,b,c =0\), то параллелепипед называется вырожденным. Обьём такого параллелепипеда равен 0.
     \end{enumerate}
 \end{prop} 
+\begin{thm}[без доказательства]
+    Если \( E\) - квадрируемое плоское множество, \( I =\left[ a,b\right]\) - отрезок, \( C=E\times I\). Тогда \( C\in\mathcal{T},\quad V\left( C\right) = S\left( E\right)\cdot\left( b-a\right)\)
+\end{thm}
+\begin{note}
+    Объём монотонен. 
+    \[ A \subseteq B,\quad A,B\in  \mathcal{T} \implies V\left( A\right) \leq V\left( B\right)\]
+\end{note}
+\begin{proof}
+    \[ B \subseteq A \implies B=A \cup \left( B \backslash A\right)\]
+    \begin{equation*}
+        \begin{aligned}
+            &B=A \cup \left( B \backslash A\right)\\
+            &A \cap \left( B \backslash A\right)= \varnothing  
+        \end{aligned}
+        \implies V\left( B\right)=V\left( A\right)+V\left( B \backslash  A\right) \geq V\left( A\right)
+    \end{equation*}
+\end{proof}
+Из этого следует что если \( Q\) - вырожденный параллелепипед, \( E \subseteq Q\), то \( V\left( E\right)=0\)
+\begin{thm}[\hypertarget{12_strong_monot}{Усиленная монотонность}]
+    \( \Let \; Q\) - вырожденный параллелепипед
+    \[ T_1,T_2 \in  \mathcal{T}, \quad T_1 \cap T_2 \subseteq Q \implies V\left( T_1 \cup T_2\right)=V\left( T_1\right)+V\left( T_2\right)\]
+\end{thm}
+\begin{proof}
+    Эта теорема говорит о том, что объём аддитивен не только тогда, когда множества не пересекаются, но и когда множества пересекаются, но немного. Например, два параллелепипеда с общим ребром/гранью.
+
+    \[ T_1 \cap T_2 \subseteq Q \implies V\left( T_1 \cap T_2\right)=0\]
+    \begin{equation*}
+        \begin{aligned}
+            &T_1=\left( T_1 \backslash T_2\right) \cup \left( T_1 \cap T_2\right)\\
+            &\left( T_1 \backslash T_2\right) \cap \left( T_1 \cap T_2\right)= \varnothing 
+        \end{aligned}
+        \implies V\left( T_1\right)=V\left( T_1 \backslash T_2\right)+\underbrace{V\left( T_1 \cap T_2\right)}_0=V\left( T_1 \backslash T_2\right)
+    \end{equation*}
+    Аналогично \( V\left( T_2\right)=V\left( T_2 \backslash T_1\right)\). \\
+    Множества \( T_1 \cap T_2,\; T_1 \backslash T_2,\;T_2 \backslash T_1\) попарно не пересекаются. Кроме того,
+    \[ T_1 \cup T_2=\left( T_1 \backslash T_2\right) \cup \left( T_2 \backslash T_1\right) \cup \left( T_1 \cap T_2\right)\]
+    Тогда:
+    \[ V\left( T_1 \cup T_2\right)=\underbrace{V\left( T_1 \cap T_2\right)}_{0}+V\left( T_1 \backslash T_2\right)+V\left( T_2 \backslash T_1\right)=V\left( T_1 \backslash T_2\right)+V\left( T_2 \backslash T_1\right)=V\left( T_1\right)+V\left( T_2\right)\]
+\end{proof}
 \end{document}

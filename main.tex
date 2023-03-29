@@ -32,6 +32,9 @@
 \tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);%
 }}}}
 
+\newlength{\wdth}
+\newcommand{\strike}[1]{\settowidth{\wdth}{#1}\rlap{\rule[.5ex]{\wdth}{.4pt}}#1}
+
 \newcommand{\R}[0]{\mathbb{R}}
 \renewcommand{\C}[0]{\mathbb{C}}
 
@@ -44,6 +47,7 @@
 \newtheorem{thm}{Теорема}[section]
 
 \newenvironment*{prop}[1]{{\parindent0pt \textbf{#1}\vspace{6pt}\par}}{}
+\newenvironment*{note}{{\parindent0pt \textbf{Замечание}\vspace{6pt}\par}}{}
 
 \newcommand\paperline{\par\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\par}
 
