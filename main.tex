@@ -13,6 +13,10 @@
 \usepackage{tocloft}                            % table of contents customization
 \usepackage{amsthm}                             % theorems
 \usepackage{amsmath}                            % cases
+\input{insbox}                                  % image in proof
+
+
+\graphicspath{ {./img/} }
 
 \renewcommand\cftsecfont{\normalfont}
 \renewcommand\cftsecpagefont{\normalfont}
@@ -39,8 +43,12 @@
 \theoremstyle{plain}
 \newtheorem{thm}{Теорема}[section]
 
+\newenvironment*{prop}[1]{{\parindent0pt \textbf{#1}\vspace{6pt}\par}}{}
+
+\newcommand\paperline{\par\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\par}
+
 \geometry{left=2cm}
-\geometry{right=2cm}
+\geometry{right=1.5cm}
 \geometry{top=2cm}
 \geometry{bottom=3cm}
 

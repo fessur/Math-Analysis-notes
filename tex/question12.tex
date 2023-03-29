@@ -53,6 +53,10 @@
     
     ~
 
+    Идея на самом деле в том, что если промежуток \( \left[ a,b\right]\) маленький, то \( \min\limits_{ \left[ a,b\right]} \rho \) и \( \max\limits_{ \left[ a,b\right]} \rho \) это почти одно и то же число, а раз 
+    \( \Phi\left[ a,b\right]\) лежит между ними, то ему ничего не остаётся, кроме как равняться им. \( \rho\cdot\left( b-a\right)\) это площадь маленького прямоугольника при близких \( a, b\), а т.к. \( \Phi\) - аддитивная функция промежутка, 
+    \( \Phi\left[ a,b\right]\) можно представить в виде суммы её на маленьких отрезках, где она равна площади маленького прямоугольника. А сумма площадей маленьких прямоугольников - это интеграл по Риману.
+
     \( \Let \; I= \displaystyle\int\limits_{ a}^{ b} \rho(x)dx\), \( X=\left\{ a=x_{ 0},x_{ 1}, \dots,x_{ n}=b\right\}\) - дробление \( \left[ a,b\right]\), \( T = \left\{ t_{ i}\right\}_{i=1}^{n}\) - его оснащение. Вспоминаем определение интеграла по Риману:
     \[ \forall \; \varepsilon >0\quad \exists \; \delta >0:\quad \lambda (X)< \delta \implies \left| I- \sum\limits_{ i=1}^{ n} \rho(t_i) \Delta x_i\right|< \varepsilon \implies I- \varepsilon <\sum\limits_{ i=1}^{ n} \rho\left( t_i\right) \Delta x_i< I+ \varepsilon \]
     Причём это верно для любого оснащения \( T\). Вспомним, что мы умеем оценивать \( \Phi\left( \left[ a,b\right]\right)\).
@@ -71,9 +75,25 @@
     \item \emph{Аддитивность.} Мы привыкли, что площадь аддитивна в том смысле, что если разрезать фигуру на 2 части, то площадь фигуры - это сумма площадей
     обрезков. Но площадь аддитивна ещё и в таком смысле:
     \[ A,B\in D\left( S\right),\quad A \cap B=\varnothing \implies S\left( A \cup B\right)=S\left( A\right)+S\left( B\right)\]
+    Это свойство, в частности, позволяет во многих задачах рассматривать площадь как аддитивную функцию промежутка и для её вычисления применять признак плотности. \hyperlink{q15}{Пример можно найти в 15 билете.}
     \item \emph{Инвариантность относительно изометрий (движений).} 
-    \[ \Let \;  u: \R^2 \longrightarrow \R^2\quad | \;\forall \;x,y\in\R^2\quad \left| \left| u\left( x\right)-u\left( y\right)\right|\right|=\left| \left| x-y\right|\right| \implies S\left( \left\{ u(p)\right\}_{p \in A}\right)=S(A)\]  
+    \[ \Let \;  u: \R^2 \longrightarrow \R^2\quad | \;\forall \;x,y\in\R^2\quad \left| \left| u\left( x\right)-u\left( y\right)\right|\right|=\left| \left| x-y\right|\right| \implies S\left( u\left( A\right)\right)=S\left( A\right)\]  
     Отображение u, удовлетворяющее условию этого утверждения, называется \hypertarget{movement}{\emph{движением}}.
 \end{enumerate}
-Некоторые другие свойства площади рассмотрены в \hyperlink{q14}{соответствующем билете}.
+
+\hyperlink{q14}{Некоторые другие свойства площади рассмотрены в 14 билете}.
+\paperline
+\emph{Объём} - неотрицательная функция множества, определённая на некотором наборе множеств \( \mathcal{T}\), которые называются \emph{куюируемыми}. 
+\[ A,B\in\mathcal{T} \implies A \cup B\in\mathcal{T},\; A\backslash B\in\mathcal{T},\; B\backslash A\in\mathcal{T},\;A \cap B\in\mathcal{T}\]
+\begin{prop}{Свойства объёма:}
+    Здесь всё по аналогии с площадью.
+    \begin{enumerate}
+        \item \emph{Аддитивность}\\
+        \[T_1, T_2\in\mathcal{T},\quad T_1 \cap T_2= \varnothing \implies V\left( T_1 \cup T_2\right)=V\left( T_1\right)+V\left( T_2\right)\]
+        \item \emph{Инвариантность относительно изометрий}\\
+        \[ T\in\mathcal{T},\quad \Phi:\R^3 \longrightarrow \R^3\text{ - изометрия} \implies \Phi\left( T\right)\in\mathcal{T},\quad V\left( \Phi\left( T\right)\right)=V\left( T\right)\]
+        \item \emph{Нормированность} \\
+        Если \( Q\) - прямоугольный параллелепипед со сторонами \( a,b,c\), то \( Q\in\mathcal{T},\quad V\left( Q\right)=abc\)
+    \end{enumerate}
+\end{prop} 
 \end{document}
