@@ -1,5 +1,164 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \newpage
-\section{Длина ломаной. Длина пути. Равенство длин эквивалентных (и противоположных) путей. Аддитивность длины пути.}
+\hypertarget{q13}{\section{Длина ломаной. Длина пути. Равенство длин эквивалентных (и противоположных) путей. Аддитивность длины пути.}}
+Пусть \( \gamma \) - ломаная, соединяющая точки \( \gamma \left( a\right)= \gamma \left( x_0\right), \gamma \left( x_1\right), \dots,  \gamma \left( x_{n-1}\right), \gamma \left( x_n\right)= \gamma \left( b\right)\)
+\(  X=\left( x_0,x_1, \dots,x_n\right)\). Тогда длина ломаной \( \gamma \) равна 
+\[ l \left(X, \gamma \right) = \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|\] 
+
+Из определения следует, что длина ломаной неотрицательна. 
+
+\InsertBoxR{0}{
+    \begin{minipage}[t]{7cm} 
+        \includegraphics[width=0.9\linewidth]{13_path.pdf} 
+    \end{minipage}
+}
+
+Длина пути определяется как супремум длин ломаных, которыми можно приближать этот путь. Конечно, она тоже неотрицательна. Более формально: если \( \gamma \) - путь, то длина пути \( \gamma \) равна 
+\[ s\left(\gamma \right)= \sup\limits_{ X\text{-дробление }\left[ a,b\right]} l \left( X, \gamma \right)\]
+
+Супремум существует всегда, но не обязательно является конечным, то есть может быть равен \( + \infty \). Если \( s\left( \gamma \right)<+ \infty \), то \( \gamma \) называется \emph{спрямляемым}.  
+
+\begin{thm}[Равенство длин эквивалентных путей]
+    \[ \gamma \sim \tilde{ \gamma } \implies s\left( \gamma \right)=s\left( \tilde{ \gamma }\right)\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Сначала стоит отметить такой факт: если \( M\) - множество, \( \forall \; x \in M\quad x \leq a\), тогда \( \sup\limits_{ } M \leq a\). Этот факт напрямую следует из определения супремума как наименьшей мажоранты. Этот факт часто будет использован
+    при доказательстве утверждений, связанных с путями, в том числе и в этом доказательстве. 
+    
+    План такой: мы докажем, что \( s\left( \gamma \right) \leq s\left( \tilde{ \gamma }\right)\). 
+    Для этого докажем, что \( \forall \; X\) - дробления промежутка \( \left[ a,b\right]\quad l \left( X, \gamma \right) \leq s\left( \tilde{ \gamma }\right)\), затем перейдём к супремуму. Потом мы проведём точно такие же рассуждения, доказывая что \( s\left( \tilde{ \gamma }\right) \leq s\left( \gamma \right)\), и получим \( s\left( \gamma \right)=s\left( \tilde{ \gamma }\right)\).
+
+    Пусть \( \gamma \) действует на \( \left[ a,b\right]\), \( \tilde{ \gamma }\) действует на \( [ \tilde{ a}, \tilde{ b}]\). Обозначим \\\( \tilde{ X}=( \tilde{ x}_0, \tilde{ x}_1, \dots, \tilde{ x}_n)=( \varphi \left( x_0\right), \varphi \left( x_1\right), \dots, \varphi \left( x_n\right))\). По определению эквивалентных путей 
+    \[ \exists \; \varphi : \left[ a,b\right] \longrightarrow [ \tilde{ a}, \tilde{ b}],\quad \gamma = \tilde{ \gamma }\circ \varphi ,\quad \varphi \text{ - строго монотонна}\]
+    \begin{equation*}
+        \begin{aligned}
+            &l \left( X, \gamma \right)= \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|= \sum\limits_{ i=1}^{ n} \left| \left| \tilde\gamma \left( \varphi \left( x_i\right)\right)- \tilde{ \gamma }\left( \varphi \left( x_{i-1}\right)\right)\right|\right|=\\ 
+            &= \sum\limits_{ i=1}^{ n} \left| \left| \tilde{ \gamma }\left( \tilde{ x}_i\right)- \tilde{ \gamma }\left( \tilde{ x}_{i-1}\right)\right|\right|=l ( \tilde{ X}, \tilde{ \gamma }) \leq \sup\limits_{ \tilde{ X}\text{-дробление}[ \tilde{ a}, \tilde{ b}]} l ( \tilde{ X}, \tilde{ \gamma })=s\left( \tilde{ \gamma }\right)
+        \end{aligned}
+    \end{equation*}
+
+    Таким образом, \( l \left( X, \gamma \right) \leq s\left( \tilde{ \gamma }\right) \implies s\left( \gamma \right)= \sup\limits_{ } l \left( X, \gamma \right) \leq s\left( \tilde{ \gamma }\right)\) 
+
+    Так как условие симметрично относительно \( \gamma \) и \( \tilde{ \gamma }\), мы можем провести аналогичные рассуждения, поменяв местами \( \gamma \) и \( \tilde{ \gamma }\) и прийти к выводу \( s\left( \tilde\gamma \right) \leq s\left( \gamma \right)\)
+
+    \begin{equation*}
+        \begin{aligned}
+            s\left( \gamma \right) \leq s\left( \tilde{ \gamma }\right)\\ 
+            s\left( \tilde{ \gamma }\right) \leq s\left( \gamma \right)
+        \end{aligned}
+        \implies 
+        s\left( \gamma \right)=s\left( \tilde{ \gamma }\right)
+    \end{equation*}
+\end{proof}
+
+Так как длина всей путей в одном классе эквивалентности одна и та же, говорят о \emph{длине кривой}. Длина кривой - длина любой её параметризации.
+
+\begin{thm}[Равенство длин противоположных путей]
+    \[ \tilde{ \gamma }\text{ - противоположный путь к } \gamma \implies s( \tilde{ \gamma })=s\left( \gamma \right)\]
+\end{thm}
+\begin{proof}
+    Доказательство почти аналогично предыдущей теореме. 
+
+    Пусть \( \gamma , \tilde{ \gamma }\) действуют на \( \left[ a,b\right],\quad \forall \; t \in \left[ a,b\right]\quad \tilde{ \gamma }\left( t\right)= \gamma \left( a+b-t\right),\)
+    \( X=(a+b-x_1,a+b-x_2, \dots,a+b-x_n),\quad \tilde{ X}=(x_1, x_2, \dots, x_n)\)
+
+    \[ l \left( X, \gamma \right)= \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( a+b-x_i\right)- \gamma \left( a+b-x_{i-1}\right)\right|\right|= \sum\limits_{ i=1}^{ n} \left| \left| \tilde{ \gamma }\left( x_i\right)- \tilde{ \gamma }\left( x_{i-1}\right)\right|\right|=l( \tilde{ X}, \tilde{ \gamma }) \leq \sup\limits_{ } l( \tilde{ X}, \tilde{ \gamma })=s( \tilde{ \gamma } )\]
+    Переходя к супремуму, получим \( s\left( \gamma \right) \leq s\left( \tilde{ \gamma }\right)\). Но если \( \tilde{ \gamma }\) - противоположный к \( \gamma \), то \( \gamma \) - противоположный к \( \tilde{ \gamma }\). Тогда проведя аналогичные рассуждения, поменяв местами \( \gamma \) и \( \tilde{ \gamma }\), получим \( s( \tilde{ \gamma }) \leq s\left( \gamma \right)\)
+
+    \begin{equation*}
+        \begin{aligned}
+            s\left( \gamma \right) \leq s\left( \tilde{ \gamma }\right)\\ 
+            s\left( \tilde{ \gamma }\right) \leq s\left( \gamma \right)
+        \end{aligned}
+        \implies 
+        s\left( \gamma \right)=s\left( \tilde{ \gamma }\right)
+    \end{equation*}
+\end{proof}
+
+\begin{note}
+    \hypertarget{add_point_in_x}{Когда мы приближаем длину пути длиной ломаной, при добавлении точки в дробление длина ломаной увеличивается. }
+
+    \begin{equation*}
+        \begin{aligned}
+            &X=\left( x_0, x_1, \dots, x_n\right)\\ 
+            &\tilde{ X}=(\tilde{ x}_0, \tilde{ x}_1, \dots, \tilde{ x}_{k-1},c, \tilde{ x}_k, \dots, \tilde{ x}_n)
+        \end{aligned}
+        \text{- дробления } \left[ a,b\right]
+    \end{equation*}
+    Тогда 
+    \[ l \left( X, \gamma \right) \leq l( \tilde{ X}, \gamma ) \]
+\end{note}
+\begin{proof}
+    \(l\left( X, \gamma \right)= \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|\)\\
+    \begin{equation*}
+        \begin{aligned}
+            &l( \tilde{ X}, \gamma)= \sum\limits_{i=1, i \neq k}^{n} \left| \left| \gamma \left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|+ \underbrace{\left| \left| \gamma \left( c\right)- \gamma \left( x_{k-1}\right)\right|\right|+\left| \left| \gamma \left( x_k\right)- \gamma \left( c\right)\right|\right|}_{ \geq \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right| \text{ по нер-ву треугольника}} \geq\\
+            &\geq \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|=l \left( X, \gamma \right)
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+
+\begin{thm}[Аддитивность длины пути]
+    \( \Let \; \gamma :\left[ a,b\right] \longrightarrow \R ^n\) - путь, 
+    \[ c \in \left( a,b\right),\quad \gamma _-= \gamma |_{\left[ a,c\right]},\quad \gamma _+= \gamma |_{\left[ c,b\right]}\]
+    Тогда 
+    \[ s\left( \gamma \right)=s\left( \gamma _-\right)+s\left( \gamma _+\right)\]
+\end{thm}
+\begin{proof}
+    Доказывать будем 2 неравенства: \( s\left( \gamma _-\right)+s\left( \gamma _+\right) \leq s\left( \gamma \right)\) и \( s\left( \gamma _-\right)+s\left( \gamma _+\right) \geq s\left( \gamma \right)\),
+    откуда получим требуемое. 
+
+    Рассмотрим два произвольных дробления отрезков \(\left[ a,c\right]\) и \( \left[ c,b\right]\).
+
+    \( X_-=\left( x_0, x_1, \dots, x_k, c\right)\text{ - дробление } \left[ a,c\right],\quad X_+=\left( c, x_{k+1}, \dots, x_n\right)\text{ - дробление } \left[ c,b\right]\)
+
+    \( \Let \; X =\left( x_0, x_1, \dots, x_k, c, x_{k+1}, \dots, x_n\right)\text{ - дробление}  \left[ a,b\right]\)
+
+    \begin{equation}
+        \begin{aligned}
+            &l \left( X_-, \gamma _-\right)+l \left( X_+, \gamma _+\right)=\\
+            &= \sum\limits_{ i=1}^{ k} \left| \left| \gamma _-\left( x_i\right)- \gamma _-\left( x_{i-1}\right)\right|\right|+ \left| \left| \gamma _-\left( c\right)- \gamma _-\left( x_k\right)\right|\right|+\\
+            &+\left| \left| \gamma _+\left( x_{k+1}\right)- \gamma _+\left( c\right)\right|\right|+\sum\limits_{ i=k+1}^{ n} \left| \left| \gamma_+\left( x_i\right)-\gamma _+\left( x_{i-1}\right) \right|\right|=\\
+            &= \sum\limits_{ i=1}^{ k} \left| \left| \gamma\left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|+ \left| \left| \gamma \left( c\right)- \gamma \left( x_k\right)\right|\right|+\left| \left| \gamma \left( x_{k+1}\right)- \gamma \left( c\right)\right|\right|+\sum\limits_{ i=k+1}^{ n} \left| \left| \gamma\left( x_i\right)-\gamma \left( x_{i-1}\right) \right|\right|=\\
+            &= \sum\limits_{ i=1}^{ n} \left| \left| \gamma\left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|+ \left| \left| \gamma \left( c\right)- \gamma \left( x_k\right)\right|\right|+\left| \left| \gamma \left( x_{k+1}\right)- \gamma \left( c\right)\right|\right|=l(X, \gamma )
+        \end{aligned}
+    \end{equation}
+
+    Получили равенство \(l \left( X_-, \gamma _-\right)+l\left( X_+, \gamma _+\right)=l\left( X, \gamma \right)\).
+
+    Перейдём в нём к супремуму в правой части, это можно сделать всегда: 
+    \[ l \left( X_-, \gamma _-\right)+l \left( X_+, \gamma _+\right) \leq s\left( \gamma \right)\]
+
+    Теперь по очереди к перейдём к двум супремумам в левой части. Это можно сделать, так как неравенство выше верно для произвольных \( X_-, X_+\) 
+    \[ s\left( \gamma _-\right)+s\left( \gamma _+\right) \leq s\left( \gamma \right)\]
+
+    Теперь хотим доказать обратное неравенство. Пусть \( X\) - произвольное дробление \( \left[ a,b\right]\).
+
+    Если \( c \in X \implies X=\left( x_0,x_1, \dots,x_{k-1},c,x_k, \dots,x_n\right)\). Пройдя в цепочке равенств (1) снизу вверх, получим:
+    \[ l \left( X, \gamma \right)=l\left( \left( x_0, x_1, \dots,x_{k-1},c\right), \gamma _-\right)+l \left( \left( c,x_k, \dots,x_n\right), \gamma _+\right)\]
+
+    Перейдём к супремуму в правой части, это можно сделать всегда:
+    \[ l \left( X, \gamma \right) \leq s\left( \gamma _-\right)+s\left( \gamma _+\right)\]
+
+    Если \( c \notin X \implies \exists \; k \in \left\{ 1, \dots,n\right\}:\;c \in \left[ x_{k-1}, x_k\right]\). Добавим точку \( c\) в дробление 
+    \( X\), получим дробление \( \tilde{ X}=\left( x_0,x_1, \dots,x_{k-1}, c, x_k, \dots, x_n\right)\). По \hyperlink{add_point_in_X}{замечанию} мы знаем, что
+    длина ломаной при добавлении точки не уменьшается, а \( \tilde{ X}\) уже содержит точку \( c\) и попадает под случай выше:
+    \[ l \left( X, \gamma \right) \leq l ( \tilde{ X}, \gamma ) \leq s\left( \gamma _-\right)+s\left( \gamma _+\right)\]
+
+    Поэтому для любого дробления \( X\) верно \( l \left( X, \gamma \right) \leq s\left( \gamma _-\right)+s\left( \gamma _+\right)\), значит мы можем перейти к супремуму в левой части неравенства:
+    \[ s\left( \gamma \right) \leq s\left( \gamma _-\right)+s\left( \gamma _+\right)\]
+    \begin{equation*}
+        \begin{aligned}
+            &s\left( \gamma \right) \leq s\left( \gamma _-\right)+s\left( \gamma _+\right)\\ 
+            &s\left( \gamma _-\right)+s\left( \gamma _+\right) \leq s\left( \gamma \right)
+        \end{aligned}
+        \implies 
+        s\left( \gamma \right)=s\left( \gamma _-\right)+s\left( \gamma _+\right)
+    \end{equation*}
+\end{proof}
 \end{document}
