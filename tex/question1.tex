@@ -2,4 +2,116 @@
 \begin{document}
 \newpage
 \section{Несобственный интеграл, определение, критерий Коши-Больцано, важные примеры несобственных интегралов от степенных функций.}
+
+\emph{Несобственный интеграл.} \(\quad \Let -\infty < a < b < +\infty \)
+\[ \forall \; c \in [a, b)\quad  \exists \; \displaystyle\int\limits_{a}^{ c} f(x)dx\quad \left( \forall \; c, f \in R\left[ a, c\right]\right)\]
+
+\[ \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx = \lim\limits_{ c \; \rightarrow \; b- } \displaystyle\int\limits_{ a}^{ c} f(x)dx\quad \left(\text{в случае существования предела в } \overline{\mathbb{R}}\right)\]
+
+Говорят, что данный интеграл имеет особенность на правом конце промежутка.
+
+Если \( \lim\limits_{c \; \rightarrow \; b-} \displaystyle\int\limits_{ a}^{ c} f(x)dx \in \mathbb{R}\), то говорят, что интеграл сходится, иначе расходится.
+
+Аналогично определяется интеграл с особенностью на левом конце промежутка: \[ \displaystyle\int\limits_{ \rightarrow a}^{ b} f(x)dx = \lim\limits_{ c \; \rightarrow a+} \displaystyle\int\limits_{ c}^{ b} f(x)dx\quad \left( f(x) \in R[a, b], \forall \;c \in [a, b]\right) \]
+
+\begin{note}
+    Если мы вдруг обозначим собственный интеграл, как несобственный, то вселенная не схлопнется.
+    \[ \displaystyle\int\limits_{ a}^{ b} f(x)dx = \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx = \displaystyle\int\limits_{\rightarrow a}^{ b} f(x)dx \]
+    \[ \Phi(x) = \displaystyle\int\limits_{a}^{ x} f(t)dt \in C[a, b]\quad \Rightarrow\quad \Phi(b) = \lim\limits_{c \; \rightarrow \; b-} \Phi(c),\quad \text{поэтому} \]
+    \[ \displaystyle\int\limits_{ a}^{ b} f(x)dx = \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx,\quad \text{если} \; f \; \text{непрерывна (кусочно-непрерывна).}\]
+\end{note}
+
+\begin{thm}[Критерий Коши (-Больцано) для несобственого интеграла]
+    
+    ~
+
+    \( \Let \; f \in R[a, c], \forall \;c \in [a, b).\quad \text{Следующие утверждения равносильны:}\)
+    \begin{enumerate}
+        \item \( \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx\; \text{--- сходится}\)
+        \item \( \forall \; \varepsilon > 0 \; \exists \; B \in [a, b) : \forall \; b_1, b_2 \in [B, b).\quad \left| \displaystyle\int\limits_{ b_1}^{ b_2} f(x)dx \right| < \varepsilon  \)
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+
+    ~
+
+    \boxed{\Rightarrow} 
+
+    ~
+    
+    \(
+    \begin{aligned}
+        &\Phi(x) = \displaystyle\int\limits_{ a}^{ x} f(t)dt;\quad \underbrace{\displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx = \lim\limits_{ x \; \rightarrow \; b-} \Phi(x)}_{\text{сходится} \; \Rightarrow \; \exists \; \lim } = I \quad\Rightarrow\quad \forall \; \varepsilon> 0 \; \exists \; B \in [a, b): \forall \; x_1, x_2 \in (B, b) \\[5pt] 
+        &\left| \Phi(x_1) - I\right| < \dfrac{ \varepsilon}{ 2} \;\Rightarrow\; \left| \Phi(x_1) - \Phi(x_2)\right| = \left| \Phi(x_1) + I - I + \Phi(x_2)\right| \leq \left| \Phi(x_1) - I\right| + \left| \Phi(x_2) - I\right| < \\[5pt] 
+        &< 2 \dfrac{ \varepsilon}{ 2} = \varepsilon.
+    \end{aligned}
+    \)
+
+    ~
+
+    \boxed{\Leftarrow}
+
+    ~
+
+    \( 
+    \begin{aligned}
+        &\forall \; \text{последовательность Гейне}\; (x_x)_{k = 1}^\infty \; \text{для точки b.}\; x_k \in [a, b), \; x_k \rightarrow  b. \\[5pt]
+        &\text{Так как} \; x_k \rightarrow b, \text{то} \; \exists \; N: \forall \; n > N, \; x_k \in (B, b) \; \Rightarrow \; \left| \Phi(x_k) - \Phi(x_m)\right| < \varepsilon \quad ( \forall \; k, m \geq N ) \\[5pt]
+        &\text{Т. е.} \left\{ \Phi(x_k)\right\}  \text{--- сходится в себе}\quad \Rightarrow\quad \exists \; \lim\limits_{ k \; \rightarrow \; \infty} \Phi(x_k) = I\;  \underset{ \forall \; (x_k)_k}{\Longrightarrow}\; \exists \; \lim\limits_{ x \; \rightarrow \; b-} \Phi(x) \; \Rightarrow \\
+        &\displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx \; \text{--- сходится}. 
+     \end{aligned}
+    \)
+\end{proof}
+
+\begin{example}[несобственные интегралы от степенных функций]
+
+    ~
+    
+    \begin{enumerate}
+        \item \( \displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ dx}{ x^p}, p \in \mathbb{R}.\)
+        
+        ~
+
+        \( \displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; +\infty} \displaystyle\int\limits_{ 1}^{ c} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; +\infty} 
+        \displaystyle\begin{cases}
+            \dfrac{x^{-p + 1} }{ -p + 1} \bigg|_1^c, & \; \text{если } p \neq 1; \\
+            \ln(x) \bigg|_1^c, & \; \text{если } p = 1.
+        \end{cases}
+       \quad =\quad 
+       \begin{cases}
+        \dfrac{ 1}{ -1 + p}, & \; \text{если } p > 1; \\
+        +\infty, & \text{если } p < 1; \\
+        +\infty, & \text{если } p = 1. 
+       \end{cases}
+        \)
+
+        ~
+       
+        \boxed{\displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ dx}{ x^p}\quad \text{сходится} \Longleftrightarrow p > 1.}
+        
+        ~
+
+        \item \( \displaystyle\int\limits_{ \rightarrow 0}^{ 1} \dfrac{ dx}{ x^p}, p \in \mathbb{R}. \)
+        
+        ~
+
+        \( \displaystyle\int\limits_{ \rightarrow 0}^{ 1} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; 0+} \displaystyle\int\limits_{ c}^{ 1} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; 0+} 
+        \begin{cases}
+            \dfrac{ x^{-p + 1}}{ -(p - 1)} \bigg|_c^1, & \; \text{если } p \neq 1; \\
+            \ln(x) \bigg|_c^1, & \; \text{если } p = 1.
+        \end{cases}
+        \quad =\quad
+        \begin{cases}
+            \dfrac{ 1}{ 1 - p}, & \; \text{если } p < 1; \\
+            +\infty, & \; \text{если } p > 1; \\
+            +\infty, & \; \text{если } p = 1.
+        \end{cases}
+        \)
+
+        ~
+
+        \boxed{\displaystyle\int\limits_{ \rightarrow 0}^{ 1} \dfrac{ dx}{ x^p}\quad \text{сходится} \Longleftrightarrow p < 1.}
+    \end{enumerate}
+\end{example}
 \end{document}
