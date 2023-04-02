@@ -26,15 +26,16 @@
 \begin{proof}
     
     ~
-
+    
     Сначала стоит отметить такой факт: если \( M\) - множество, \( \forall \; x \in M\quad x \leq a\), тогда \( \sup\limits_{ } M \leq a\). Этот факт напрямую следует из определения супремума как наименьшей мажоранты. Этот факт часто будет использован
     при доказательстве утверждений, связанных с путями, в том числе и в этом доказательстве. 
     
     План такой: мы докажем, что \( s\left( \gamma \right) \leq s\left( \tilde{ \gamma }\right)\). 
     Для этого докажем, что \( \forall \; X\) - дробления промежутка \( \left[ a,b\right]\quad l \left( X, \gamma \right) \leq s\left( \tilde{ \gamma }\right)\), затем перейдём к супремуму. Потом мы проведём точно такие же рассуждения, доказывая что \( s\left( \tilde{ \gamma }\right) \leq s\left( \gamma \right)\), и получим \( s\left( \gamma \right)=s\left( \tilde{ \gamma }\right)\).
 
-    Пусть \( \gamma \) действует на \( \left[ a,b\right]\), \( \tilde{ \gamma }\) действует на \( [ \tilde{ a}, \tilde{ b}]\). Обозначим \\\( \tilde{ X}=( \tilde{ x}_0, \tilde{ x}_1, \dots, \tilde{ x}_n)=( \varphi \left( x_0\right), \varphi \left( x_1\right), \dots, \varphi \left( x_n\right))\). По определению эквивалентных путей 
+    Пусть \( \gamma \) действует на \( \left[ a,b\right]\), \( \tilde{ \gamma }\) действует на \( [ \tilde{ a}, \tilde{ b}]\). По определению эквивалентных путей 
     \[ \exists \; \varphi : \left[ a,b\right] \longrightarrow [ \tilde{ a}, \tilde{ b}],\quad \gamma = \tilde{ \gamma }\circ \varphi ,\quad \varphi \text{ - строго монотонна}\]
+    Обозначим \\\( \tilde{ X}=( \tilde{ x}_0, \tilde{ x}_1, \dots, \tilde{ x}_n)=( \varphi \left( x_0\right), \varphi \left( x_1\right), \dots, \varphi \left( x_n\right))\).
     \begin{equation*}
         \begin{aligned}
             &l \left( X, \gamma \right)= \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( x_i\right)- \gamma \left( x_{i-1}\right)\right|\right|= \sum\limits_{ i=1}^{ n} \left| \left| \tilde\gamma \left( \varphi \left( x_i\right)\right)- \tilde{ \gamma }\left( \varphi \left( x_{i-1}\right)\right)\right|\right|=\\ 
@@ -67,7 +68,12 @@
     Пусть \( \gamma , \tilde{ \gamma }\) действуют на \( \left[ a,b\right],\quad \forall \; t \in \left[ a,b\right]\quad \tilde{ \gamma }\left( t\right)= \gamma \left( a+b-t\right),\)
     \( X=(a+b-x_1,a+b-x_2, \dots,a+b-x_n),\quad \tilde{ X}=(x_1, x_2, \dots, x_n)\)
 
-    \[ l \left( X, \gamma \right)= \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( a+b-x_i\right)- \gamma \left( a+b-x_{i-1}\right)\right|\right|= \sum\limits_{ i=1}^{ n} \left| \left| \tilde{ \gamma }\left( x_i\right)- \tilde{ \gamma }\left( x_{i-1}\right)\right|\right|=l( \tilde{ X}, \tilde{ \gamma }) \leq \sup\limits_{ } l( \tilde{ X}, \tilde{ \gamma })=s( \tilde{ \gamma } )\]
+    \begin{equation*}
+        \begin{aligned}
+            l \left( X, \gamma \right)&= \sum\limits_{ i=1}^{ n} \left| \left| \gamma \left( a+b-x_i\right)- \gamma \left( a+b-x_{i-1}\right)\right|\right|= \sum\limits_{ i=1}^{ n} \left| \left| \tilde{ \gamma }\left( x_i\right)- \tilde{ \gamma }\left( x_{i-1}\right)\right|\right|=\\
+            &=l( \tilde{ X}, \tilde{ \gamma }) \leq \sup\limits_{ } l( \tilde{ X}, \tilde{ \gamma })=s( \tilde{ \gamma } )
+        \end{aligned}
+    \end{equation*}
     Переходя к супремуму, получим \( s\left( \gamma \right) \leq s\left( \tilde{ \gamma }\right)\). Но если \( \tilde{ \gamma }\) - противоположный к \( \gamma \), то \( \gamma \) - противоположный к \( \tilde{ \gamma }\). Тогда проведя аналогичные рассуждения, поменяв местами \( \gamma \) и \( \tilde{ \gamma }\), получим \( s( \tilde{ \gamma }) \leq s\left( \gamma \right)\)
 
     \begin{equation*}
@@ -119,7 +125,7 @@
 
     \( \Let \; X =\left( x_0, x_1, \dots, x_k, c, x_{k+1}, \dots, x_n\right)\text{ - дробление}  \left[ a,b\right]\)
 
-    \begin{equation}
+    \begin{equation}\label{eq:path_addition}
         \begin{aligned}
             &l \left( X_-, \gamma _-\right)+l \left( X_+, \gamma _+\right)=\\
             &= \sum\limits_{ i=1}^{ k} \left| \left| \gamma _-\left( x_i\right)- \gamma _-\left( x_{i-1}\right)\right|\right|+ \left| \left| \gamma _-\left( c\right)- \gamma _-\left( x_k\right)\right|\right|+\\
@@ -139,7 +145,7 @@
 
     Теперь хотим доказать обратное неравенство. Пусть \( X\) - произвольное дробление \( \left[ a,b\right]\).
 
-    Если \( c \in X \implies X=\left( x_0,x_1, \dots,x_{k-1},c,x_k, \dots,x_n\right)\). Пройдя в цепочке равенств (1) снизу вверх, получим:
+    Если \( c \in X \implies X=\left( x_0,x_1, \dots,x_{k-1},c,x_k, \dots,x_n\right)\). Пройдя в цепочке равенств \ref{eq:path_addition} снизу вверх, получим:
     \[ l \left( X, \gamma \right)=l\left( \left( x_0, x_1, \dots,x_{k-1},c\right), \gamma _-\right)+l \left( \left( c,x_k, \dots,x_n\right), \gamma _+\right)\]
 
     Перейдём к супремуму в правой части, это можно сделать всегда:
