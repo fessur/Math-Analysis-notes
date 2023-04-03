@@ -2,4 +2,52 @@
 \begin{document}
 \newpage
 \section{Простейшие действия с неопределёнными интегралами; краткая таблица простейших интегралов (с обоснованием).}
+\begin{prop}{Простейшие свойства неопределенного интеграла}
+    \begin{enumerate}
+        \item \( \left( \int_{ }^{ } f\left( x\right)dx\right)'=f\left( x\right)\), то есть \( \forall \; F\left( x\right) \in \displaystyle\int\limits_{ }^{ } f\left( x\right)dx\quad F'\left( x\right)=f\left( x\right)\)
+        \item \( \displaystyle\int\limits_{ }^{ } f'\left( x\right)dx=f\left( x\right)+C\), \( C\) - локальная постоянная
+        \item \( \displaystyle\int\limits_{ }^{ } \left( \alpha f\left( x\right)+ \beta g \left( x\right)\right)dx= \alpha \displaystyle\int\limits_{ }^{ } f\left( x\right)dx + \beta \displaystyle\int\limits_{ }^{ } g \left( x\right)dx\), если \\\( \alpha \neq 0, \beta \neq 0, \displaystyle\int\limits_{ }^{ } f\left( x\right)dx \neq \varnothing, \displaystyle\int\limits_{}^{ } g \left( x\right)dx \neq \varnothing  \)
+    \end{enumerate}
+\end{prop}
+
+\begin{prop}{Краткая таблица простейший интегралов}
+
+    ~
+
+    \begin{enumerate}
+        \item \( \displaystyle\int\limits_{ }^{ } x^pdx=
+        \begin{cases}
+            \dfrac{ x^{p+1}}{ p+1} + C,\quad p \neq -1\\
+            \ln \left| x\right|+C,\quad p=-1 
+        \end{cases}\)
+        \item \( \displaystyle\int\limits_{ }^{ } a^xdx= \dfrac{ a^x}{ \ln a} +C,\quad a >0,\;a \neq 1\)\\
+        В частности \( \displaystyle\int\limits_{ }^{ } e^xdx=e^x+C\)
+        \item \( \displaystyle\int\limits_{ }^{ } \cos x\;dx=\sin x+C,\quad \displaystyle\int\limits_{ }^{ } \sin x\;dx=- \cos x+C\)\\ 
+        \( \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \cos ^2 x} = \tg x+C,\quad \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \sin^2x} =-\ctg x + C\)
+        \item \( \displaystyle\int\limits_{ }^{ } \ch x\;dx= \sh x dx+C,\quad \displaystyle\int\limits_{ }^{ } \sh x \; dx= \ch x + C\)\\ 
+        \( \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \ch^2 x} = \th x + C,\quad \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \sh^2 x}= \cth x + C \)
+        \item \( \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ x^2+a^2} = \dfrac{ 1}{ a} \arctg \dfrac{ x}{ a} +C\)
+        \item \( \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ x^2-a^2} = \dfrac{ 1}{ 2a} \ln \left| \dfrac{ x-a}{ x+a} \right|+C\)
+        \item \( \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \;\sqrt[]{x^2 \pm a^2}} = \ln \left| x+ \;\sqrt[]{x^2\pm a^2}\right|+C \) 
+        \item \( \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \;\sqrt[]{a^2-x^2}} =\arcsin \dfrac{ x}{ a} +C\)
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+
+    ~
+
+    \begin{enumerate}
+        \item \( \left(\dfrac{ x^{p+1}}{ p+1}\right)'= \dfrac{ 1}{ p+1} \left( \left( p+1\right)x^p\right)=x^p \)\\ 
+        \( \left( \ln \left| x\right|\right)'= \dfrac{ 1}{ x} \)
+        \item \( \left( \dfrac{ a^x}{ \ln a} \right)'= \dfrac{ 1}{ \ln a} \left( a^x \ln a\right)=a^x\)
+        \item \( \left( \sin x\right)' = \cos x,\quad \left( -\cos x\right)'=-(-\sin x)=\sin x\)\\ 
+        \( \left( \tg x\right)'= \dfrac{ 1}{ \cos ^2x},\quad \left( -\ctg x\right)'=-\left( -\dfrac{ 1}{ \sin^2x} \right)= \dfrac{ 1}{ \sin^2x}\)
+        \item \( \left( \sh x\right)' = \ch x,\quad \left( \ch x\right)' = \sh x\)\\ 
+        \( \left( \th x\right)'= \dfrac{ 1}{ \ch^2 x},\quad \left( \cth x\right)' = \dfrac{ 1}{ \sh^2x}  \)
+        \item \( \left( \dfrac{ 1}{ a} \arctg \dfrac{ x}{ a} \right)'= \dfrac{ 1}{ a} \left( \arctg \dfrac{ x}{ a} \right)'= \dfrac{ 1}{ a^2} \cdot  \dfrac{ 1}{ \left( \dfrac{ x}{ a} \right)^2+1} = \dfrac{ 1}{ x^2+a^2}\)
+        \item \( \left(\dfrac{ 1}{ 2a} \ln \left| \dfrac{ x-a}{ x+a} \right|\right)'= \dfrac{ 1}{ 2a} \left( \ln \left| x-a\right|- \ln \left| x+a\right|\right)'= \dfrac{ 1}{ 2a} \left( \dfrac{ 1}{ x-a} - \dfrac{ 1}{ x+a} \right)= \dfrac{ 1}{ x^2-a^2} \)
+        \item \( \left( \ln \left| x+ \;\sqrt[]{x^2 \pm a^2}\right|\right)'= \dfrac{ 1}{ x+ \;\sqrt[]{x^2\pm a^2}} \left( 1+ \dfrac{ x}{ \;\sqrt[]{x^2\pm a^2}}\right)= \dfrac{ 1}{ \;\sqrt[]{x^2\pm a^2}} \)
+        \item \( \left( \arcsin \dfrac{ x}{ a}\right)'= \dfrac{ 1}{ a} \dfrac{ 1}{ \;\sqrt[]{1- \left( \dfrac{ x}{ a} \right)^2}} = \dfrac{ 1}{ \;\sqrt[]{a^2-x^2}} \)
+    \end{enumerate}
+\end{proof}
 \end{document}

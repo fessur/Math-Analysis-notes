@@ -2,4 +2,31 @@
 \begin{document}
 \newpage
 \section{Вычисление неопределенных интегралов с помощью рекуррентных соотношений.}
+Некоторые интегралы не могут быть вычислены с помощью замены переменной или по частям, но могут быть вычислены через рекуррентные соотношения. 
+Разберём пример. 
+\begin{example}
+    
+    ~
+
+    Требуется вычислить интеграл \( \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \left( x^2+c\right)^n},\quad c \neq 0,\; n \in \mathbb{N} \). Назовём его \( I_n\).
+
+    \( c \neq 0 \implies c=a^2\text{ или }c=-a^2\)
+    \begin{equation*}
+        I_1=
+        \begin{cases}
+            \frac{ 1}{ a} \arctg \frac{ x}{ a} +C,\quad c=a^2\\
+            \frac{ 1}{ 2a} \ln \left| \frac{ x-a}{ x+a} \right|+C,\quad c=-a^2
+        \end{cases}
+    \end{equation*}
+    \[ I_n= \displaystyle\int\limits_{ }^{ } \dfrac{ x^2+c}{ \left( x^2+c\right)^{n+1}} dx=c \cdot I_{n+1}+ \displaystyle\int\limits_{ }^{ } x \dfrac{ x}{ \left( x^2+c\right)^{n+1}} dx\]
+
+    Но 
+    \[ \left(\dfrac{ 1}{ \left( x^2+c\right)^{n}}\right)'= \dfrac{ (-n)\cdot2x}{ \left( x^2+c\right)^{n+1}}=\left( -2n\right) \cdot  \dfrac{ x}{ \left( x^2+c\right)^{n+1}}\]
+    поэтому можно внести \( \dfrac{ x}{ \left( x^2+c\right)^{n+1}}\) под знак дифференциала и дальше решать по частям:
+    \[ c \cdot I_{n+1}+ \displaystyle\int\limits_{ }^{ } x \dfrac{ x}{ \left( x^2+c\right)^{n+1}} dx=c \cdot I_{n+1}- \displaystyle\int\limits_{ }^{ } \dfrac{ 1}{ 2n} \cdot xd\left( \dfrac{ 1}{ \left( x^2+c\right)^{n}} \right) =c \cdot I_{n+1}- \dfrac{ 1}{ 2n} \left( \dfrac{ x}{ \left( x^2+c\right)^n} - \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ \left( x^2+c\right)^n} \right)\]
+
+    Итого:
+    \[ I_n=c \cdot I_{n+1}- \dfrac{ 1}{ 2n} \cdot \dfrac{ x}{ \left( x^2+c\right)^n} + \dfrac{ 1}{ 2n} \cdot I_n\]
+    \[ \boxed{I_{n+1}= \dfrac{ 1}{ c} \left( \left( 1- \dfrac{ 1}{ 2n} \right)I_n + \dfrac{ 1}{ 2n} \cdot \dfrac{ x}{ \left( x^2+c\right)^n} \right)}\]
+\end{example}
 \end{document}

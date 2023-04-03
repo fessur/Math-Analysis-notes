@@ -2,4 +2,83 @@
 \begin{document}
 \newpage
 \section{Определение первообразной и неопределенного интеграла; описание первообразной на промежутке.}
+\( E \subseteq \R ,\quad E\) - конечное обхединение невырожденных промежутков, \( f, F: E \longrightarrow \R \). \( F\) называется \emph{первообразной} для \( f\) (на \( E\)), если 
+\[ \forall \; x \in E\quad \exists \; F'\left( x\right) \in \R\quad \text{и}\quad F'\left( x\right)=f\left( x\right)\]
+
+\begin{prop}{Вопрос на засыпку}
+
+    Если функция имеет разрыв первого рода, то в любой окрестности этой точки разрыва у неё не будет первообразной. Это верно по теореме Дарбу, 
+    которая говорит, что у производной не может быть разрывов первого рода. 
+
+    А существует ли вообще разрывная функция, у которой есть первообразная? Ответ точно такой же, как и на вопрос "А существует ли дифференцируемая функция 
+    с разрывной производной?" - существует. Вот пример:
+    \begin{equation*}
+        \begin{aligned}
+            &f(x)=
+            \begin{cases}
+                2x \cdot \sin \dfrac{ 1}{ x} - \cos \dfrac{ 1}{ x} ,\quad x \neq 0\\
+                0,\quad x=0 
+            \end{cases}
+        \\
+            &F(x)=
+            \begin{cases}
+                x^2\sin \dfrac{ 1}{ x},\quad x \neq 0\\
+                0,\quad x=0
+            \end{cases}
+        \end{aligned}
+    \end{equation*}
+
+    Прямой проверкой можно убедиться, что \( F'\left( x\right)=f\left( x\right)\), а значит \( F\) - первообразная для \( f\) всюду. Но \( f\) разрывна в 0. 
+\end{prop}
+
+\begin{thm}[О структуре множества первообразных на промежутке]\label{lab:thm:struct_of_integral}
+
+    ~
+
+    \( \Let \; A < B,\quad A,B \in \overline{\R},\quad f, F, G: \langle A, B \rangle \longrightarrow \R,\quad F\) - первообразная для \( f\) на \( \langle A, B \rangle \).
+
+    Тогда следующие утверждения равносильны:
+    \begin{enumerate}
+        \item \( G\) - первообразная для \( f\)
+        \item \( G - F\) - постоянная
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+
+    ~
+
+    \( 2\quad \boxed{ \implies }\quad  1\):
+
+    \[ G - F = c \implies G'=\left( F+c\right)'=F'+c'=F'=f \implies G \text{ - первообразная для } f\]
+
+    \( 1\quad \boxed{ \implies }\quad 2\):
+
+    Сначала покажем, что если у некоторой функции \( H\) производная равна 0 на \( \langle A, B \rangle \), то \( H\) - постоянная. 
+    Рассмотрим произвольные \( x_1, x_2 \in \langle A,B \rangle \). По теореме Лагранжа существует точка \( c\):
+    \[ H\left( x_1\right)-H\left( x_2\right)=H'\left( c\right)\left| x_1-x_2\right|\]
+
+    Но производная H во всех точках 0, значит и \( H'\left( c\right)=0 \implies H\left( x_1\right)=H\left( x_2\right)\quad \forall \; x_1, x_2 \in \langle A,B \rangle \)
+
+    Вернёмся к доказательству нашего утверждения:
+    \[ \left( G-F\right)'=G'-F'=f-f=0 \implies G-F \text{ - постоянная}\]
+\end{proof}
+
+\begin{note}
+    Сейчас мы будем говорить про сумму множеств, поэтому надо сказать, что такое сумма множеств по Минковскому. \( \Let \; A, B\) - множества. Тогда
+    \[ A+B=\left\{ a+b:\; a \in A,\;b \in B\right\}\]
+    \[ A \cdot B=\left\{ a \cdot b:\; a \in A, \;b \in B\right\}\]
+    \[ A+x=A+\left\{ x\right\}=\left\{ a+x:\;a \in A\right\}\]
+    \[ x \cdot A=A \cdot x=A \cdot \left\{ x\right\}=\left\{ ax:\;a \in A\right\}\]
+    \[ -A=\left\{ -a:\; a \in A\right\}\]
+    \[ A-B=A+\left( -B\right)\]
+\end{note}
+
+\( \Let \; A < B,\quad A,B \in \overline{ \R },\quad f: \langle A,B \rangle \longrightarrow \R \). \emph{Неопределённым интегралом} \( f\) на \( \langle A, B \rangle \) называется совокупность всех первообразных \( f\) на \( \langle A,B \rangle \). 
+Обозначается \( \displaystyle\int\limits_{ }^{ } f\left( x\right)dx\). По теореме \ref{lab:thm:struct_of_integral}, если существует первообразная \( F\) для \( f\) на \( \langle A,B \rangle \), то 
+\[ \displaystyle\int\limits_{ }^{ } f\left( x\right)dx=F\left( x\right)+ \R \]
+
+Но вообще, если говорить не про функции, заданные на промежутке, то в неопределённом интеграле не все функции отличаются на константу. Мы говорили, что первообразную можно задавать на совокупности промежутков, 
+так же и неопределённый интеграл. И если функция \( f\) задана, например, на 2 промежутках и у неё существует первообразная \( F\), то интеграл имеет вид
+\[ \displaystyle\int\limits_{ }^{ } f\left( x\right)dx=F\left( x\right)+C_1\left( x\right)\]
+где \( C_1\) - функция, которая на каждом из 2 промежутков равна константе, но эти константы могут быть разные для этих двух промежутков. 
 \end{document}

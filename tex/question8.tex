@@ -2,4 +2,54 @@
 \begin{document}
 \newpage
 \section{Замена переменной в неопределенном интеграле со следствием.}
+\begin{thm}[Замена переменной в неопределённом интеграле]
+    
+    ~
+
+    \( \Let \; T, X -\) невырожденные промежутки, \( \varphi : T \longrightarrow X,\quad \varphi\) дифференцируема на \( T,\) \\
+    \(f, F: X \longrightarrow \R,\quad F \) - первообразная для \( f\) на \( X\). 
+    
+    Тогда \( f\left( \varphi \left( t\right)\right) \cdot \varphi '\left( t\right)dt\) имеет первообразную на \( T\) и
+    \[ \displaystyle\int\limits_{ }^{ } f\left( \varphi \left( t\right)\right) \cdot \varphi '\left( t\right)dt=\displaystyle\int\limits_{ }^{ } f\left( x\right)dx|_{x= \varphi \left( t\right)}=F\left( \varphi \left( t\right)\right)+C\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    По теореме о дифференцировании композиции:
+    \[ (F\left( \varphi \left( t\right)\right))'=F'\left( \varphi \left( t\right)\right) \cdot \varphi '\left( t\right)=f\left( \varphi \left( t\right)\right) \cdot \varphi '\left( t\right) \implies \displaystyle\int\limits_{ }^{ } f\left( \varphi \left( t\right)\right) \cdot \varphi '\left( t\right)dt= F\left( \varphi \left( t\right)\right)+C\]
+
+    Кроме того, \( \displaystyle\int\limits_{ }^{ } f\left( x\right)dx=F\left( x\right)+C\), и если сюда подставить \( x = \varphi \left( t\right)\), как раз получится:
+
+    \[ \displaystyle\int\limits_{ }^{ } f\left( \varphi \left( t\right)\right) \cdot \varphi '\left( t\right)dt= F\left( \varphi \left( t\right)\right)+C = \displaystyle\int\limits_{ }^{ } f\left( x\right)dx|_{x= \varphi \left( t\right)}\]
+
+    С помощью этой теоремы можно заменять выражения относительно \( t\) на \( x\).
+\end{proof}
+
+\begin{example}
+    \[ \displaystyle\int\limits_{ }^{ } \tg t\;dt= \displaystyle\int\limits_{ }^{ } \dfrac{ \sin t}{ \cos t} dt= - \displaystyle\int\limits_{ }^{ } \dfrac{ (\cos t)'dt}{ \cos t}dt\underset{x=\cos t}{=} - \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ x} =- \ln \left| x\right|+C=- \ln \left| \cos t\right| + C\]
+\end{example}
+
+\begin{crl}
+    Если в условия предыдущей теоремы \( \varphi \) - биекция, то 
+    \[ \displaystyle\int\limits_{ }^{ } f\left( x\right)dx= \displaystyle\int\limits_{ }^{ } f\left( \varphi \left( t\right)\right) \varphi '\left( t\right)dt|_{t= \varphi ^{-1}\left( x\right)}\]
+\end{crl}
+\begin{proof}
+    
+    ~
+
+    Так как \( \varphi \) - биекция, существует обратная функция \( \varphi ^{-1}\), \( \varphi \left( \varphi ^{-1}\left( x\right)\right)=x\). При подстановке \( t = \varphi ^{-1}\left( x\right)\) предыдущая теорема превращается в:
+    \[ \displaystyle\int\limits_{ }^{ } f\left( \varphi \left( t\right)\right) \cdot \varphi '\left( t\right)dt|_{t= \varphi ^{-1}\left( x\right)}= \displaystyle\int\limits_{ }^{ } f\left( x\right)dx|_{x= \varphi \left( \varphi ^{-1}\left( x\right)\right)}= \displaystyle\int\limits_{ }^{ } f\left( x\right)dx\]
+
+    Эта теорема позволяет заменять \( t\) на выражение относительно \( x\).
+\end{proof}
+
+\begin{example}
+    \begin{equation*}
+        \begin{aligned}
+            \displaystyle\int\limits_{ }^{ } \;\sqrt[]{1-x^2}dx\underset{x=\sin t}{\overset{t=\arcsin x}{=}}& \displaystyle\int\limits_{ }^{ } \;\sqrt[]{1-\sin^2t} \cdot \cos t\;dt= \displaystyle\int\limits_{ }^{ } \cos ^2t\;dt= \displaystyle\int\limits_{ }^{ } \dfrac{ 1+\cos2t}{ 2} dt=\\
+            &= \dfrac{ 1}{ 2} \left( t+ \dfrac{ \sin2t}{ 2} \right)+C|_{t=\arcsin x}= \dfrac{ 1}{ 2} \left( \arcsin x+ x \;\sqrt[]{1-x^2}\right)+C
+        \end{aligned}
+    \end{equation*}
+\end{example}
 \end{document}

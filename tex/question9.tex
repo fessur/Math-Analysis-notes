@@ -2,4 +2,47 @@
 \begin{document}
 \newpage
 \section{Интегрирование по частям для неопределенных интегралов; примеры.}
+\begin{thm}[Интегрирование по частям в неопределённом интеграле]
+    
+    ~
+
+    \[ \Let \; u, v \in C^1\left( I\right),\quad I\text{ - невырожденный промежуток}\]
+
+    Тогда
+
+    \[ \displaystyle\int\limits_{ }^{ } u\left( x\right)v'\left( x\right)dx=u\left( x\right)v\left( x\right)- \displaystyle\int\limits_{ }^{ } v\left( x\right)u'\left( x\right)dx\]
+
+    Или по простому
+
+    \[ \displaystyle\int\limits_{ }^{ } udv=uv- \displaystyle\int\limits_{ }^{ } vdu\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Из условия следует, что \( uv'\) и \( vu'\) непрерывны, а значит имеют первообразные (это будет доказано позднее). 
+
+    \[ \displaystyle\int\limits_{ }^{ } d\left( uv\right)= \displaystyle\int\limits_{ }^{ } \left( udv+vdu\right)= \displaystyle\int\limits_{ }^{ } udv + \displaystyle\int\limits_{ }^{ } vdu \implies \displaystyle\int\limits_{ }^{ } udv= \displaystyle\int\limits_{ }^{ } d\left( uv\right)- \displaystyle\int\limits_{ }^{ } vdu\]
+
+    Но
+    \[ \displaystyle\int\limits_{ }^{ } d \varphi = \varphi + C \implies \displaystyle\int\limits_{ }^{ } d\left( uv\right)=uv+ C \]
+
+    Поэтому
+    \[ \displaystyle\int\limits_{ }^{ } udv= uv + C - \displaystyle\int\limits_{ }^{ } vdu=uv- \displaystyle\int\limits_{ }^{ } vdu\]
+    (константа внутри интеграла)
+\end{proof}
+
+\begin{example}
+    \[ \displaystyle\int\limits_{ }^{ } \ln x\;dx=x \ln x- \displaystyle\int\limits_{ }^{ } xd\left( \ln x\right)=x \ln x- \displaystyle\int\limits_{ }^{ } dx=x \ln x -x+C\]
+\end{example}
+
+\begin{example}
+    \begin{equation*}
+        \begin{aligned}
+            \displaystyle\int\limits_{ }^{ } \arctg x\;dx&=x \arctg x - \displaystyle\int\limits_{ }^{ } xd\left( \arctg x\right)=x\arctg x - \displaystyle\int\limits_{ }^{ } \dfrac{ x}{ x^2+1} dx=\\
+            &=x\arctg x - \dfrac{ 1}{ 2} \displaystyle\int\limits_{ }^{ } \dfrac{ d\left(x^2+1\right)}{ x^2+1}=x\arctg x - \dfrac{ 1}{ 2} \ln \left( x^2+1\right)+C
+        \end{aligned}
+    \end{equation*}
+
+\end{example}
 \end{document}
