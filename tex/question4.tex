@@ -2,4 +2,107 @@
 \begin{document}
 \newpage
 \section{Неравенство Гёльдера и его следствия для сумм, в т.ч. неравенство Коши.}
+Пусть \( x\) - вектор из \( \R ^n\) (то есть \( x = \left( x_1, \ldots , x_n\right),\quad \forall \; i\quad x_i \in \R \)), \( p \geq 1\).
+\emph{p-нормой вектора \(x\)} называют \( \left( \sum\limits_{ k=1}^{ n} \left| x_k\right|^p\right)^ \frac{ 1}{ p}=\left| \left| x\right|\right|_p\). 
+Чаще всего используется \( p=2\), тогда норма - это длина вектора, в такой ситуации в обозначении нормы \( p\) опускают. 
+
+Пусть \( x, y\) - векторы из \( \R ^n\). \emph{Скалярным произведением векторов \( x,y\)} называют \( \sum\limits_{ k=1}^{ n} x_ky_k= \langle x, y \rangle \).  
+\begin{thm}[Неравенство Гёльдера для неотрицательных чисел]
+
+    ~
+
+    \[ \Let \; p, q > 1,\quad \dfrac{ 1}{ p}+ \dfrac{ 1}{ q}=1,\quad a_1, \ldots , a_n \geq 0,\quad b_1, \ldots , b_n \geq 0\]
+    \[ a=\left( a_1, \ldots , a_n\right),\quad b=\left( b_1, \ldots , b_n\right)\]
+    Тогда
+    \[ \sum\limits_{ k=1}^{ n} a_kb_k \leq \left( \sum\limits_{ k=1}^{ n} a_k^p\right)^ \frac{ 1}{ p}\cdot \left( \sum\limits_{ k=1}^{ n} b_k^q\right)^ \frac{ 1}{ q}\]
+    Или (то же самое только по-другому записано)
+    \[ \langle a,b \rangle \leq \left| \left| a\right|\right|_p\cdot \left| \left| b\right|\right|_q\]
+\end{thm}
+\begin{proof}
+
+    ~
+
+    \begin{enumerate}
+        \item 
+        \begin{equation*}
+            \left[
+            \begin{gathered}
+                \left| \left| a\right|\right|_p=0\\ 
+                \left| \left| b\right|\right|_q=0
+            \end{gathered}
+            \right.
+            \implies 
+            \left[
+            \begin{gathered}
+                a=0\\ 
+                b=0
+            \end{gathered}
+            \right.
+            \quad
+            \text{Неравенство очевидно}
+        \end{equation*}
+        \item \begin{equation*}
+            \begin{cases}
+                \left| \left| a\right|\right|_p=1\\ 
+                \left| \left| b\right|\right|_q=1
+            \end{cases}
+            \implies 
+            \begin{cases}
+                \sum\limits_{ k=1}^{ n} a_k^p=1\\ 
+                \sum\limits_{ k=1}^{ n} b_k^q=1
+            \end{cases}
+        \end{equation*}
+        Хотим доказать, что \( \langle a, b \rangle \leq 1\). Для этого воспользуемся \hyperlink{thm:Yung}{неравенством Юнга}:
+        \[ \langle a, b \rangle = \sum\limits_{ k=1}^{ n} a_kb_k \leq \sum\limits_{ k=1}^{ n} \left( \dfrac{ a_k^p}{ p}+ \dfrac{ b_k^q}{ q}\right)= \dfrac{ 1}{ p} \sum\limits_{ k=1}^{ n} a_k^p+ \dfrac{ 1}{ q} \sum\limits_{ k=1}^{ n} b_k^q= \dfrac{ 1}{ p}+ \dfrac{ 1}{ q} =1\]
+        \item Общий случай ( \( \left| \left| a\right|\right|_p \neq 0,\quad \left| \left| b\right|\right|_q \neq 0\))
+        \parВведём обозначения
+        \[ \tilde{ a}= \dfrac{ 1}{ \left| \left| a\right|\right|_p}\cdot a,\quad \tilde{ b}= \dfrac{ 1}{ \left| \left| b\right|\right|_q}\cdot b\]
+        \[ a=\left| \left| a\right|\right|_p \cdot \tilde{ a},\quad b=\left| \left| b\right|\right|_q \cdot \tilde{ b}\]
+        \par Заметим, что норма однородна, поэтому:
+        \[ \left| \left| \tilde{ a}\right|\right|_p= \dfrac{ 1}{ \left| \left| a\right|\right|_p}\cdot\left| \left| a\right|\right|_p=1,\quad \left| \left| \tilde{ b}\right|\right|_q= \dfrac{ 1}{ \left| \left| b\right|\right|_q} \cdot \left| \left| b\right|\right|_q=1\]
+        \par Во втором пункте мы доказали, что \( \langle \tilde{ a}, \tilde{ b} \rangle \leq 1\). Воспользуемся этим и получим то, что нужно:
+        \[ \langle a,b \rangle =\left| \left| a\right|\right|_p \cdot \left| \left| b\right|\right|_q \cdot \langle \tilde{ a}, \tilde{ b} \rangle \leq \left| \left| a\right|\right|_p \cdot \left| \left| b\right|\right|_q\]
+    \end{enumerate}
+\end{proof}
+
+\begin{thm}[\hypertarget{thm:Gelder}{Неравенство Гёльдера (для чисел произвольного знака)}]
+    
+    ~
+
+    \[ \Let \; p, q > 1,\quad \dfrac{ 1} { p} + \dfrac{ 1} { q}=1,\quad x_1, \ldots , x_n,\; y_1, \ldots , y_n \in \R \]
+    \[ x=\left( x_1, \ldots , x_n\right),\quad y=\left( y_1, \ldots , y_n\right)\]
+    Тогда 
+    \[ \left| \sum\limits_{ k=1}^{ n} x_ky_k\right| \leq \left( \sum\limits_{ k=1}^{ n} \left| x_k\right|^p\right)^ \frac{ 1}{ p} \cdot \left( \sum\limits_{ k=1}^{ n} \left| y_k\right|^q\right)^ \frac{ 1}{ q} \]
+    Или (то же самое, но другими словами):
+    \[ \left| \langle x, y \rangle \right| \leq \left| \left| x\right|\right|_p \cdot \left| \left| y\right|\right|_q\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Модуль суммы не превосходит суммы модулей:
+    \[ \left|\langle x, y \rangle\right| = \left| \sum\limits_{ k=1}^{ n} x_ky_k\right| \leq \sum\limits_{ k=1}^{ n} \left| x_k\right|\left| y_k\right|\]
+
+    Обозначим \( a_k=\left| x_k\right|,\quad b_k=\left| y_k\right|,\quad a=\left( a_1, \ldots , a_n\right),\quad  b = \left( b_1, \ldots , b_n\right)\). 
+    
+    \[ \sum\limits_{ k=1}^{ n} \left| x_k\right|\left| y_k\right| = \sum\limits_{ k=1}^{ n} a_kb_k= \langle a, b \rangle \]
+
+    Для векторов \( a\) и \( b\) выполняется неравенство Гёльдера для неотрицательных чисел:
+    \[ \langle a, b \rangle \leq \left| \left| a\right|\right|_p \cdot \left| \left| b\right|\right|_q\]
+
+    Норма не зависит от знака, потому что в её определении есть модуль. Поэтому:
+    \[ \left| \left| a\right|\right|_p \cdot \left| \left| b\right|\right|_q=\left| \left| x\right|\right|_p \cdot \left| \left| y\right|\right|_q\]
+
+    Если пройти по этой цепочке от начала до конца, то как раз и получится, что \( \left| \langle x, y \rangle \right| \leq \left| \left| x\right|\right|_p \cdot \left| \left| y\right|\right|_q\)
+\end{proof}
+
+\begin{crl}[Неравенство КБШ]
+    
+    ~
+
+    \[ \forall \; x, y \in \R ^n\quad \left| \langle x, y \rangle \right| \leq \left| \left| x\right|\right|_2 \cdot \left| \left| y\right|\right|_2\]
+
+    Или в более привычном виде:
+    \[ \left( \sum\limits_{ k=1}^{ n} x_ky_k\right)^2 \leq \left( \sum\limits_{ k=1}^{ n} x_k^2\right) \cdot \left( \sum\limits_{ k=1}^{ n} y_k^2\right)\]
+\end{crl}
 \end{document}

@@ -2,4 +2,58 @@
 \begin{document}
 \newpage
 \section{Неравенство Иенсена для сумм; неравенство для средних.}
+\begin{thm}[Неравенство Йенсена]
+    
+    ~
+
+    \( \Let \; f\) выпукла (строго выпукла) на \( \langle A, B \rangle,\quad x_1, \dots, x_n \in \langle A,B \rangle,\quad \lambda _1, \dots, \lambda _n \in \left[ 0,1\right],\quad \sum\limits_{ k=1}^{ n} \lambda _k =1\).
+    Тогда
+    \[ f\left( \sum\limits_{ k=1}^{ n} \lambda _kx_k\right) \leq \sum\limits_{ k=1}^{ n} \lambda _k f\left( x_k\right)\]
+
+    В строгом случае неравенство будет строгим, но добавляется условие \( \forall \; i\quad  \lambda _i \neq 1\) и не все \( x_1, \dots, x_n\) равны между собой. Это нужно просто чтобы неравенство не вырождалось сразу в равенство. 
+\end{thm}
+\begin{proof}
+    Доказательство будем вести индукцией по n для нестрогого случая (для строгого аналогично).
+
+    База для \( n = 1\) очевидно верна. Даже для \( n=2\) сразу верна, потому что тогда условие теоремы превращается в определение выпуклости. 
+
+    Переход от \( n-1\) к \( n\):
+
+    Если \( \exists \; i:\; \lambda _i=1\), то неравенство превращается в равенство и становится автоматически верно. Далее будем считать, что \( \forall \; i\quad \lambda _i \neq 1\), чтобы случайно не разделить на 0. 
+
+    Обозначим \( \tilde{ \lambda _2}=1- \lambda _1,\quad \tilde{ x_2}= \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}x_k\).
+    \[ f\left( \sum\limits_{ k=1}^{ n} \lambda _kx_k\right)= f\left( \lambda _1x_1+ \tilde{ \lambda _2} \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}x_k\right)=f\left( \lambda _1x_1+ \tilde{ \lambda _2} \tilde{ x_2}\right)\]
+
+    Докажем, что число \( \tilde{ x_2}\) попадает в область определения (и выпуклости) функции \( f\). Для этого докажем, что оно лежит между минимумом и максимумом набора \( \left\{ x_i\right\}_{i=2}^n\). 
+    \[ \Let \; m= \min\limits_{ } (x_2, \dots, x_n),\quad M= \max\limits_{ } (x_2, \dots, x_n)\]
+
+    Заметим, что \( \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}= \frac{ 1}{ \tilde{ \lambda _2}} \sum\limits_{ k=2}^{ n} \lambda _k= \dfrac{ 1}{ 1- \lambda _1} (1- \lambda _1)=1 \). Поэтому:
+    \[ \tilde{ x_2}= \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}x_k \leq \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}M=M \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}=M\]
+    \[ \tilde{ x_2}= \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}x_k \geq \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}m=m \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}=m\]
+    \[ m \leq \tilde{ x_2} \leq M\]
+
+    Теперь применяя опеределение выпуклости и предположение индукции, получаем:
+    \begin{equation*}
+        \begin{aligned}
+            f\left( \sum\limits_{ k=1}^{ n} \lambda _kx_k\right)&=f\left( \lambda _1x_1+ \tilde{ \lambda _2} \tilde{ x_2}\right) \leq \lambda _1f\left( x_1\right)+ \tilde{ \lambda _2} f\left( \tilde{ x_2}\right)=\lambda _1f\left( x_1\right)+ \tilde{ \lambda _2} f\left( \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}x_k\right) \leq \\
+            &\leq \lambda _1f\left( x_1\right)+ \tilde{ \lambda _2} \sum\limits_{ k=2}^{ n} \dfrac{ \lambda_k}{ \tilde{ \lambda _2}}f\left( x_k\right)= \lambda _1f\left( x_1\right)+ \sum\limits_{ k=2}^{ n} \lambda _kf\left( x_k\right)= \sum\limits_{ k=1}^{ n} \lambda _kf\left( x_k\right)
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+
+\begin{thm}[Неравенство о средних]
+    
+    ~
+
+    \( \Let \; x_1, \dots, x_n \geq 0\). Тогда 
+    \[ \;\sqrt[n]{x_1\cdot \ldots \cdot x_n} \leq \dfrac{ x_1+\ldots+x_n}{ n}\]
+\end{thm}
+\begin{proof}
+    Если \( \exists \; i:\; x_i=0\), то неравенство - это равенство и оно сразу выполняется. Если \( \forall \; i\quad x_i>0\), то рассмотрим 
+    \( f\left( x\right)=\ln x\). Она строго вогнутая, поэтому по неравенству Йенсена получаем:
+    \[ \ln\left( \sum\limits_{ k=1}^{ n} \dfrac{ x_k}{ n}\right) \geq \sum\limits_{ k=1}^{ n} \dfrac{ 1}{ n} \ln x_k= \ln \left(\;\sqrt[n]{x_1\cdot \ldots \cdot x_n}\right)\]
+    
+    Но логарифм монотонно возрастает, поэтому это равносильно:
+    \[ \sum\limits_{ k=1}^{ n} \dfrac{ x_k}{ n} \geq \;\sqrt[n]{x_1 \cdot \ldots \cdot x_n}\]
+\end{proof}
 \end{document}

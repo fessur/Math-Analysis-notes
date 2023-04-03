@@ -2,4 +2,42 @@
 \begin{document}
 \newpage
 \section{Неравенства Минковского для сумм.}
+\begin{thm}[Неравенство Минковского (неравенство треугольника)]
+    \[ \Let \; p \geq 1,\quad x, y \in \R ^n\]
+    Тогда 
+    \[ \left(\sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^p\right)^ \frac{ 1}{ p} \leq \left( \sum\limits_{ k=1}^{ n} \left| x_k\right|^p\right)^ \frac{ 1}{ p} + \left( \sum\limits_{ k=1}^{ n} \left| y_k^p\right|\right)^ \frac{ 1}{ p} \]
+    Или (то же самое, но другими словами):
+    \[ \left| \left| x+y\right|\right|_p \leq \left| \left| x\right|\right|_p+\left| \left| y\right|\right|_p\]
+\end{thm}
+\begin{proof}
+    Если \( p=1\), то неравенство превращается в "модуль суммы не превосходит суммы модулей". 
+
+    Если \( p > 1\), то рассмотрим сопряжённое ему \( q:\quad \dfrac{ 1}{ p} + \dfrac{ 1}{ q} =1\). Заметим, что
+    \[ q = \dfrac{ 1}{ 1- \frac{ 1}{ p} }= \dfrac{ p}{ p-1} \implies \left( p-1\right)q=p \]
+    а также
+    \[ 1- \dfrac{ 1}{ q} = \dfrac{ 1}{ p}  \implies p- \dfrac{ p}{ q} =1 \]
+
+    Сначала воспользуемся тем, что модуль суммы не превосходит суммы модулей 
+    \[ \left| \left| x+y\right|\right|_p^p= \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^p= \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^p\left| x_k+y_k\right| \leq \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{p-1}\left| x_k\right|+ \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{p-1}\left| y_k\right| \oleq\]
+
+    По \hyperlink{thm:Gelder}{неравенству Гёльдера}:
+    \[ \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{p-1}\left| x_k\right| \leq \left( \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{(p-1)q}\right)^ \frac{ 1}{ q} \left( \sum\limits_{ k=1}^{ n} \left| x_k\right|^p\right)^ \frac{ 1}{ p} \]
+    \[ \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{p-1}\left| y_k\right| \leq \left( \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{(p-1)q}\right)^ \frac{ 1}{ q} \left( \sum\limits_{ k=1}^{ n} \left| y_k\right|^p\right)^ \frac{ 1}{ p} \]
+
+    Продолжая цепочку рассуждений:
+    \begin{equation*}
+        \begin{aligned}
+            &\oleq \left( \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{(p-1)q}\right)^ \frac{ 1}{ q} \left( \sum\limits_{ k=1}^{ n} \left| x_k\right|^p\right)^ \frac{ 1}{ p} + \left( \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^{(p-1)q}\right)^ \frac{ 1}{ q} \left( \sum\limits_{ k=1}^{ n} \left| y_k\right|^p\right)^ \frac{ 1}{ p} = \\
+            &=\left(\left( \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^p\right)^ \frac{ 1}{ p}\right)^ \frac{ p}{ q} \left( \sum\limits_{ k=1}^{ n} \left| x_k\right|^p\right)^ \frac{ 1}{ p} + \left(\left( \sum\limits_{ k=1}^{ n} \left| x_k+y_k\right|^p\right)^ \frac{ 1}{ p}\right)^ \frac{ p}{ q} \left( \sum\limits_{ k=1}^{ n} \left| y_k\right|^p\right)^ \frac{ 1}{ p} =\\
+            &=\left| \left| x+y\right|\right|_p^ \frac{ p}{ q} \cdot \left| \left| x\right|\right|_p+ \left| \left| x+y\right|\right|_p^ \frac{ p}{ q} \cdot \left| \left| y\right|\right|_p
+        \end{aligned}
+    \end{equation*}
+
+    Итого мы получили
+    \[ \left| \left| x+y\right|\right|_p^p \leq \left| \left| x+y\right|\right|_p^ \frac{ p}{ q} \left( \left| \left| x\right|\right|_p+\left| \left| y\right|\right|_p\right)\]
+
+    Вообще если \( \left| \left| x+y\right|\right|_p=0\), то неравенство Минковского очевидно (справа просто \( \geq 0\), слева 0). Если \( \left| \left| x+y\right|\right|_p \neq 0\):
+    \[ \left| \left| x+y\right|\right|_p^{p- \frac{ p}{ q} } \leq \left| \left| x\right|\right|_p + \left| \left| y\right|\right|_p\]
+    \[ \left| \left| x+y\right|\right|_p \leq \left| \left| x\right|\right|_p + \left| \left| y\right|\right|_p\]
+\end{proof}
 \end{document}

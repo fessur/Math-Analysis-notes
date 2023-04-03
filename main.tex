@@ -13,6 +13,7 @@
 \usepackage{tocloft}                            % table of contents customization
 \usepackage{amsthm}                             % theorems
 \usepackage{amsmath}                            % cases
+\usepackage{stackengine,scalerel}               % leq in circle
 \input{insbox}                                  % image in proof
 
 
@@ -38,6 +39,10 @@
 \newcommand{\R}[0]{\mathbb{R}}
 \renewcommand{\C}[0]{\mathbb{C}}
 
+\def\dclesize{\ThisStyle{\raisebox{-.7pt}{\scalebox{1.45}{$\SavedStyle\bigcirc$}}}}
+\def\dcle{\ensurestackMath{\stackon[0pt]{\leq}{\dclesize}}}
+\def\oleq{\def\stacktype{L}\mathbin{\scalerel*{\dcle}{\dclesize}}}
+
 \theoremstyle{definition}
 \newtheorem*{example}{Пример}
 \newtheorem*{examples}{Примеры}
@@ -45,6 +50,7 @@
 
 \theoremstyle{plain}
 \newtheorem{thm}{Теорема}[section]
+\newtheorem*{crl}{Следствие}
 
 \numberwithin{equation}{section}
 
