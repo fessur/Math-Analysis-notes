@@ -1,5 +1,6 @@
-# Do not store vs code files
-.vscode
+# Do not store editor files
+.vscode/
+.idea/
 
 # Do not store latexmk build files
-out
+out/
