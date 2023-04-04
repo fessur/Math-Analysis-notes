@@ -2,4 +2,62 @@
 \begin{document}
 \newpage
 \section{Вычисление интегралов \( \int_{ 0}^{ \frac{ \pi}{ 2}} \sin^n xdx\). Формула Валлиса.}
+Требуется вычислить интеграл \( \displaystyle\int\limits_{ 0}^{ \frac{ \pi}{ 2}} \sin^n \varphi \;d \varphi ,\quad n \in \mathbb{Z}_+\). Назовём его \( I_n\) и будем считать рекурсивно. 
+\[ I_0= \dfrac{ \pi}{ 2} ,\quad I_1=1\]
+Пусть теперь \( n \geq 2\).
+\begin{equation*}
+    \begin{aligned}
+        I_n&= \displaystyle\int\limits_{ 0}^{ \frac{ \pi}{ 2}  } \cos ^{n-1} \varphi \; \cos \varphi \; d \varphi = \displaystyle\int\limits_{ 0}^{ \frac{ \pi}{ 2}  } \cos ^{n-1} \varphi \; d\left( \sin \varphi \right)=\\
+        &=\underbrace{\cos^{n-1} \varphi \; \sin \varphi |_0^{ \frac{ \pi}{ 2}}}_0 - \displaystyle\int\limits_{ 0}^{ \frac{ \pi}{ 2}  } \sin \varphi \; d\left( \cos ^{n-1} \varphi \right)=\left( n-1\right) \displaystyle\int\limits_{ 0}^{ \frac{ \pi}{ 2}  } \cos ^{n-2} \varphi \; \sin^2 \varphi \;d \varphi =\\ 
+        &=\left( n-1\right) \displaystyle\int\limits_{ 0}^{ \frac{ \pi}{ 2}  } \left( 1- \cos^2 \varphi \right)\cos^{n-2} \varphi \; d \varphi = \left( n-1\right) I_{n-2} - \left( n-1\right)I_n
+    \end{aligned}
+\end{equation*}
+\[ \boxed{I_n= I_{n-2} \cdot \left( \dfrac{ n-1}{ n} \right)}\]
+
+Если обозначить
+\begin{equation*}
+    v_n=
+    \begin{cases}
+        I_0= \frac{ \pi}{ 2},\quad n\text{ чётно}\\ 
+        I_1=1,\quad n\text{ нечётно} 
+    \end{cases}
+\end{equation*}
+тогда 
+\[ I_n= \dfrac{ n-1}{ n} \cdot \dfrac{ n-2}{ n-3} \cdot \dfrac{ n-4}{ n-5} \cdot \ldots \cdot v_n\]
+\[ \boxed{I_n= \dfrac{ \left(n-1\right)!!}{ n!!} v_n}\]
+
+Интеграл мы вычислили, но из этой задачи можно вытащить больше интересных мыслей, чем просто ответ. Заметим, что
+\[ I_n \cdot I_{n+1}= \dfrac{ \left(n-1\right)!!}{ n!!} v_n \cdot \dfrac{ \left(n\right)!!}{ \left( n+1\right)!!} v_{n+1} =  \dfrac{ 1}{ n+1} \cdot  \dfrac{ \pi}{ 2}  \]
+
+Если \( \varphi \in \left[ 0, \dfrac{ \pi}{ 2}  \right]\), то \( \sin \varphi \in \left[ 0, 1\right] \implies \sin^n \varphi \) убывает с увеличением \( n\). Вспоминаем, что интеграл монотонен, значит \( \left\{ I_n\right\}\) тоже убывает, но она ограничена снизу 0. 
+Значит \( \left\{ I_n\right\}\) сходится. \( I_n = \dfrac{ n-1}{ n} \cdot I_{n-2},\quad \dfrac{ n-1}{ n} \underset{n \rightarrow \infty }{\longrightarrow} 1 \implies I_n \sim I_{n-2}\)
+\begin{equation*}
+    \begin{cases}
+        I_n \leq I_{n-1} \leq I_{n-2}\quad \text{т.к. } \left\{ I_n\right\}\;\text{убывает}\\ 
+        I_n \sim I_{n-2}
+    \end{cases}
+    \implies 
+    I_n \sim I_{n-1}
+\end{equation*}
+\[ I_n^2 \sim I_n \cdot I_{n+1}= \dfrac{ 1}{ n+1} \cdot \dfrac{ \pi}{ 2} \sim \dfrac{ 1}{ n} \cdot \dfrac{ \pi}{ 2} \implies n \cdot I_n^2 \sim \dfrac{ \pi}{ 2}   \]
+
+По определению эквивалентности \( \dfrac{ \pi}{ 2} = \lim\limits_{ n\rightarrow \infty } \left( n \cdot I_n^2\right) \). Будем рассматривать \( n=2k\):
+\[ \dfrac{ \pi}{ 2} = \lim\limits_{ n\rightarrow \infty } \left( n \cdot I_n^2\right)= \lim\limits_{ k\rightarrow \infty } \left( 2k \cdot \left( \dfrac{ (2k-1)!!}{ (2k)!!} \cdot \dfrac{ \pi}{ 2}  \right)^2\right)= \lim\limits_{ k\rightarrow \infty } \dfrac{ k}{ 2} \pi ^2\left( \dfrac{ (2k-1)!!}{ (2k)!!} \right)^2\]
+
+Вынесим константы за знак предела, немного посокращаем и получим 
+\[ \dfrac{ 1}{ \pi } = \lim\limits_{ k\rightarrow \infty } k \cdot \left( \dfrac{ (2k-1)!!}{ (2k)!!} \right)^2\]
+
+Перевернём дроби и получим \emph{первую форму формулы Валлиса:}
+\[ \boxed{ \pi = \lim\limits_{ k \rightarrow \infty } \dfrac{ 1}{ k} \left( \dfrac{ (2k)!!}{ (2k-1)!!} \right)^2}\]
+
+Ещё немного покрутим эту формулу: 
+\begin{equation*}
+    \begin{aligned}
+        \lim\limits_{ k \rightarrow \infty } \dfrac{ 1}{ k} \left( \dfrac{ (2k)!!}{ (2k-1)!!} \right)^2&= \lim\limits_{ k\rightarrow \infty } \dfrac{ (2k)^2(2k-2)^2\cdot\ldots\cdot(2)^2}{ (2k+1)(2k-1)(2k-1)(2k-3)\cdot\ldots\cdot(3-1)} \cdot \dfrac{ 2k+1}{ k} \\
+        &= 2 \lim\limits_{ k\rightarrow \infty } \displaystyle\prod\limits_{j=1}^k \dfrac{ (2j)^2}{ (2j)^2-1} 
+    \end{aligned}
+\end{equation*}
+
+Отсюда \emph{вторая форма формулы Валлиса:}
+\[ \boxed{ \dfrac{ \pi}{ 2} =\lim\limits_{ k\rightarrow \infty } \displaystyle\prod\limits_{j=1}^k \dfrac{ (2j)^2}{ (2j)^2-1} }\] 
 \end{document}

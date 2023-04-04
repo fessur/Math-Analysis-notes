@@ -2,4 +2,77 @@
 \begin{document}
 \newpage
 \section{Теорема об интегральных суммах. Определенный интеграл как предел сумм. Примеры вычисления пределов сумм с помощью интегралов.}
+Пусть есть отрезок \( \left[ a,b\right]\), \( a=x_0<x_1< \ldots <x_n=b\). Тогда \( X=\left\{ x_k\right\}_{k=0}^n\) называется \emph{дроблением} отрезка \( \left[ a,b\right]\). 
+Длина \( k\)-ого отрезка дробления обозначается \( \Delta x=x_k-x_{k-1}\). \emph{Мелкостью (рангом) дробления} называется \( \lambda \left( X\right)= \max\limits_{ k=1 \ldots n} \Delta x_k\). 
+
+Если \( \forall \; k=1 \ldots n\quad t_k \in \left[ x_{k-1}, x_k\right]\), то \( T=\left\{ t_k\right\}_{k=1}^n\) называется \emph{оснащением дробления \( X\)}. 
+
+Пара \( \left( X,T\right)\) называется \emph{оснащённое дробление}. 
+
+Пусть имеется функция \( f\), определённая на отрезке \( \left[ a,b\right]\), \( \left( X,T\right)\) - оснащённое дробление этого отрезка. \emph{Суммой Римана} называется сумма вида 
+\[ \sum\limits_{ k=1}^{ n} f\left( t_k\right) \Delta x_k\]
+
+Обозначается \( \sigma\left( X,T,f\right)\).
+
+Пусть \( I \in \R \). Говорят, что число \( I\) является пределом сумм Римана, если 
+\[ I= \lim\limits_{ \lambda \left( X\right)\rightarrow 0} \sigma\left( X, T, f\right)\]
+
+то есть 
+\[ \forall \; \varepsilon >0\quad  \exists \; \delta >0:\quad \forall \; \left( X,T\right) \text{ - оснощённого дробления}: \lambda \left( X\right)< \delta \text{ выполняется } \left| \sigma\left( X,T,f\right)-I\right|< \varepsilon \]
+
+Функция называется \emph{интегрируемой по Риману}, если существует конечный предел сумм Римана. Класс интегрируемых по Риману функций на отрезке \( \left[ a,b\right]\) обозначается \( R \left[ a,b\right]\).
+\[ R\left[ a,b\right]=\left\{ f:\left[ a,b\right] \longrightarrow \R :\quad \exists \; \lim\limits_{ \lambda \left( X\right)\rightarrow0} \sigma\left( X,T,f\right) \in \R \right\}\]
+
+\begin{thm}\label{lab:thm:riman}
+    
+    ~
+
+    \( \Let \; f \in C\left[ a,b\right]\)
+
+    Тогда \[ f \in R\left[ a,b\right]\quad \text{и}\quad  \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx= \lim\limits_{ \lambda \left( X\right)\rightarrow0} \sigma\left( X,T,f\right)\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Обозначим через \( I\) интеграл в старом смысле (через плоащди). \( I= \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx\).
+
+    Заметим, что \( I = \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx= \sum\limits_{ k=1}^{ n} \displaystyle\int\limits_{ x_{k-1}}^{ x_k} f\left( x\right)dx= \sum\limits_{ k=1}^{ n} f\left( c_k\right) \Delta x_k\) для некоторых \( c_k \in \left[ x_{k-1}, x_k\right]\) \hyperlink{thm:simple_average}{по теоремео о среднем}. 
+
+    Рассмотрим произвольное \( \varepsilon >0\). По теореме Кантора \( f\) равномерно непрерывна на \( \left[ a,b\right]\):
+    \[ \exists \; \delta >0:\quad \forall \; \tilde{ x}, \tilde{ \tilde{ x}} \in \left[ a,b\right]:\quad \left| \tilde{ x}- \tilde{ \tilde{ x}}\right|< \delta\quad \text{выполняется}\quad \left| f\left( \tilde{ x}\right)-f( \tilde{ \tilde{ x}})\right|< \dfrac{ \varepsilon}{ b-a}  \]
+
+    Посмотрим, что будет, если мелкость некоторого дробления \( X\) будет меньше этого \( \delta \). \( \Let \; \lambda \left( X\right)< \delta \)
+    \begin{equation*}
+        \begin{aligned}
+            &\left| I-\sigma\left( X,T,f\right)\right|= \left| \sum\limits_{ k=1}^{ n} f\left( c_k\right) \Delta x_k - \sum\limits_{ k=1}^{ n} f\left( t_k\right) \Delta x_k\right| = \left| \sum\limits_{ k=1}^{ n} \left( f\left( c_k\right) - f\left( t_k\right)\right) \Delta x_k\right| \leq \\ 
+            & \leq \sum\limits_{ k=1}^{ n} \left| f\left( c_k\right)-f\left( t_k\right)\right| \Delta x_k
+        \end{aligned}
+    \end{equation*}
+
+    Но 
+    \[ c_k, t_k \in \left[ x_{k-1}, x_k\right] \implies \left| c_k-t_k\right|< \lambda \left( X\right)< \delta \implies \left| f\left( c_k\right)-f\left( t_k\right)\right|< \dfrac{ \varepsilon}{ b-a} \]
+
+    Тогда получается 
+    \[ \sum\limits_{ k=1}^{ n} \left| f\left( c_k\right)-f\left( t_k\right)\right| \Delta x_k < \sum\limits_{ k=1}^{ n} \dfrac{ \varepsilon}{ b-a} \Delta x_k= \dfrac{ \varepsilon}{ b-a} \sum\limits_{ k=1}^{ n} \Delta x_k= \varepsilon \]
+
+    Итого 
+    \[ \lambda \left( X\right) < \delta \implies \left| I-\sigma\left( X,T,f\right)\right| < \varepsilon \]
+
+    Значит выполняется определение предела и мы всё доказали. \( C\left[ a,b\right] \subseteq R \left[ a,b\right]\)
+\end{proof}
+
+\begin{example}
+    
+    ~
+
+    Требуется вычислить предел \( \lim\limits_{ n\rightarrow \infty } \sum\limits_{ k=1}^{ n} \dfrac{ n}{ n^2+k^2}\). 
+    \[ \lim\limits_{ n\rightarrow \infty } \sum\limits_{ k=1}^{ n} \dfrac{ n}{ n^2+k^2}=\lim\limits_{ n\rightarrow \infty } \sum\limits_{ k=1}^{ n} \dfrac{ \dfrac{ 1}{ n} }{ 1+ \left(\dfrac{ k}{ n} \right)^2}\]
+
+    Заметим, что эта сумма является суммой Римана для 
+    \[ f\left( x\right)= \dfrac{ 1}{ 1+x^2} ,\quad x_k= \dfrac{ 1}{ k} ,\quad \Delta x_k= \dfrac{ 1}{ n} ,\quad \left[ a,b\right]=\left[ 0,1\right]\] 
+    
+    Поэтому по теореме \ref{lab:thm:riman} эта сумма равна интегралу 
+    \[ \displaystyle\int\limits_{ 0}^{ 1} \dfrac{ dx}{ 1+x^2} = \arctg x |_0^1 = \dfrac{ \pi}{ 4} \]
+\end{example}
 \end{document}

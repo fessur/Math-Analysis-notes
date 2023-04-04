@@ -42,6 +42,8 @@
 \def\dclesize{\ThisStyle{\raisebox{-.7pt}{\scalebox{1.45}{$\SavedStyle\bigcirc$}}}}
 \def\dcle{\ensurestackMath{\stackon[0pt]{\leq}{\dclesize}}}
 \def\oleq{\def\stacktype{L}\mathbin{\scalerel*{\dcle}{\dclesize}}}
+\def\dce{\ensurestackMath{\stackon[0pt]{=}{\dclesize}}}
+\def\oeq{\def\stacktype{L}\mathbin{\scalerel*{\dce}{\dclesize}}}
 
 \theoremstyle{definition}
 \newtheorem*{example}{Пример}
