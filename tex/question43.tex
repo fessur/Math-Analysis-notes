@@ -2,4 +2,110 @@
 \begin{document}
 \newpage
 \section{Длина гладкого пути. Формулы длины пути: для плоской кривой; для графика; для кривой, заданной в полярных координатах.}
+\begin{thm}[Формула длины гладкого пути]
+    
+    ~
+
+    \( \gamma : \left[ a,b\right] \longrightarrow \R,\quad \gamma \in C^1\left[ a,b\right]\), то есть \( \gamma =\left( \gamma _1, \gamma _2, \ldots , \gamma _n\right),\quad \forall \; i=1 \ldots n\quad \gamma _i \in C^1[a,b]\).
+
+    Тогда 
+    \[ s\left( \gamma \right)= \displaystyle\int\limits_{ a}^{ b} \left| \left| \gamma '\left( t\right)\right|\right|dt,\quad \text{где}\quad \gamma '\left( t\right)=\left( \gamma _1'\left( t\right), \gamma _2'(t), \ldots , \gamma _n'\left( t\right)\right)\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Доказательство этой теоремы довольно объёмное. Сначала обсудим план, как мы будем его вести. 
+
+    \begin{enumerate}
+        \item Мы докажем, что 
+        \[ \lim\limits_{ \lambda\left( X\right) \rightarrow0 } l \left( X, \gamma \right) = \displaystyle\int\limits_{ a}^{ b} \left| \left| \gamma '\left( t\right)\right|\right|dt\]
+        \item Объясним, что этот предел меньше супремума:
+        \[ \lim\limits_{ \lambda \left( X\right)\rightarrow 0} l \left( X, \gamma \right) \leq \sup\limits_{ X\text{ - дробление}} l \left( X, \gamma \right)=s\left( \gamma \right)\]
+        \item Покажем, что 
+        \[ \forall \; \varepsilon >0\quad \sup\limits_{ } l \left( X, \gamma \right) \leq \lim\limits_{ \lambda \left( X\right)\rightarrow 0} l \left( X, \gamma \right)+ \varepsilon \]
+    \end{enumerate}
+
+    Тогда из пункта 3 будет следовать \( \sup\limits_{ } l \left( X, \gamma \right) \leq \lim\limits_{ \lambda \left( X\right)\rightarrow 0} l \left( X, \gamma \right)\). Из этого и пункта 2 будет следовать \( \sup\limits_{ } l \left( X, \gamma \right) = \lim\limits_{ \lambda \left( X\right)\rightarrow 0} l \left( X, \gamma \right)\). И если теперь воспользоваться пунктом 1 как раз и будет получаться, что \( s\left( \gamma \right)= \displaystyle\int\limits_{ a}^{ b} \left| \left| \gamma '\left( t\right)\right|\right|dt\). Теперь будем доказывать эти пункты. 
+
+    Обозначим \( I= \displaystyle\int\limits_{ a}^{ b} \left| \left| \gamma '\left( t\right)\right|\right|dt\). Будем доказывать, что \( \lim\limits_{ \lambda \left( X\right)\rightarrow0} l \left( X, \gamma \right)=I\), то есть что
+    \[ \forall \; \varepsilon >0\quad \exists \; \delta >0:\quad \lambda \left( X\right) < \delta\quad \implies \left| l \left( X, \gamma \right)-I\right|< \varepsilon \]
+
+    Рассмотрим произвольное \( \varepsilon >0\). \( \forall \; i\quad \gamma _i' \in C\left[ a,b\right] \implies \) по теореме Кантора \( \gamma _i'^2\) равномерно-непрерывна. Это значит, что \[ \exists \; \delta >0\quad \forall \; t, \tilde{ t} \in \left[ a,b\right]:\quad \left| t- \tilde{ t}\right|< \delta\implies \left| \gamma _i'^2\left( t\right)- \gamma _i'^2( \tilde{ t})\right| < \dfrac{ \varepsilon^2}{ (b-a)^2n} \]
+
+    Запомним этот факт. 
+
+    Рассмотрим произвольное дробление \( X=(a=x_0, x_1, \ldots , x_N=b):\quad \lambda \left( X\right)< \delta \). 
+    \[ \left| l \left( X, \gamma \right)- I\right|=\left| l \left( X, \gamma \right)- \displaystyle\int\limits_{ a}^{ b} \left| \left| \gamma '\left( t\right)\right|\right|dt\right|=\left| \sum\limits_{ k=1}^{ N} \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right|\right|\oeq\]
+
+    Заметим, что по теореме Лагранжа существуют такие точки \( c_{k,i}\):
+    \[ \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right|= \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \left( \gamma _i\left( x_k\right)- \gamma _i\left( x_{k-1}\right)\right)^2}= \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \left( \gamma _i'^2 \left( c_{k,i}\right) \cdot \Delta x_k^2\right)}\]
+
+    \hyperlink{thm:simple_average}{Также по теореме о среднем} существуют точки \( c_k\)
+    \[ \displaystyle\int\limits_{ x_{k-1}}^{ x_k} \left| \left| \gamma '\left( t\right)\right|\right|dt=\left| \left| \gamma '\left( c_k\right)\right|\right| \Delta x_k\]
+
+    Продолжая цепочку рассуждений:
+    \begin{equation*}
+        \begin{aligned}
+            \oeq \sum\limits_{ k=1}^{ N} \left( \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \gamma _i'^2\left( c_{k,i}\right)}-\left| \left| \gamma '\left( c_k\right)\right|\right|\right) \Delta x_k = \sum\limits_{ k=1}^{ N} \left( \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \gamma _i'^2\left( c_{k,i}\right)}- \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \gamma _i'\left( c_k\right)}\right) \Delta x_k \oleq
+        \end{aligned}
+    \end{equation*}
+
+    \hyperlink{thm:minkovsky}{По неравенству треугольника} \( \left| \left| u\right|\right|-\left| \left| v\right|\right| \leq \left| \left| u-v\right|\right|\). Используя это, продолжим цепочку рассуждений: 
+    \[ \oleq \sum\limits_{ k=1}^{ N} \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \left( \gamma _i'^2\left( c_{k,i}\right)- \gamma _i'^2\left( c_k\right)\right)} \Delta x_k \oleq\]
+
+    \( c_k\) и \( c_{k, i}\) оба лежат между \( x_{k-1}\) и \( x_k\), поэтому по замечанию, которое мы делали ранее:
+    \[ \left| c_{k,i}-c_k\right| < \delta \implies \gamma _i'^2\left( c_{k,i}\right)- \gamma _i'^2\left( c_k\right) \leq \left|\gamma _i'^2\left( c_{k,i}\right)- \gamma _i'^2\left( c_k\right) \right| < \dfrac{ \varepsilon^2}{ \left( b-a\right)^2n} \]
+
+    Продолжая цепочку рассуждений:
+    \[ \oleq \sum\limits_{ k=1}^{ N} \dfrac{ \varepsilon }{ b-a} \Delta x_k= \dfrac{ \varepsilon}{ b-a} \sum\limits_{ k=1}^{ N} \Delta x_k= \varepsilon \]
+
+    Итого: 
+    \[ \lambda \left( X\right)< \delta \implies  \left| l \left( X, \gamma \right)-I\right|< \varepsilon \]
+
+    Тем самым первый пункт доказан. 
+
+    Второй пункт доказывается очень просто: для любого \( X\quad l \left( X, \gamma \right) \leq \sup\limits_{ } l \left( X, \gamma \right)\). Теперь делаем предельный переход и получаем доказанное утверждение второго пункта. 
+
+    Докажем третий пункт. Обозначим \( \lim\limits_{ \lambda \left( X\right)\rightarrow0} l \left( X, \gamma \right)=L\). 
+
+    Рассмотрим произвольное \( \varepsilon >0\). По определению предела 
+    \[ \exists \; \delta >0:\quad \forall \; X:\; \lambda \left( X\right) < \delta \implies \left| l \left( X, \gamma \right)-L\right|< \varepsilon \implies l \left( X, \gamma \right)<L+ \varepsilon \]
+
+    Если мы докажем, что это верно для вообще любого дробления, а не только для такого, у которого мелкость \( < \delta \), то мы победим. 
+
+    Пусть \( Y\) - произвольное дробление, у которого мелкость \( \geq \delta \). Я могу добавить в него точек так, чтобы у него мелкость стала \( < \delta \). Но при добавлении точек в дробление длина ломаной не уменьшается:
+    \[ l \left( Y, \gamma \right) \leq l \left( X, \gamma \right)< L + \varepsilon \]
+
+    Значит неравенство \( l \left( X, \gamma \right)< L + \varepsilon \) верно для любого дробления \( X\). Тогда можем перейти к супремуму:
+    \[ \sup\limits_{ } l \left( X, \gamma \right) \leq L + \varepsilon \]
+
+    Тем самым третий пункт и теорема в целом доказаны. 
+\end{proof}
+
+\begin{prop}{Частные случаи формулы длины гладкого пути}
+    \begin{enumerate}
+        \item Длина плоской кривой, заданной параметрически. 
+        \[ \gamma : \left[ a,b\right] \longrightarrow \R ^2,\quad \gamma\left( t\right)=\left( \varphi \left( t\right), \psi\left( t\right)\right)\]
+        \par Тогда
+        \[ \boxed{s\left( \gamma \right)= \displaystyle\int\limits_{ a}^{ b} \;\sqrt[]{ \varphi '^2\left( t\right)+\psi'^2\left( t\right)}dt}\] 
+        \item Длина графика. Пусть кривая-график функции \( y = f\left( x\right)\). Тогда путь - отображение \( x \longmapsto \left( x, f\left( x\right)\right)\) и его длина 
+        \[ \boxed{s\left( \gamma \right)= \displaystyle\int\limits_{ a}^{ b} \;\sqrt[]{1+f'^2\left( x\right)}dx}\]
+        \item Длина кривой, заданной в полярных координатах. 
+        \begin{equation*}
+            \begin{aligned}
+                &x\left( \varphi \right)= \rho\left( \varphi \right) \cos \varphi \\ 
+                &y\left( \varphi \right)= \rho\left( \varphi \right) \sin \varphi 
+            \end{aligned}
+            \implies 
+            \begin{aligned}
+                &x_ \varphi '= \rho' \cos \varphi - \rho \sin \varphi \\ 
+                &y_ \varphi '= \rho' \sin \varphi + \rho \cos \varphi 
+            \end{aligned}
+        \end{equation*}
+        \[ x_ \varphi '^2+ y_ \varphi '^2= \rho^2+ \rho'^2\]
+        \[ \boxed{s\left( \gamma \right)= \displaystyle\int\limits_{ \alpha }^{ \beta } \;\sqrt[]{ \rho^2\left( \varphi \right)- \rho'^2\left( \varphi \right)}d \varphi }\]
+    \end{enumerate}
+\end{prop}
 \end{document}

@@ -2,4 +2,43 @@
 \begin{document}
 \newpage
 \section{Связь ограниченности вариации функции с монотонностью.}
+\begin{thm}[Критерий ограниченности вариации]
+    \( f: \left[ a,b\right] \longrightarrow \R \).
+
+    Следующие утверждения равносильны:
+    \begin{enumerate}
+        \item \( f \in V\left[ a,b\right]\)
+        \item \( \exists \; g,h: \left[ a,b\right] \longrightarrow \R,\quad g,h\) возрастают и ограничены, такие что \\
+        \( \forall \; x \in \left[ a,b\right]\quad f\left( x\right)=g\left( x\right)-h\left( x\right)\)
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+    ~\\
+    \( 2\; \boxed{ \implies }\;1\)
+
+    \hyperlink{thm:variatsiya_prop}{По 4 свойству вариации мы знаем, что монотонные функции - функции ограниченной вариации}. \( g,h \in V\left[ a,b\right]\). 
+
+    \hyperlink{thm:variatsiya_arithm}{Тогда по теореме об арифметических действиях над фукнциями ограниченной вариации} \( f=g - h \in V\left[ a,b\right]\)\\
+    ~\\
+    \( 1\; \boxed{ \implies } \; 2\)
+
+    Рассмотрим функции \( g \left( x\right) = \V{ a}{ x} f\quad \forall \; x \in \left[ a,b\right],\quad h\left( x\right)=g \left( x\right) - f\left( x\right)\). Их разность действительно равна \( f\). Функция \( g\) возрастает, \hyperlink{thm:variatsiya_prop}{потому что вариация монотонна.}
+    Осталось доказать, что функция \( h\) возрастает. 
+
+    Заметим такой факт: \( \forall \; x_1, x_2 \in \left[ a,b\right]: x_1<x_2\) верно 
+    \[ f\left( x_2\right)-f \left( x_1\right) \leq \left| f\left( x_2\right)-f\left( x_1\right)\right| \leq \V{ x_1}{ x_2} f\]
+
+    потому что вариация - это супремум по всем наборам точек, а значит можно рассмотреть и набор только из двух точек \( x_1\) и \( x_2\).
+    
+    Так вот рассмотрим произвольные \( x_2, x_1 \in \left[ a,b\right],\quad x_1<x_2\):
+    \begin{equation*}
+        \begin{aligned}
+             h\left( x_2\right)-h\left( x_1\right)&=\left( g \left( x_2\right)-g \left( x_1\right)\right)- \left( f\left( x_2\right)-f \left( x_1\right)\right)= \V{ a}{ x_2} f- \V{ a}{ x_1} f- \left( f\left( x_2\right)-f \left( x_1\right)\right)=\\
+            &= \V{ x_1}{ x_2} f - \left( f\left( x_2\right)-f \left( x_1\right)\right) \geq 0
+        \end{aligned}
+    \end{equation*}
+
+    Последний переход верен как раз по замечанию выше. Таким образом, фукнция \( h\) действительно возрастает. 
+\end{proof}
 \end{document}

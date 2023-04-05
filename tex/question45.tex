@@ -2,4 +2,125 @@
 \begin{document}
 \newpage
 \section{Элементарные свойства функций ограниченной вариации.}
+Пусть \( f: \left[ a,b\right] \longrightarrow \R \). \emph{Вариацией} функции \( f\) называется 
+\[ \V{a}{b}f= \sup\limits_{ x_0, \ldots , x_N \in \left[ a,b\right]} \sum\limits_{ k=1}^{ N} \left| f\left( x_k\right)-f\left( x_{k-1}\right)\right|\]
+
+Исходя из определения, вариация неотрицательна, но не обязана быть конечной. Если \( \V{ a}{ b} f < + \infty \), то \( f\) называется \emph{функцией ограниченной вариации}. Множество функций ограниченной вариации на \( \left[ a,b\right]\) обозначается \( V\left[ a,b\right]\).
+
+Стоит отметить, что вариация - это аналог длины пути для одномерного случая. Отличие заключается в том, что путь по определению обязан быть непрерывным. В определении вариации же мы не требуем непрерывности от функции \( f\).
+
+\begin{prop}{\hypertarget{thm:variatsiya_prop}{Свойства вариации}}
+    \begin{enumerate}
+        \item Аддитивность относительно промежутка. \( \forall \; f:\left[ a,b\right] \longrightarrow \R,\quad \forall \; c \in \left[ a,b\right] \)
+        \[ \V{ a}{ b} f= \V{ a}{ c} f+ \V{ c}{ b} f\]
+        \item Монотонность. \( \forall \; f:\left[ a,b\right] \longrightarrow \R ,\quad \left[ \alpha , \beta \right] \subseteq \left[ a,b\right]\)
+        \[ \V{ \alpha }{ \beta } f \leq \V{ a}{ b} f\]
+        \item Критерий спрямляемого пути. Пусть \( \gamma : \left[ a,b\right] \longrightarrow \R ^n \). Тогда 
+        \[ \gamma \text{ спрямляем} \Longleftrightarrow \forall \; i=1 \ldots n\quad \gamma _i \in V\left[ a,b\right]\] 
+        \item Если \( f\) монотонна на \( \left[ a,b\right]\), то 
+        \[ \V{ a}{ b} f = \left| f\left( b\right)-f\left( a\right)\right|\]
+        \item \[ f \in V\left[ a,b\right] \implies f\; \text{ограничена на } \left[ a,b\right]\]
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item \hyperlink{thm:path_add}{Если вспомнить доказательство аддитивности длины пути, там нигде не использовалось то, что путь - это непрерывное отображение.} А вариация - это длина одномерного, не обязательно непрерывного, пути. Значит для вариации тоже выполняется аддитивность. 
+        \item Из предыдущего свойства:
+        \[ \V{ a }{ b } f= \underbrace{\V{ a}{ \alpha } f}_{ \geq 0}+ \V{ \alpha }{ \beta } f + \underbrace{\V{ \beta }{ b} f}_{ \geq 0} \geq \V{ \alpha }{ \beta } f\]
+        \item ~\\
+        \( \boxed{ \Longleftarrow}\)
+        \par Произвольный вектор \( \alpha  \) можно представлять как сумму векторов \( \alpha  _i^1\) - это тоже \( n\)-мерные векторы, у которых одна составляющая равна соответствующей составляющей \( \alpha  \), а остальные равны \( 0\). \hyperlink{thm:minkovsky}{Тогда по неравенству Минковского:}
+        \[ \left| \left| \alpha  \right|\right| \leq \sum\limits_{ k=1}^{ n} \left| \left| \alpha  _i^1\right|\right| = \sum\limits_{ k=1}^{ n} \left|  \alpha  _i\right|\]
+        \par где \( \alpha  _i\) это уже просто одномерные составляющие вектора \( \gamma \). Сейчас мы этим замечанием воспользуемся. 
+        \par Пусть \( X=\left( a=x_0, x_1, \ldots , x_N\right)\) - дробление \( \left[ a,b\right]\)
+        \[ l \left( X, \gamma \right)= \sum\limits_{ k=1}^{ N} \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right| \leq \sum\limits_{ k=1}^{ N} \sum\limits_{ j=1}^{ n} \left| \gamma _j \left( x_k\right)- \gamma _j \left( x_{k-1}\right)\right| \leq  \sum\limits_{ j=1}^{ n} \V{ a}{ b} \gamma _j\]
+        \par И переходя к супремуму в левой части:
+        \[ s \left( \gamma \right) \leq \sum\limits_{ j=1}^{ n} \V{ a}{ b} \gamma _j\]\\
+        \( \boxed{\Longrightarrow}\)
+        \begin{equation*}
+            \begin{aligned}
+                l \left( X, \gamma \right)&= \sum\limits_{ k=1}^{ N} \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right|= \sum\limits_{ k=1}^{ N} \;\sqrt[]{ \sum\limits_{ j=1}^{ n} \left( \gamma _j \left( x_k\right)- \gamma _j \left( x_{k-1}\right)\right)^2} \geq \\
+                &\geq \sum\limits_{ k=1}^{ N} \;\sqrt[]{ \left( \gamma _{j_0} \left( x_k\right) - \gamma _{j_0} \left( x_{k-1}\right)\right)^2}= \sum\limits_{ k=1}^{ N} \left| \gamma _{j_0} \left( x_k\right)- \gamma _{j_0} \left( x_{k-1}\right)\right|
+            \end{aligned}
+        \end{equation*}
+        \par Перейдём к супремуму в левой части:
+        \[ s\left( \gamma \right) \geq \sum\limits_{ k=1}^{ N} \left| \gamma _{j_0} \left( x_k\right)- \gamma _{j_0} \left( x_{k-1}\right)\right|\]
+        \par А теперь в правой: 
+        \[ s\left( \gamma \right) \geq \V{ a}{ b} \gamma _{j_0}\]
+        \par И это верно как для \( \gamma _{j_0}\), так и для любой составляющей \( \gamma _{j}\)/ 
+        \item С одной стороны \( \V{ a}{ b} \geq \left| f\left( b\right)-f \left( a\right)\right|\), потому что вариация - это супремум по всем возможным наборам точек, в том числе можно рассмотреть набор из двух точек \( a\) и \( b\). 
+        \par С другой стороны, рассмотрим произвольные точки \( a \leq x_0 \leq \ldots \leq x_N \leq b\). Так как функция монотонна:
+        \[ \sum\limits_{ k=1}^{ N} \left| f\left( x_k\right)- f\left( x_{k-1}\right)\right|=\left| \sum\limits_{ k=1}^{ N} f\left( x_k\right)-f \left( x_{k-1}\right)\right|=\left| f\left( x_N\right)-f\left( x_0\right)\right| \leq \left| f\left( b\right)-f\left( a\right)\right|\]
+        \par Если оба неравенства верны, получаем \( \V{ a}{ b} f=\left| f\left( b\right)-f\left( a\right)\right|\)
+        \item \[ \left| f\left( x\right)\right| = \left| f\left( x\right)-f\left( a\right)+f\left( a\right)\right| \leq \underbrace{\left| f\left( x\right)-f\left( a\right)\right|}_{ \leq \V{ a}{ x} f \leq \V{ a}{ b} f} + \left| f\left( a\right)\right| \leq \V{ a}{ b} + \left| f\left( a\right)\right|\]
+    \end{enumerate}
+\end{proof}
+
+\begin{thm}[\hypertarget{thm:variatsiya_arithm}{Об арифметических действиях над функциями ограниченной вариации}]
+    Пусть \( f,g \in V\left[ a,b\right]\). 
+    
+    Тогда
+    \begin{enumerate}
+        \item \( f\pm g \in V\left[ a,b\right]\)
+        \item \( fg \in V\left[ a,b\right]\)
+        \item \( \forall \; \alpha \in \R\quad \alpha f \in V\left[ a,b\right]\)
+        \item \( \left| f\right| \in V\left[ a,b\right]\) 
+        \item \( \inf\limits_{x \in \left[ a,b\right]} \left| g \left( x\right)\right|>0 \implies \dfrac{ f}{ g} \in V\left[ a,b\right]\)
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Через \( l \left( x,f\right)\) в этом доказательстве будет обозначать длину одномерной ломаной. Супремумом длин этих ломаных является вариация. 
+
+    \begin{enumerate}
+        \item 
+        \begin{equation*}
+            \begin{aligned}
+                &l \left( X, f+g\right)= \sum\limits_{ k=1}^{ N} \left| \left( f+g\right)\left( x_k\right)-\left( f+g\right)\left( x_{k-1}\right)\right| \leq \sum\limits_{ k=1}^{ N} \left| f\left( x_k\right)-f\left( x_{k-1}\right)\right|+ \\
+                &+\sum\limits_{ k=1}^{ N} \left| g\left( x_k \right)-g\left( x_{k-1}\right)\right|=l \left( X, f\right)+l \left( X, g\right) \leq \V{ a}{ b} f + \V{ a}{ b}g 
+            \end{aligned}
+        \end{equation*}
+        Переходя к супремуму в левой части:
+        \[ \V{ a}{ b} f+g \leq \V{ a}{ b} f+ \V{ a}{ b} g\]
+        \par Для разности доказывается аналогично. 
+        \item \( f,g \in V\left[ a,b\right] \implies \left| f\left( x\right)\right| \leq C_f\quad \left| g \left( x\right)\right| \leq C_g\quad \forall \; x\) \hyperlink{thm:variatsiya_prop}{по пятому свойству функций ограниченной вариации.}
+        \begin{equation*}
+            \begin{aligned}
+                l \left( X, fg\right)&= \sum\limits_{ k=1}^{ N} \left| \left( fg\right)\left( x_k\right)-\left( fg\right)\left( x_{k-1}\right)\right|=\\
+                &=\sum\limits_{ k=1}^{ N} \left| f\left( x_k\right)g \left( x_k\right)-f\left( x_{k-1}\right)g\left( x_k\right)+f\left( x_{k-1}\right)g\left( x_k\right)-f\left( x_{k-1}\right)g\left( x_{k-1}\right)\right| \leq \\
+                & \leq \sum\limits_{ k=1}^{ N} \left| f\left( x_k\right)g \left( x_k\right)-f\left( x_{k-1}\right)g \left( x_k\right)\right| + \sum\limits_{ k=1}^{ N} \left| f\left( x_{k-1}\right)g \left( x_k\right)-f\left( x_{k-1}\right)g\left( x_{k-1}\right)\right|=\\
+                &=\left| g \left( x_k\right)\right| \sum\limits_{ k=1}^{ N} \left| f \left( x_k\right)-f\left( x_{k-1}\right)\right|+\left| f\left( x_{k-1}\right)\right| \sum\limits_{ k=1}^{ N} \left| g \left( x_{k}\right)-g \left( x_{k-1}\right)\right| \leq \\
+                & \leq C_g \sum\limits_{ k=1}^{ N} \left| f\left( x_k\right)-f \left( x_{k-1}\right)\right| + C_f \sum\limits_{ k=1}^{ N} \left| g \left( x_k\right)-g \left( x_{k-1}\right)\right| \leq C_g \cdot \V{ a}{ b} f + C_f \cdot \V{ a}{ b} g
+            \end{aligned}
+        \end{equation*}
+        \par Переходя к супремуму в левой части, получаем 
+        \[ \V{ a}{ b}fg \leq C_g \cdot \V{ a}{ b} f +C_f \cdot \V{ a}{ b} g\]
+        \item Это частный случай предыдущего утверждения, если рассматривать константу как функцию, у которой вариация равна 0. 
+        \item 
+        \begin{equation*}
+            \begin{aligned}
+                l \left( X, \left| f\right|\right)= \sum\limits_{ k=1}^{ N} \left| \left| f\right|\left( x_k\right)- \left| f\right|\left( x_{k-1}\right)\right| \leq \sum\limits_{ k=1}^{ N} \left| f \left( x_k\right)-f \left( x_{k-1}\right)\right|=l \left( X,f\right) \leq \V{ a}{ b} f
+            \end{aligned}
+        \end{equation*}
+        \par Переходя к супремуму в левой части, получаем: 
+        \[ \V{ a}{ b} \left| f\right| \leq \V{ a}{ b} f\]
+        \item Обозначим \( \inf\limits_{x \in \left[ a,b\right]} \left| g \left( x\right)\right|=m >0\).
+        \begin{equation*}
+            \begin{aligned}
+                l \left( X, \dfrac{ 1}{ g} \right)&= \sum\limits_{ k=1}^{ N} \left| \dfrac{ 1}{ g \left( x_k\right)}- \dfrac{ 1}{ g \left( x_{k-1}\right)}  \right|= \sum\limits_{ k=1}^{ N} \left| \dfrac{ g(x_k)-g(x_{k-1})}{ g \left( x_k\right)g \left( x_{k-1}\right)} \right| \leq \\
+                & \leq \sum\limits_{ k=1}^{ N} \dfrac{ \left|g(x_k)-g(x_{k-1})\right|}{ m^2} = \dfrac{ 1}{ m^2} \sum\limits_{ k=1}^{ N} \left| g \left( x_k\right) - g \left( x_{k-1}\right)\right| \leq \dfrac{ 1}{ m^2} \V{ a}{ b} g
+            \end{aligned}
+        \end{equation*} 
+        \par Переходя к супремуму в левой части, получаем: 
+        \[ \V{ a}{ b} \dfrac{ 1}{ g} \leq \dfrac{ 1}{ m^2} \V{ a}{ b} g\]
+        \par Поэтому \( \dfrac{ 1}{ g} \in V\left[ a,b\right]\) и по 2 свойству получаем \( \dfrac{ f}{ g} \in V\left[ a,b\right]\) 
+    \end{enumerate}
+\end{proof}
 \end{document}
