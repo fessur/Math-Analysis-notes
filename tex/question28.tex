@@ -2,4 +2,52 @@
 \begin{document}
 \newpage
 \section{Сходимость несобственных интегралов от степенной функции по промежуткам \((0; 1)\) и \( (1; + \infty )\)}
+    
+\begin{enumerate}
+    \item \( \displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ dx}{ x^p}, p \in \mathbb{R}.\)
+    
+    ~
+
+    \( \displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; +\infty} \displaystyle\int\limits_{ 1}^{ c} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; +\infty} 
+    \displaystyle\begin{cases}
+        \dfrac{x^{-p + 1} }{ -p + 1} \bigg|_1^c, & \; \text{если } p \neq 1; \\
+        \ln(x) \bigg|_1^c, & \; \text{если } p = 1.
+    \end{cases}
+    \quad =\quad 
+    \begin{cases}
+    \dfrac{ 1}{ -1 + p}, & \; \text{если } p > 1; \\
+    +\infty, & \text{если } p < 1; \\
+    +\infty, & \text{если } p = 1. 
+    \end{cases}
+    \)
+
+    ~
+    
+    \boxed{\displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ dx}{ x^p}\quad \text{сходится} \Longleftrightarrow p > 1.}
+    
+    ~
+
+    \item \( \displaystyle\int\limits_{ \rightarrow 0}^{ 1} \dfrac{ dx}{ x^p}, p \in \mathbb{R}. \)
+    
+    ~
+
+    \( \displaystyle\int\limits_{ \rightarrow 0}^{ 1} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; 0+} \displaystyle\int\limits_{ c}^{ 1} \dfrac{ dx}{ x^p} = \lim\limits_{ c \; \rightarrow \; 0+} 
+    \begin{cases}
+        \dfrac{ x^{-p + 1}}{ -(p - 1)} \bigg|_c^1, & \; \text{если } p \neq 1; \\
+        \ln(x) \bigg|_c^1, & \; \text{если } p = 1.
+    \end{cases}
+    \quad =\quad
+    \begin{cases}
+        \dfrac{ 1}{ 1 - p}, & \; \text{если } p < 1; \\
+        +\infty, & \; \text{если } p > 1; \\
+        +\infty, & \; \text{если } p = 1.
+    \end{cases}
+    \)
+
+    ~
+
+    \boxed{\displaystyle\int\limits_{ \rightarrow 0}^{ 1} \dfrac{ dx}{ x^p}\quad \text{сходится} \Longleftrightarrow p < 1.}
+\end{enumerate}
+
+
 \end{document}
