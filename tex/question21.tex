@@ -2,4 +2,32 @@
 \begin{document}
 \newpage
 \section{Первая теорема о среднем.}
+
+\begin{thm}[\hypertarget{thm:first_average}{Первая теорема о среднем}]
+    
+    ~
+
+    \( \Let \; f,g \in C\left[ a,b\right],\quad g \left( x\right) \geq 0\) и \( \exists \; x_0 \in \left[ a,b\right]:\quad g \left( x_0\right) >0\)
+
+    Тогда 
+    \[ \exists \; c \in \left[ a,b\right]:\quad \displaystyle\int\limits_{ a}^{ b} f\left( x\right)g \left( x\right)dx = f\left( c\right) \cdot \displaystyle\int\limits_{ a}^{ b} g \left( x\right)dx\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Обозначим \( M = \max\limits_{ \left[ a,b\right]} f,\quad m= \min\limits_{ \left[ a,b\right]} f\). Оба достигаются по теореме Вейерштрасса, т.к. \( f \in C\left[ a,b\right]\)
+
+    \( \forall \; x \in \left[ a,b\right]\quad m \leq f\left( x\right) \leq M,\quad g \left( x\right) \geq 0 \implies m g \left( x\right) \leq f\left( x\right)g \left( x\right) \leq M g \left( x\right)\)
+
+    Тогда из монотонности интеграла:
+    \[ m \cdot \displaystyle\int\limits_{ a}^{ b} g \left( x\right)dx = \displaystyle\int\limits_{ a}^{ b} m g \left( x\right)dx \leq \displaystyle\int\limits_{ a}^{ b} f\left( x\right)g \left( x\right)dx \leq \displaystyle\int\limits_{ a}^{ b} Mg \left( x\right)dx = M \cdot \displaystyle\int\limits_{ a}^{ b} g \left( x\right)dx\]
+
+    Обозначим \( I = \displaystyle\int\limits_{ a}^{ b} f\left( x\right)g \left( x\right)dx,\quad J= \displaystyle\int\limits_{ a}^{ b} g \left( x\right)dx\). \hyperlink{thm:def_int_prop}{По 5 свойству интеграла} \( J > 0\).
+
+    \( \dfrac{ I}{ J} \in \left[ m, M\right]\). При этом \( \dfrac{ I}{ J} \) дифференцируема, а значит непрерывна, а значит по теореме о промежуточном значении \( \exists \; t \in \left[ m,M\right]:\quad \dfrac{ I}{ J} =t\). Функция \( f\) непрерывна, значит по той же теореме о промежуточном значении должна принимать все значения между \( m\) и \( M\). Значит \( \exists \; c \in \left[ a,b\right]: \dfrac{ I}{ J} =f\left( c\right)\)
+    \[ I=f \left( c\right) \cdot J\]
+    \[ \displaystyle\int\limits_{ a}^{ b} f\left( x\right)g \left( x\right)dx = f\left( c\right) \cdot  \displaystyle\int\limits_{ a}^{b } g \left( x\right)dx\]
+\end{proof}
 \end{document}
