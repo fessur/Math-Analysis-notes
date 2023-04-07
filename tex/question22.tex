@@ -2,4 +2,63 @@
 \begin{document}
 \newpage
 \section{Вторая теорема о среднем.}
+
+\begin{thm}[Вторая теорема о среднем (теорема Бонне)]
+    
+    ~
+
+    \( \Let \; f \in C\left[ a,b\right],\quad g \in C^1\left[ a,b\right],\quad g \) монотонна
+
+    Тогда 
+    \[ \exists \; c \in \left[ a,b\right]:\quad \displaystyle\int\limits_{ a}^{ b} f\left( x\right)g \left( x\right)dx = g \left( a\right) \cdot \displaystyle\int\limits_{ a}^{ c} f\left( x\right)dx+g \left( b\right) \cdot \displaystyle\int\limits_{ c}^{ b} f\left( x\right)dx\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    \hyperlink{thm:primitive_existance}{Так как \( f \in C\left[ a,b\right]\), у функции \( f\) существует первообразная \( F\)}. 
+    Тогда воспользуемся \hyperlink{thm:def_by_parts}{интегрированием по частям:}
+    \[ \displaystyle\int\limits_{ a}^{ b} f\left( x\right) g \left( x\right)dx= \displaystyle\int\limits_{ a}^{ b} g \left( x\right)d \left( F\left( x\right)\right)= g \left( x\right) F \left( x\right)\bigg|_a^b - \displaystyle\int\limits_{ a}^{ b} F\left( x\right)g'\left( x\right)dx\oeq\]
+
+    Если \( \displaystyle\int\limits_{ a}^{ b} g'\left( x\right)dx=0\) и \( g \left( x\right)\) монотонна, то \( g'\left( x\right)\equiv0\) на \( \left[ a,b\right]\), а значит \( g \left( x\right)=const\) и утверждение, которое надо доказать, превращается в линейность и аддитивность интеграла, что, очевидно, верно. 
+
+    Если \( \displaystyle\int\limits_{ a}^{ b} g'\left( x\right)dx \neq 0\), \hyperlink{thm:first_average}{то по первой теореме о среднем} \( \exists \; c \in \left[ a,b\right]:\)
+    \[ \displaystyle\int\limits_{ a}^{ b} F\left( x\right)g'\left( x\right)dx=F\left( c\right) \cdot  \displaystyle\int\limits_{ a}^{ b} g'\left( x\right)dx \stackequal{$\tiny Ньютон$}{$\tiny Лейбниц$} F\left( c\right) \left( g \left( b\right)-g \left( a\right)\right)\]
+
+    Тогда, продолжая наш ход рассуждений:
+    \begin{equation*}
+        \begin{aligned}
+            &\oeq g \left( b\right)F\left( b\right)-g \left( a\right)F\left( a\right) -  F\left( c\right) \left( g \left( b\right)-g \left( a\right)\right)=g \left( a\right)\left( F\left( c\right)-F\left( a\right)\right)+g \left( b\right)\left( F\left( b\right)-F\left( c\right)\right)=\\
+            &=g \left( a\right) \cdot \displaystyle\int\limits_{ a}^{ c} f\left( x\right)dx + g \left( b\right) \cdot \displaystyle\int\limits_{ c}^{ b} f\left( x\right)dx
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+
+Рассмотрим пример использования теорем о среднем. 
+
+\begin{example}
+    
+    ~
+
+    Требуется исследовать интеграл \( I= \displaystyle\int\limits_{ 100 \pi }^{ 200 \pi } \dfrac{ \sin x}{ x} dx\). Известно, что соответствующий ему неопределённый интеграл является неберущимся, поэтому точно вычислить его с помощью элементарных функций не получится. Зато мы можем оценить его значение при помощи теорем о среднем. 
+
+    \begin{enumerate}
+        \item В условии \hyperlink{thm:first_average}{первой теоремы о среднем возьмём} \( f\left( x\right)=\sin x,\quad g \left( x\right) = \dfrac{ 1}{ x} \). Тогда получится:
+        \[ I=f \left( c\right) \displaystyle\int\limits_{ 100 \pi }^{ 200 \pi } \dfrac{ dx}{ x} =\sin \left( c\right) \cdot \left( \ln 200 \pi - \ln 100 \pi \right)=\sin \left( c\right) \cdot \ln 2\]
+        \par где \( c \in \left[ 100 \pi , 200 \pi \right]\). 
+        \par Учитывая, что \( \sin \left( c\right) \in \left[ -1, 1\right],\quad \ln 2 > \dfrac{ 1}{ 2} \), оценка получается не слишком точная: \( \left| I\right| \leq \ln 2\)
+        \item Теперь попробуем оценить с помощью второй теоремы о среднем, \( f\) и \( g\) выберем такие же. 
+        \begin{equation*}
+            \begin{aligned}
+                I&=g \left( 100 \pi \right) \cdot \displaystyle\int\limits_{ 100 \pi }^{ c} \sin x\; dx + g \left( 200 \pi \right) \cdot  \displaystyle\int\limits_{ c}^{ 200 \pi } \sin x\;dx=\\ 
+                &= \dfrac{ 1}{ 100 \pi } \cdot \displaystyle\int\limits_{ 100 \pi }^{ c} \sin x \; dx + \dfrac{ 1}{ 200 \pi } \cdot \displaystyle\int\limits_{ c}^{ 200 \pi } \sin x\;dx=\\
+                &= \dfrac{ 1}{ 200 \pi } \cdot \displaystyle\int\limits_{ 100 \pi }^{ c} \sin x\; dx + \dfrac{ 1}{ 200 \pi } \cdot  \displaystyle\int\limits_{ 100 \pi }^{ c} \sin x\;dx + \dfrac{ 1}{ 200 \pi } \cdot \displaystyle\int\limits_{ c}^{ 200 \pi } \sin x\;dx=\\
+                &= \dfrac{ 1}{ 200 \pi } \cdot \displaystyle\int\limits_{ 100 \pi }^{ c} \sin x\; dx + \dfrac{ 1}{ 200 \pi } \cdot \underbrace{\displaystyle\int\limits_{ 100 \pi }^{ 200 \pi } \sin x\; dx}_0= \dfrac{ 1}{ 200 \pi} \left( - \cos x\bigg|_{100\pi}^c\right)  
+            \end{aligned}
+        \end{equation*}
+        \par Если модуль косинуса оценивать единицей, то получается оценка \( \left| I\right| \leq \dfrac{ 1}{ 100 \pi } \). Эта оценка гораздо лучше предыдущей. 
+    \end{enumerate}
+\end{example}
+
 \end{document}

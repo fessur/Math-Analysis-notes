@@ -14,6 +14,7 @@
 \usepackage{amsthm}                             % theorems
 \usepackage{amsmath}                            % cases
 \usepackage{stackengine,scalerel}               % leq in circle
+\usepackage{stackengine}                        % = with up and down notes
 \input{insbox}                                  % image in proof
 
 
@@ -32,6 +33,10 @@
 \mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
 \tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);%
 }}}}
+
+\newcommand\stackequal[2]{%
+  \mathrel{\stackunder[2pt]{\stackon[4pt]{=}{$\scriptscriptstyle#1$}}{%
+  $\scriptscriptstyle#2$}}}
 
 \newlength{\wdth}
 \newcommand{\strike}[1]{\settowidth{\wdth}{#1}\rlap{\rule[.5ex]{\wdth}{.4pt}}#1}

@@ -2,4 +2,69 @@
 \begin{document}
 \newpage
 \section{Неравенство Йенсена для определенных и несобственных интегралов.}
+
+\begin{thm}[Неравенство Йенсена для интегралов]
+    
+    ~
+
+    \( \Let \; \lambda , \varphi \in C\left[ a,b\right],\quad \lambda :\left[ a,b\right] \longrightarrow [0,1],\quad \varphi :\left[ a,b\right] \longrightarrow \left[ A,B\right]\),
+
+    \( \displaystyle\int\limits_{ a}^{ b} \lambda \left( x\right)dx=1,\quad f\) выпукла на \( \left[ a,b\right]\).
+
+    Тогда
+    \[ f\left( \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right) \varphi \left( t\right)dt\right) \leq \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right) f\left( \varphi \left( t\right)\right)dt\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Это очень похоже на \hyperlink{thm:yensen}{неравенство Йенсена для конечных сумм}, только здесь в роли коэффициентов выступает отображение \( \lambda \), а в роли \( x_i\) отображение \( \varphi \) (раньше они были дискретные, а теперь непрерывные). Ниже приводится доказательство для случая \( f\) - дифференцируема на \( \left[ a,b\right]\). 
+
+    Обозначим \( c = \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right) \varphi \left( t\right)dt\). Если оценивать \( \varphi \left( t\right)\) снизу и сверху как \( A\) и \( B\) соответственно, то получается:
+    \[ A=A \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right)dt = \displaystyle\int\limits_{ a}^{ b} A \lambda \left( t\right)dt \leq \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right) \varphi \left( t\right)dt \leq \displaystyle\int\limits_{ a}^{ b} B \lambda \left( t\right)dt = B \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right)dt = B\]
+
+    То есть \( c \in \left[ A,B\right]\). Значит \( f\) в точке \( c\) дифференцируема. Рассмотрим \( g\) - касательную к графику функции \( f\) в точке \( c\).
+
+    \( g \left( c\right)= f\left( c\right),\quad g \left( x\right)=kx+b\)
+
+    Тогда:
+    \begin{equation*}
+        \begin{aligned}
+            f \left( c\right)=kc+b=k \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right) \varphi \left( t\right)dt + b \displaystyle\int\limits_{ a}^{ b} \lambda \left( t\right)dt= \displaystyle\int\limits_{ a}^{ b} \left( k \varphi \left( t\right)+b\right) \lambda \left( t\right)dt= \displaystyle\int\limits_{ a}^{ b} g \left( \varphi \left( t\right)\right) \lambda \left( t\right)dt \oleq
+        \end{aligned}
+    \end{equation*}
+
+    По теореме о выпуклости и касательных из первого семестра \( g \left( \varphi \left( t\right)\right) \leq f \left( \varphi \left( t\right)\right)\) (касательная к выпуклой функции лежит ниже этой функции). И тогда
+    \[ \oleq \displaystyle\int\limits_{ a}^{ b} f\left( \varphi \left( t\right)\right) \lambda \left( t\right)dt\]
+
+    Мы получили, что \( f\left( c\right) \leq \displaystyle\int\limits_{ a}^{ b} f\left( \varphi \left( t\right)\right) \lambda \left( t\right)dt\). Если вспомнить определение точки \( c\), то получается, что мы доказали теорему. 
+\end{proof}
+
+Пусть \( f \in C\left[ a,b\right]\). \emph{\hypertarget{def:int_average}{Интегральным средним}} функции \( f\) на промежутке \( \left[ a,b\right]\) называется число \( E_f= \dfrac{ 1}{ b-a} \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx\).
+
+\begin{crl}[Неравенство между средним и логарифмическим средним]
+    
+    ~
+
+    \( \Let \; f \in C\left[ a,b\right],\quad f>0\) на \( \left[ a,b\right]\). 
+
+    Тогда 
+
+    \[ \dfrac{ 1}{ b-a} \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx \geq \exp\left( \dfrac{ 1}{ b-a}  \displaystyle\int\limits_{ a}^{ b} \ln f\left( x\right)dx\right)\]
+
+    Или по простому
+
+    \[ E_f \geq e^{E_{lnf}}\]
+\end{crl}
+
+\begin{proof}
+    
+    ~
+
+    Возьмём в качестве функции \( f\)\quad в интегральном неравенстве Йенсена \( e^x\), в качестве \( \varphi \) возьмём \( \ln f\), в качестве \( \lambda \) возьмём \( \dfrac{ 1}{ b-a} \). 
+    Тогда неравенство запишется как: 
+    \[ \exp\left( \displaystyle\int\limits_{ a}^{ b} \dfrac{ 1}{ b-a} \ln f\left( x\right)dx \right) \leq \displaystyle\int\limits_{ a}^{ b} \dfrac{ 1}{ b-a} \underbrace{e^{\ln f\left( x\right)}}_{f\left( x\right)}dx\] 
+    \[ \exp\left( \dfrac{ 1}{ b-a}  \displaystyle\int\limits_{ a}^{ b} \ln f\left( x\right)dx\right) \leq \dfrac{ 1}{ b-a} \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx\]
+\end{proof}
 \end{document}

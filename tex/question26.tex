@@ -2,4 +2,46 @@
 \begin{document}
 \newpage
 \section{Неравенство Чебышева для определенных и несобственных интегралов.}
+
+\begin{thm}[Неравенство Чебышёва для интегралов]
+    
+    ~
+
+    \( \Let \; f,g \in C\left[ a,b\right],\quad f,g\) - одноимённо монотонны. 
+
+    Тогда
+    \[ E_f \cdot E_g \leq E_{fg}\]
+    где \( E\) - \hyperlink{def:int_average}{интегральное среднее.} 
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Рассмотрим произвольные точки \( x,y \in \left[ a,b\right]\). 
+    
+    Так как \( f\) и \( g\) одноимённо монотонны \( 0 \leq \left( f\left( x\right)-f\left( y\right)\right)\left( g \left( x\right)-g\left( y\right)\right)\).
+
+    Временно зафиксируем \( y\) и проинтегрируем то, что справа, по \( x\).
+    \begin{equation*}
+        \begin{aligned}
+            0 &\leq \displaystyle\int\limits_{ a}^{ b} \left( f\left( x\right)-f\left( y\right)\right)\left( g \left( x\right)-g\left( y\right)\right)dx=\\ 
+            &= \displaystyle\int\limits_{ a}^{ b} \left( f\left( x\right)g\left( x\right)- f\left( y\right)g \left( x\right)-g \left( y\right)f\left( x\right)+f\left( y\right)g \left( y\right)\right)dx=\\
+            &= \left( b-a\right) E_{fg} - f\left( y\right)\left( b-a\right)E_g-g \left( y\right)\left( b-a\right)E_f+ f\left( y\right)g \left( y\right)\left( b-a\right)
+        \end{aligned}
+    \end{equation*}
+    Получили
+    \[ 0 \leq E_{fg} - f\left( y\right)E_g-g \left( y\right)E_f+ f\left( y\right)g \left( y\right)\]
+
+    Теперь "разморозим" \( y\) и проинтегрируем левую часть получившегося неравенства по \( y\):
+    \begin{equation*}
+        \begin{aligned}
+            0 &\leq \displaystyle\int\limits_{ a}^{ b}  E_{fg} - f\left( y\right)E_g-g \left( y\right)E_f+ f\left( y\right)g \left( y\right) dy =\\
+            &= E_{fg} \left( b-a\right)-E_gE_f\left( b-a\right) -E_fE_g\left( b-a\right)+E_{fg}\left( b-a\right) = \\ 
+            &= 2E_{fg}\left( b-a\right)-2E_fE_g\left( b-a\right)
+        \end{aligned}
+    \end{equation*}
+    Итого:
+    \[ E_fE_g \leq E_{fg}\]
+\end{proof}
 \end{document}

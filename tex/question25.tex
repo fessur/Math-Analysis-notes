@@ -2,4 +2,28 @@
 \begin{document}
 \newpage
 \section{Неравенство Минковского для определенных и несобственных интегралов.}
+
+\begin{thm}[Неравенство Минсковского для интегралов]
+    
+    ~
+
+    \( \Let \; f,g \in C\left[ a,b\right],\quad p \geq 1\)
+
+    Тогда 
+    \[ \left( \displaystyle\int\limits_{ a}^{ b} \left| f\left( x\right)+g\left( x\right)\right|^pdx\right)^{ \frac{ 1}{ p} } \leq \left( \displaystyle\int\limits_{ a}^{ b} \left| f\left( x\right)\right|^pdx\right)^{ \frac{ 1}{ p} }+ \left( \displaystyle\int\limits_{ a}^{ b} \left| g \left( x\right)\right|^pdx\right)^{ \frac{ 1}{ p} }\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Доказывать будем по определению предела через суммы Римана. Пусть \( X=\left( a=x_0, x_1, \ldots ,x_n=b\right)\) - произвольное дробление отрезка \( \left[ a,b\right]\). 
+
+    \hyperlink{thm:minkovsky}{В неравенстве Минковского для конечных сумм} возьмём \( a_k=\left| f\left( x_k\right)\right| (\Delta x_k)^{ \frac{ 1}{ p} },\quad b_k=\left| g \left( x_k\right)\right|( \Delta x_k)^{ \frac{ 1}{ q} }\):
+    \[ \left(\sum\limits_{ k=0}^{ n} \left| f\left( x_k\right) +g \left( x_k\right)\right|^p \Delta x_k\right)^{ \frac{ 1}{ p} } \leq \left( \sum\limits_{ k=0}^{ n} \left| f\left( x_k\right)\right|^p\Delta x_k\right)^{ \frac{ 1}{ p} }+ \left( \sum\limits_{ k=0}^{ n} \left| g \left( x_k\right)\right|^p \Delta x_k\right)^{ \frac{ 1}{ p} }\]
+
+    Тогда слева под модулем записана интегральная сумма Римана для функции \( \left|f + g\right|^p\), справа в скобках записаны интегральные суммы функций \( \left| f\left( x\right)\right|^p\) и \( \left| g \left( x\right)\right|^q\).
+    Поэтому сделая предельный переход, получим: 
+    \[ \left( \displaystyle\int\limits_{ a}^{ b} \left| f\left( x\right)+g\left( x\right)\right|^pdx\right)^{ \frac{ 1}{ p} } \leq \left( \displaystyle\int\limits_{ a}^{ b} \left| f\left( x\right)\right|^pdx\right)^{ \frac{ 1}{ p} }+ \left( \displaystyle\int\limits_{ a}^{ b} \left| g \left( x\right)\right|^pdx\right)^{ \frac{ 1}{ p} }\]
+\end{proof}
 \end{document}

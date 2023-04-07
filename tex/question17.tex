@@ -12,7 +12,7 @@
     \[ \displaystyle\int\limits_{ a}^{ b} u\left( x\right)v'\left( x\right)dx=u\left( b\right)v\left( b\right)-u\left( a\right)v\left( a\right)- \displaystyle\int\limits_{ a}^{ b} v\left( x\right)u'\left( x\right)dx\]
 
     Или по простому 
-    \[ \displaystyle\int\limits_{ a}^{ b} udv=uv|_a^b- \displaystyle\int\limits_{ a}^{ b} vdu\]
+    \[ \displaystyle\int\limits_{ a}^{ b} udv=uv\bigg|_a^b- \displaystyle\int\limits_{ a}^{ b} vdu\]
 \end{thm}
 
 \begin{proof}
@@ -24,9 +24,9 @@
         \displaystyle\int\limits_{ a}^{ b} \left( uv\right)'\left( x\right)dx= \displaystyle\int\limits_{ a}^{ b} \left( u'\left( x\right)v\left( x\right)+u\left( x\right)v'\left( x\right)\right)dx= \displaystyle\int\limits_{ a}^{ b} u'\left( x\right)v\left( x\right)dx+ \displaystyle\int\limits_{ a}^{ b} u\left( x\right)v'\left( x\right)dx
     \end{equation}
 
-    \( uv\) - первообразная для \( \left( uv\right)'\), поэтому по \hyperlink{thm:main_thm}{формуле Ньютона-Лейбница} \( \displaystyle\int\limits_{ a}^{ b} \left( uv\right)'\left( x\right)dx=uv|_a^b\). Совмещая это с \ref{lab:eq:def_int_by_parts}, получаем 
-    \[ uv|_a^b= \displaystyle\int\limits_{ a}^{ b}u'\left( x\right) v\left( x\right)dx+ \displaystyle\int\limits_{ a}^{ b} u\left( x\right)v'\left( x\right)dx\]
-    \[ \displaystyle\int\limits_{ a}^{ b} u\left( x\right)v'\left( x\right)dx=uv|_a^b- \displaystyle\int\limits_{ a}^{ b} u'\left( x\right)v\left( x\right)dx\]
+    \( uv\) - первообразная для \( \left( uv\right)'\), поэтому по \hyperlink{thm:main_thm}{формуле Ньютона-Лейбница} \( \displaystyle\int\limits_{ a}^{ b} \left( uv\right)'\left( x\right)dx=uv\bigg|_a^b\). Совмещая это с \ref{lab:eq:def_int_by_parts}, получаем 
+    \[ uv\bigg|_a^b= \displaystyle\int\limits_{ a}^{ b}u'\left( x\right) v\left( x\right)dx+ \displaystyle\int\limits_{ a}^{ b} u\left( x\right)v'\left( x\right)dx\]
+    \[ \displaystyle\int\limits_{ a}^{ b} u\left( x\right)v'\left( x\right)dx=uv\bigg|_a^b- \displaystyle\int\limits_{ a}^{ b} u'\left( x\right)v\left( x\right)dx\]
 \end{proof}
 
 \begin{example}
@@ -37,9 +37,9 @@
     Чтобы его посчитать, ничего особенного применять не надо. Нужна только выдержка и формула интегрирования по частям. 
     \begin{equation*}
         \begin{aligned}
-            I&= \displaystyle\int\limits_{ 0}^{ x_0} \cos \left( mx\right) d\left( \dfrac{ e^{\lambda x}}{ \lambda } \right)= \dfrac{ 1}{ \lambda } \left( \cos \left( mx\right)e^{ \lambda x}|_0^{x_0}- \displaystyle\int\limits_{ 0}^{ x_0} e^{ \lambda x} d\left( \cos \left( mx\right)\right)\right)= \\
+            I&= \displaystyle\int\limits_{ 0}^{ x_0} \cos \left( mx\right) d\left( \dfrac{ e^{\lambda x}}{ \lambda } \right)= \dfrac{ 1}{ \lambda } \left( \cos \left( mx\right)e^{ \lambda x}\bigg|_0^{x_0}- \displaystyle\int\limits_{ 0}^{ x_0} e^{ \lambda x} d\left( \cos \left( mx\right)\right)\right)= \\
             &=\dfrac{ 1}{ \lambda } \left( \underbrace{\cos \left( mx_0\right)e^{ \lambda x_0}-1}_{g\left( x_0\right)}+ m \displaystyle\int\limits_{ 0}^{ x_0} \sin\left( mx\right)d\left( \dfrac{ e^{\lambda x}}{ \lambda } \right)\right) =\\
-            &= \dfrac{ 1}{ \lambda } \left( g \left( x_0\right)+ \dfrac{ m}{ \lambda } \left( \sin\left( mx\right)e^{ \lambda x}|_0^{x_0}- \displaystyle\int\limits_{ 0}^{ x_0} e^{ \lambda x} d\left( \sin\left( mx\right)\right)\right)\right)=\\
+            &= \dfrac{ 1}{ \lambda } \left( g \left( x_0\right)+ \dfrac{ m}{ \lambda } \left( \sin\left( mx\right)e^{ \lambda x}\bigg|_0^{x_0}- \displaystyle\int\limits_{ 0}^{ x_0} e^{ \lambda x} d\left( \sin\left( mx\right)\right)\right)\right)=\\
             &= \dfrac{ g(x_0)}{ \lambda } + \dfrac{ m}{ \lambda ^2}\underbrace{ \sin\left( mx_0\right)e^{ \lambda x_0}}_{h\left( x_0\right)}- \dfrac{ m^2}{ \lambda ^2} \underbrace{\displaystyle\int\limits_{ 0}^{ x_0} e^{ \lambda x} \cos \left( mx\right)dx}_I =\\
             &= \dfrac{ g(x_0)}{ \lambda } + \dfrac{ m}{ \lambda ^2} h\left( x_0\right) + \dfrac{ m^2}{ \lambda ^2} I 
         \end{aligned}
@@ -66,15 +66,15 @@
     \hyperlink{thm:primitive_existance}{\( f \in C\left( X\right) \implies \) у \( f\) существует первообразная F на \( X\).}
 
     \hyperlink{thm:main_thm}{По формуле Ньютона-Лейбница:}
-    \[ \displaystyle\int\limits_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)} f\left( x\right)dx=F|_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)}=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)\]
+    \[ \displaystyle\int\limits_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)} f\left( x\right)dx=F\bigg|_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)}=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)\]
 
     \hyperlink{thm:undef_int_change}{По теореме о замене переменной в неопределённом интеграле \( F \circ \varphi \) - первообразная} для \( f\left( \varphi \left( t\right)\right) \varphi '\left( t\right)\). \hyperlink{thm:main_thm}{Тогда по формуле Ньютона-Лейбница:}
-    \[ \displaystyle\int\limits_{ \alpha }^{ \beta } f\left( \varphi \left( t\right)\right) \varphi '\left( t\right)dt=F \circ \varphi |_{ \alpha }^{ \beta }=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)\]
+    \[ \displaystyle\int\limits_{ \alpha }^{ \beta } f\left( \varphi \left( t\right)\right) \varphi '\left( t\right)dt=F \circ \varphi \bigg|_{ \alpha }^{ \beta }=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)\]
 
     \begin{equation*}
         \begin{aligned}
-            &\displaystyle\int\limits_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)} f\left( x\right)dx=F|_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)}=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)\\
-            &\displaystyle\int\limits_{ \alpha }^{ \beta } f\left( \varphi \left( t\right)\right) \varphi '\left( t\right)dt=F \circ \varphi |_{ \alpha }^{ \beta }=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)
+            &\displaystyle\int\limits_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)} f\left( x\right)dx=F\bigg|_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)}=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)\\
+            &\displaystyle\int\limits_{ \alpha }^{ \beta } f\left( \varphi \left( t\right)\right) \varphi '\left( t\right)dt=F \circ \varphi \bigg|_{ \alpha }^{ \beta }=F\left( \varphi \left( \beta \right)\right)-F\left( \varphi \left( \alpha \right)\right)
         \end{aligned}
         \implies 
         \displaystyle\int\limits_{ \varphi \left( \alpha \right)}^{ \varphi \left( \beta \right)} f\left( x\right)dx =\displaystyle\int\limits_{ \alpha }^{ \beta } f\left( \varphi \left( t\right)\right) \varphi '\left( t\right)dt
@@ -90,7 +90,7 @@
 \end{crl}
 
 \begin{example}
-    \[ \displaystyle\int\limits_{ 0}^{ 2} \dfrac{ x^2dx}{ x^3+1} \underset{\;t=x^3+1\;}{=} \dfrac{ 1}{ 3} \displaystyle\int\limits_{ 1}^{ 9} \dfrac{ dt}{ t} = \dfrac{ 1}{ 3} \ln \left| t\right| \;|_1^9= \dfrac{ 2}{ 3} \ln 3\]
+    \[ \displaystyle\int\limits_{ 0}^{ 2} \dfrac{ x^2dx}{ x^3+1} \underset{\;t=x^3+1\;}{=} \dfrac{ 1}{ 3} \displaystyle\int\limits_{ 1}^{ 9} \dfrac{ dt}{ t} = \dfrac{ 1}{ 3} \ln \left| t\right| \;\bigg|_1^9= \dfrac{ 2}{ 3} \ln 3\]
 \end{example}
 
 \begin{example}
@@ -103,7 +103,7 @@
     \begin{equation*}
         \begin{aligned}
             \displaystyle\int\limits_{ 0}^{ 1} \dfrac{ dx}{ \left( 1+x^2\right)^{ \frac{ 3}{ 2} }}&= \displaystyle\int\limits_{ 0}^{ \sh^{-1}(1)} \dfrac{ \ch t}{ \left( 1+\sh^2 t\right)^{ \frac{ 3}{ 2} }} dt=\displaystyle\int\limits_{ 0}^{ \sh^{-1}(1)} \dfrac{ \ch t}{ \ch^3 t} dt= \displaystyle\int\limits_{ 0}^{ \sh^{-1}(1)} \dfrac{ dt}{ \ch^2 t} = \\
-            &=\th t |_0^{\sh^{-1}(1)}= \dfrac{ \sh(\sh^{-1}(1))}{ \ch(\sh^{-1}(1))} =\dfrac{ \sh(\sh^{-1}(1))}{ \;\sqrt[]{1+ \sh^2\left( \sh^{-1}(1)\right)}} = \dfrac{ 1}{ \;\sqrt[]{2}} 
+            &=\th t \bigg|_0^{\sh^{-1}(1)}= \dfrac{ \sh(\sh^{-1}(1))}{ \ch(\sh^{-1}(1))} =\dfrac{ \sh(\sh^{-1}(1))}{ \;\sqrt[]{1+ \sh^2\left( \sh^{-1}(1)\right)}} = \dfrac{ 1}{ \;\sqrt[]{2}} 
         \end{aligned}
     \end{equation*}
 \end{example}
