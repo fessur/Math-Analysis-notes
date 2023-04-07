@@ -2,4 +2,206 @@
 \begin{document}
 \newpage
 \section{Элементарные свойства несобственного интеграла: аддитивность, связь сходимости со сходимостью остатка, случай совпадения несобственного интеграла с определенным. Критерий Коши сходимости несобственного интеграла.}
+
+\emph{Несобственный интеграл.} \(\quad \Let -\infty < a < b \leq  +\infty \)
+\[ \forall \; c \in [a, b)\quad  \exists \; \displaystyle\int\limits_{a}^{ c} f(x)dx\quad \left(f \in R\left[ a, c\right]\right)\]
+
+Тогда:
+
+\[ \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx = \lim\limits_{ c \; \rightarrow \; b- } \displaystyle\int\limits_{ a}^{ c} f(x)dx\quad \left(\text{в случае существования предела в } \overline{\mathbb{R}}\right)\]
+
+Говорят, что данный интеграл имеет особенность на правом конце промежутка.
+
+Если \( \lim\limits_{c \; \rightarrow \; b-} \displaystyle\int\limits_{ a}^{ c} f(x)dx \in \mathbb{R}\), то говорят, что интеграл сходится, иначе расходится.
+
+Аналогично определяется интеграл с особенностью на левом конце промежутка: \[ \displaystyle\int\limits_{ \rightarrow a}^{ b} f(x)dx = \lim\limits_{ c \; \rightarrow a+} \displaystyle\int\limits_{ c}^{ b} f(x)dx\quad \left( f(x) \in R[c, b], \forall \;c \in [a, b]\right) \]
+
+\begin{note}
+    Если мы вдруг обозначим собственный интеграл, как несобственный, то вселенная не схлопнется.
+    \[ \displaystyle\int\limits_{ a}^{ b} f(x)dx = \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx = \displaystyle\int\limits_{\rightarrow a}^{ b} f(x)dx \]
+    \begin{proof}
+        \[ \Phi(x) = \displaystyle\int\limits_{a}^{ x} f(t)dt \in C[a, b]\quad \Rightarrow\quad \Phi(b) = \lim\limits_{c \; \rightarrow \; b-} \Phi(c),\quad \text{поэтому} \]
+    \[ \displaystyle\int\limits_{ a}^{ b} f(x)dx = \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx,\quad \text{если} \; f \; \text{непрерывна (кусочно-непрерывна).}\]    
+    \end{proof}
+    
+\end{note}
+
+\newpage
+
+\emph{Элементарные свойства несобственного интеграла.} 
+
+\begin{thm}[Формула Ньютона-Лейбница для несобственного интеграла.]
+    
+    ~
+
+    \( \Let \; -\infty < a < b \leq +\infty, \; \forall \; c \in [a, b)\quad f \in C[a, b].\) Тогда:
+    \[ \displaystyle\int\limits_{  a}^{ \rightarrow b} f(x)dx = \lim\limits_{ c \; \rightarrow \; b-} F \bigg|^c_a \;, \text{где} F \; \text{--- первообразная} \; f(x) \; \text{на} \; [a, b).\]
+\end{thm}
+
+Оба предела либо существуют, либо нет одновременно, и в случае существования верно равенство.
+
+\begin{proof}
+    
+    ~
+
+    \(
+    \begin{aligned}
+        &\Phi(x) = \displaystyle\int\limits_{  a}^{ x} f(t)dt \; \text{--- первообразная на} \; [a, b)\quad \Rightarrow\quad F(x) = \Phi(x) + C\quad ( \exists \; C \in \mathbb{R}).\\
+        & \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx = \lim\limits_{ c \; \rightarrow \; b- } \displaystyle\int\limits_{ a}^{ c} f(x)dx = \lim\limits_{ c \; \rightarrow \; b-} (F(c) - F(a)) = \lim\limits_{ c \; \rightarrow \; b-} F \bigg|^c_a
+    \end{aligned}
+    \)
+\end{proof}
+
+
+\begin{thm}[Связь сходимости со сходимостью остатка]
+    
+    ~
+
+    \( \Let \; \forall \; c \in [a, b);\quad f \in R[a, c];\quad \displaystyle\int\limits_{ c}^{ \rightarrow b} f(x)dx \; \text{--- остаток интеграла.} \)
+
+    ~
+
+    Следующие утверждения равносильны:
+
+    ~
+
+
+    \begin{enumerate}
+        \item \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx \; \text{--- сходится.}\)
+        \item \( \exists \; c \in [a, b): \; \displaystyle\int\limits_{ c}^{ \rightarrow b} f(x)dx \; \text{--- сходится.}\)
+        \item \( \forall \; c \in [a, b): \; \displaystyle\int\limits_{ c}^{ \rightarrow b} f(x)dx \; \text{--- сходится.}\)
+        \item \(
+        \begin{cases}
+            \forall \; c \in [a, b): \; \displaystyle\int\limits_{ c}^{ \rightarrow b} f(x)dx \; \text{--- сходится.} \\
+            \displaystyle\int\limits_{c}^{ \rightarrow b} f(x)dx \underset{ c \rightarrow b-}{\longrightarrow} 0    
+        \end{cases}
+        \)
+    \end{enumerate}
+\end{thm}
+
+
+\newpage
+
+\begin{proof}
+    
+    ~
+
+    Тут все довольно просто, из 4 следует 3, так оно имеется в 4. Из 3 следует 2, так как 3 --- более сильное утверждение. Остается доказать, что из 2 следует 1 и из 1 следует 4.
+    
+    ~
+
+    \boxed{1 \; \Rightarrow \;  4}
+
+    ~
+
+    \(
+    \begin{aligned}
+        &\displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx = \lim\limits_{ B \; \rightarrow \; b-} \displaystyle\int\limits_{ a}^{ B} f(x)dx = \lim\limits_{ B \; \rightarrow \; b-} ( \displaystyle\int\limits_{ a}^{ c} f(x)dx \; + \; \displaystyle\int\limits_{ c}^{ B} f(x)dx ) = \\[5pt] 
+        & = \displaystyle\int\limits_{ a}^{ c} f(x)dx \; + \; \lim\limits_{ B \; \rightarrow \; b-} \displaystyle\int\limits_{ c}^{ B} f(x)dx \; \Rightarrow \; \displaystyle\int\limits_{ c}^{ \rightarrow b} f(x)dx \; \text{--- сходится.}  \\
+    \end{aligned}
+    \)
+    
+    Все переходы верны, так как по условию пункта 1 интеграл сходится, следовательно сходятся все остальные, так как это один и тот же интеграл. В силу предыдущего утверждения мы доказали в равенстве выше, что из 2 следует 1. Ещё одним следствием из данного равенства, также является и аддитивность несобственного интеграла (мы его получили после второго перехода):
+
+    ~
+
+    \( \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx = \displaystyle\int\limits_{ a}^{ c} f(x)dx \; + \; \displaystyle\int\limits_{c}^{ \rightarrow b} f(x)dx,\quad \forall \; c \in [a, b).\) \\
+
+    Проверим, что остаток при предельном переходе равен 0:
+
+    ~
+
+    \( \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx = \displaystyle\int\limits_{ a}^{ c} f(x)dx \; + \; \displaystyle\int\limits_{ c}^{ \rightarrow b} f(x)dx\quad \underset{c \; \rightarrow \; b-}{\Longrightarrow} \quad \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx = \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx \; + \; 0\)\\
+    Это справедливо так, как интеграл слева ни как не зависит от c, а первый интеграл справа как становится равен ему, следовательно остаток становится равен 0.
+    
+\end{proof}
+
+\vspace{5mm}
+
+\begin{thm}[Линейность несобственного интеграла]
+
+    ~
+
+    \( \Let \; \forall \; c \in [a, b);\quad f, g \in R[a, c];\quad \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx, \; \displaystyle\int\limits_{ a}^{ \rightarrow b} g(x)dx \; \text{--- сходятся}.\) 
+    
+    ~
+    
+    Тогда:
+
+    ~
+
+    \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} (\alpha f(x) + \beta g(x))dx = \alpha \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx \; + \; \beta \displaystyle\int\limits_{a}^{ \rightarrow b} g(x)dx.\]
+\end{thm}
+
+\begin{note}
+    Сход. + Сход. = Сход. \par
+    Расход. + Сход. = Расход. \par      
+    Расход. + Расход. = ?
+\end{note}
+
+\vspace{5mm}
+
+\begin{thm}[Монотонность несобственного интеграла]
+
+    ~
+
+    \( \Let \; \displaystyle\int\limits_{ a}^{ \rightarrow b} g(x)dx\; \text{--- сходится, и } \; \forall \;x \in [a, b),\; f(x)  \leq g(x).\)
+    
+    ~
+
+    Тогда:
+    
+    ~
+
+    \[ \displaystyle\int\limits_{  a}^{ \rightarrow b} f(x)dx \; \leq \; \displaystyle\int\limits_{ a}^{ \rightarrow b} g(x)dx\]
+
+\end{thm}
+
+\vspace{5mm}
+
+\begin{thm}[Критерий Коши (-Больцано) для несобственого интеграла]
+    
+    ~
+
+    \( \Let \; f \in R[a, c], \forall \;c \in [a, b).\quad \text{Следующие утверждения равносильны:}\)
+    \begin{enumerate}
+        \item \( \displaystyle\int\limits_{a}^{ \rightarrow b} f(x)dx\; \text{--- сходится}\)
+        \item \( \forall \; \varepsilon > 0 \; \exists \; B \in [a, b) : \forall \; b_1, b_2 \in [B, b).\quad \left| \displaystyle\int\limits_{ b_1}^{ b_2} f(x)dx \right| < \varepsilon  \)
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+
+    ~
+
+    \boxed{\Rightarrow} 
+
+    ~
+    
+    \(
+    \begin{aligned}
+        &\Phi(x) = \displaystyle\int\limits_{ a}^{ x} f(t)dt;\quad \underbrace{ \displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx = \lim\limits_{ x \; \rightarrow \; b-} \Phi(x)}_{\text{сходится} \; \Rightarrow \; \exists \; \lim } = I \quad\Rightarrow\quad \forall \; \varepsilon> 0 \; \exists \; B \in [a, b): \forall \; x_1, x_2 \in (B, b) \\[5pt] 
+        &\left| \Phi(x_1) - I\right| < \dfrac{ \varepsilon}{ 2}, \; \left| \Phi(x_2) - I\right| < \dfrac{ \varepsilon}{ 2} \;\Rightarrow\; \left| \Phi(x_1) - \Phi(x_2)\right| = \left| \Phi(x_1) + I - I + \Phi(x_2)\right| \leq \\[5pt] 
+        &\leq \left| \Phi(x_1) - I\right| + \left| \Phi(x_2) - I\right| < 2 \dfrac{ \varepsilon}{ 2} = \varepsilon.
+    \end{aligned}
+    \)
+
+    ~
+
+    \boxed{\Leftarrow}
+
+    ~
+
+    \( 
+    \begin{aligned}
+        &\text{Рассмотрим произвольную последовательность Гейне}\; (x_k)_{k = 1}^\infty \; \text{для точки b.}\; x_k \in [a, b), \; x_k \rightarrow  b. \\[5pt]
+        &\text{Так как} \; x_k \rightarrow b, \text{то} \; \exists \; N: \forall \; n \geq  N, \; x_n \in (B, b) \; \Rightarrow \; \left| \Phi(x_l) - \Phi(x_m)\right| < \varepsilon \quad ( \forall \; l, m \geq N ) \\[5pt]
+        &\text{Т. е.} \left\{ \Phi(x_k)\right\}  \text{--- сходится в себе, значит по критерию Коши о сходимости} \\[5 pt] 
+        &\text{последовательности}\quad \Rightarrow\quad \exists \; \lim\limits_{ k \; \rightarrow \; \infty} \Phi(x_k) = I\quad \text{--- так как вдоль любой последовательности} \\[5pt] 
+        &\text{Гейне существует предел, то функций имеет настоящий предел}\quad \Longrightarrow \; \exists \; \lim\limits_{ x \; \rightarrow \; b-} \Phi(x) \; \Rightarrow \\
+        &\displaystyle\int\limits_{ a}^{ \rightarrow b} f(x)dx \; \text{--- сходится}. 
+     \end{aligned}
+    \)
+\end{proof}
+
 \end{document}
