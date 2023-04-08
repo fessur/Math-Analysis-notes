@@ -2,4 +2,120 @@
 \begin{document}
 \newpage
 \section{Простейший критерий сходимости несобственных интегралов от неотрицательных функций. Признак сравнения для несобственных интегралов в общей и асимптотической форме.}
+\begin{thm}\label{lab:thm:base_converge}
+    
+    ~
+
+    \( \Let \; \forall \; c \in \left[ a,b\right)\quad f \in R\left[ a,c\right],\quad f\left( c\right) \geq 0\)
+
+    Тогда
+    \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx \text{ сходится } \Longleftrightarrow \text{ любая первообразная ограничена на } \left[ a,b\right)\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    \hyperlink{thm:primitive_structure}{Так как все первообразные отличаются друг от друга на константу}, будем рассматривать \hyperlink{thm:barrow}{первообразную из теоремы Барроу} \( \Phi\left( x\right)= \displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt\) и доказывать утверждение для неё. 
+    Если она ограничена, то и остальные первообразные ограничены и если любая ограничена, то \( \Phi\) тоже ограничена. 
+
+    \( f\left( x\right) \geq 0 \implies \Phi\left( x\right)= \displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt\) возрастает. А для возрастающей функции ограниченность равносильна существованию предела на правом конце промежутка.
+    \[ \exists \; \lim\limits_{ c \rightarrow b-} \Phi\left( c\right) \Longleftrightarrow \Phi \text{ ограничена на } \left[ a,b\right)\]
+
+    При этом \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx = \lim\limits_{ c \rightarrow b-} \Phi\left( c\right)\) по определению несобственного интеграла. Отсюда и получается утверждение теоремы:
+    \[ \exists \; \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx \Longleftrightarrow \Phi \text{ ограничена на } \left[ a,b\right)\]
+\end{proof}
+
+\begin{thm}[\hypertarget{thm:converge_o}{Признак сравнения через оценку О-большое}]
+    
+    ~
+
+    \( \Let \; \forall \; c \in \left[ a,b\right)\quad f, g \in R \left[ a,c\right],\quad f\left( c\right), g \left( c\right) \geq 0,\quad f\left( x\right)\underset{x \rightarrow b-}{=}O\left( g \left( x\right)\right)\)
+
+    Тогда 
+    \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} g \left( x\right)dx \text{ cходится } \implies \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx \text{ сходится}\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    \( f\left( x\right) = O\left( g \left( x\right)\right) \implies \exists \; k \in \R ,\quad \exists \; c \in \left[ a,b\right):\quad \forall \; x \in \left[ c,b\right)\quad  f\left( x\right) \leq k g \left( x\right)\)
+
+    Так как интеграл монотонен, можем перейти в этом неравенстве к интегралу, а затем использовать, что \( g \left( x\right) \geq 0\) и \( \displaystyle\int\limits_{ a}^{ \rightarrow b} g \left( x\right)dx\) сходится. Рассмотрим при этом произвольное \( B \in [c, b)\):
+    \[ \displaystyle\int\limits_{ c}^{ B} f\left( x\right)dx \leq k \displaystyle\int\limits_{ c}^{ B} g \left( x\right)dx \leq k \displaystyle\int\limits_{ c}^{ b} g \left( x\right)dx=I\]
+    
+    Получили, что \( \displaystyle\int\limits_{ c}^{ B} f\left( x\right)dx\) ограничен сверху на \( \left[ c,b\right)\) числом \( I\). Но по \hyperlink{thm:barrow}{теореме Барроу} это первообразная функции \( f\) на \( \left[ c,b\right)\).
+
+    Значит по теореме \ref{lab:thm:base_converge} \( \displaystyle\int\limits_{ c}^{ \rightarrow b} f\left( x\right)dx\) сходится. \hyperlink{thm:converge_rest}{А по теореме о связи сходимости со сходимостью остатка} из этого следует, что и \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx\) сходится.
+\end{proof}
+
+\begin{thm}[\hypertarget{thm:converge_sim}{Признак сравнения в ассимптотической форме}]
+    
+    ~
+
+    Если \( \forall \; c \in \left[ a,b\right)\quad f,g \in R \left[ a,c\right],\quad f\left( c\right), g \left( c\right) \geq 0,\quad f\underset{x \rightarrow b-}{\sim} g\)
+
+    Тогда 
+    \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx \text{ сходится } \Longleftrightarrow \displaystyle\int\limits_{ a}^{ \rightarrow b} g \left( x\right)dx \text{ сходится}\]
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Это напрямую следует из \hyperlink{thm:converge_o}{признака сравнения через оценку О-большое}, потому что
+    \begin{equation*}
+        f \underset{x \rightarrow b-}{\sim} g \implies 
+        \begin{cases}
+            f\left( x\right)\underset{x \rightarrow b-}{=}O\left( g \left( x\right)\right)\\ 
+            g \left( x\right)\underset{x \rightarrow b-}{=}O\left( f\left( x\right)\right)
+        \end{cases}
+    \end{equation*}
+\end{proof}
+
+\begin{thm}[\hypertarget{thm:converge_classic}{Классический вариант признака сравнения}]
+    
+    ~
+
+    \( \Let \; \forall \; c \in \left[ a,b\right)\quad f,g \in R \left[ a,c\right],\quad \forall \; x \in \left[ a,b\right)\quad \begin{cases}f\left( x\right),g \left( x\right) \geq 0\\ f\left( x\right) \leq g \left( x\right)\end{cases}\)
+
+    Тогда
+    \begin{enumerate}
+        \item \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} g \left( x\right)dx \text{ сходится } \implies \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx \text{ сходится}\]
+        \item \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx \text{ расходится } \implies \displaystyle\int\limits_{ a}^{ \rightarrow b} g \left( x\right)dx \text{ расходится}\]
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    Из условия следует, что \( f\left( x\right)=O\left( g \left( x\right)\right)\).
+    \begin{enumerate}
+        \item Утверждение теоремы повторяет утверждение \hyperlink{thm:converge_o}{признака сравнения через оценку О-большое}. 
+        \item Если бы \( \displaystyle\int\limits_{ a}^{ \rightarrow b} g \left( x\right)dx\) сходился, то по \hyperlink{thm:converge_o}{признаку сравнения через оценку О-большое} должен был бы сходится и \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx\).
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    
+    ~
+
+    Требуется исследовать на сходимость интегралы
+    \begin{enumerate}
+        \item \( \displaystyle\int\limits_{ 0}^{ \frac{ 1}{ 2} } \dfrac{ dx}{ \ln x} \).
+        \par Кажется, что это интеграл с особенностью в точке 0, но если немного присмотреться: \( \lim\limits_{ x \rightarrow 0} \dfrac{ 1}{ \ln x} =0\). То есть это собственный интеграл от кусочно-непрерывной функции. 
+        Мы доопределяем его нулём в точке 0 и считаем как собственный. Он, конечно, сходится. 
+        \item \( \displaystyle\int\limits_{ 1}^{ \frac{ 3}{ 2} } \dfrac{ dx}{ \ln x} \)
+        \par Поспользуемся \hyperlink{thm:converge_sim}{признаком сравнения в ассимптотической форме} и заменим на эквивалентную, так как функции неотрицательные. \( \ln x \underset{x \rightarrow 1}{\sim} x-1\)
+        \[ \displaystyle\int\limits_{ 1}^{ \frac{ 3}{ 2} } \dfrac{ dx}{ x-1} \underset{y=x-1}{=} \displaystyle\int\limits_{ 0}^{ \frac{ 1}{ 2} } \dfrac{ dy}{ y}\]
+        \par А этот интеграл, \hyperlink{ex:converge}{как обсуждали в примере}, расходится.
+        \item \( \displaystyle\int\limits_{ \frac{ 3}{ 2} }^{ + \infty } \dfrac{ dx}{ \ln x} \)
+        \( \lim\limits_{ x \rightarrow +\infty} \dfrac{ \ln x}{ x}=0 \implies \) с какого-то момента \( \ln x \leq x \implies \dfrac{ 1}{ \ln x} \geq \dfrac{ 1}{ x} \). Но, \hyperlink{ex:converge}{как обсуждали в примере}, 
+        \( \displaystyle\int\limits_{ c}^{ + \infty } \dfrac{ dx}{ x} \) расходится ( \( c>1\)). 
+
+        Тогда применяя \hyperlink{thm:converge_classic}{классический произнак сравнения}, получаем, что \( \displaystyle\int\limits_{ c}^{ + \infty } \dfrac{ dx}{ \ln x} \) расходится. А если этот остаток расходится, то \( \displaystyle\int\limits_{ \frac{ 3}{ 2} }^{ + \infty} \dfrac{ dx}{ \ln x} \) тоже расходится.
+    \end{enumerate}
+\end{example}
 \end{document}
