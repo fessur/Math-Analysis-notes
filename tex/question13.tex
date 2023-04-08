@@ -2,4 +2,19 @@
 \begin{document}
 \newpage
 \section{Интегрирование выражений, содержащих радикалы от дробно-линейных функций.}
+Есть способ интегрировать функции вида 
+\[ R\left( \;\sqrt[N_1]{ \dfrac{ \alpha t+\beta}{ \gamma t+ \delta } }, \;\sqrt[N_2]{ \dfrac{ \alpha t+\beta}{ \gamma t+ \delta } }, \ldots , \;\sqrt[N_m]{ \dfrac{ \alpha t+\beta}{ \gamma t+ \delta } }\right),\quad \alpha , \beta , \gamma , \delta \in \R,\quad \alpha \delta - \gamma \beta \neq 0,\quad N_1, \ldots , N_m \in \mathbb{N}\]
+
+Для этого классики рекомендуют делать замену вида 
+\[ x= \;\sqrt[N]{ \dfrac{ \alpha t+\beta}{ \gamma t+ \delta } }, \text{ где }  N=\lcm\left( N_1, N_2, \ldots , N_m\right)\]
+
+\begin{example}
+    
+    ~
+
+    Есть интеграл \( \displaystyle\int\limits_{ }^{ } \dfrac{ \;\sqrt[3]{x}dx}{ 1+ \;\sqrt[]{x}} \). По совету классиков сделаем в нём замену \( y= \;\sqrt[6]{x}\):
+    \[ \displaystyle\int\limits_{ }^{ } \dfrac{ \;\sqrt[3]{x}dx}{ 1+ \;\sqrt[]{x}} = \displaystyle\int\limits_{ }^{ } \dfrac{ 6y^2y^5dy}{ 1+y^3}=6 \displaystyle\int\limits_{ }^{ } \dfrac{ y^7dy}{ 1+y^3}\]
+
+    Как мы видим, после этого мы получили интеграл от рациональной функции. А его мы \hyperlink{thm:int_ratio}{научились вычислять ранее.}
+\end{example}
 \end{document}

@@ -21,14 +21,14 @@
     Переход от \( n-1\) к \( n\):
 
     Чтобы выполнить переход, нам необходимо проверить
-    \[ \dfrac{ 1}{ (n-1)!} \displaystyle\int\limits_{ a}^{ x} f^{(n)}\left( t\right)\left( x-t\right)^{n-1}dt= \dfrac{ f^{(n)}(a)}{ n!} + \dfrac{ 1}{ n!} \displaystyle\int\limits_{ a}^{ x} f^{(n+1)}\left( t\right)\left( x-t\right)^ndt  \]
+    \[ \dfrac{ 1}{ (n-1)!} \displaystyle\int\limits_{ a}^{ x} f^{(n)}\left( t\right)\left( x-t\right)^{n-1}dt= \dfrac{ f^{(n)}(a)}{ n!}(x-a)^n + \dfrac{ 1}{ n!} \displaystyle\int\limits_{ a}^{ x} f^{(n+1)}\left( t\right)\left( x-t\right)^ndt  \]
 
     Чтобы это проверить, давайте \hyperlink{thm:def_by_parts}{возьмём интеграл в правой части по частям}. Получится:
     \begin{equation*}
         \begin{aligned}
-            &\dfrac{ f^{(n)}(a)}{ n!} + \dfrac{ 1}{ n!} \displaystyle\int\limits_{ a}^{ x} f^{(n+1)}\left( t\right)\left( x-t\right)^ndt=\dfrac{ f^{(n)}(a)}{ n!}+\dfrac{ 1}{ n!} \displaystyle\int\limits_{ a}^{ x} \left( x-t\right)^nd\left( f^{(n)}\left( t\right)\right)=\\
-            &=\dfrac{ f^{(n)}(a)}{ n!}+\dfrac{ 1}{ n!}\left( \left( x-t\right)^nf^{(n)}\left( t\right)\bigg|_a^x - \displaystyle\int\limits_{ a}^{ x} f^{(n)}\left( t\right)d\left( \left( x-t\right)^n\right)\right)=\\
-            &=\dfrac{ f^{(n)}(a)}{ n!}+\dfrac{ 1}{ n!}\left( -\left( x-a\right)^nf^{(n)}\left( a\right)\right) + \dfrac{ 1}{ n!} \cdot n \displaystyle\int\limits_{ a}^{ x} f^{(n)}\left( t\right)\left( x-t\right)^{n-1}dt=\\
+            &\dfrac{ f^{(n)}(a)}{ n!}(x-a)^n + \dfrac{ 1}{ n!} \displaystyle\int\limits_{ a}^{ x} f^{(n+1)}\left( t\right)\left( x-t\right)^ndt=\dfrac{ f^{(n)}(a)}{ n!}+\dfrac{ 1}{ n!} \displaystyle\int\limits_{ a}^{ x} \left( x-t\right)^nd\left( f^{(n)}\left( t\right)\right)=\\
+            &=\dfrac{ f^{(n)}(a)}{ n!}(x-a)^n+\dfrac{ 1}{ n!}\left( \left( x-t\right)^nf^{(n)}\left( t\right)\bigg|_a^x - \displaystyle\int\limits_{ a}^{ x} f^{(n)}\left( t\right)d\left( \left( x-t\right)^n\right)\right)=\\
+            &=\dfrac{ f^{(n)}(a)}{ n!}(x-a)^n+\dfrac{ 1}{ n!}\left( -\left( x-a\right)^nf^{(n)}\left( a\right)\right) + \dfrac{ 1}{ n!} \cdot n \displaystyle\int\limits_{ a}^{ x} f^{(n)}\left( t\right)\left( x-t\right)^{n-1}dt=\\
             &= \dfrac{ 1}{ (n-1)!} \displaystyle\int\limits_{ a}^{ x} f^{(n)}\left( t\right)\left( x-t\right)^{n-1}dt 
         \end{aligned}
     \end{equation*}

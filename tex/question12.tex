@@ -2,4 +2,48 @@
 \begin{document}
 \newpage
 \section{Методы интегрирования тригонометрических функций (общий и три частных).}
+\( R\left( u,v\right) = \dfrac{ P\left(u,v\right)}{ Q\left( u, v\right)} \) - рациональная функция от двух переменных. 
+
+Часто возникает потребность проинтегрировать \( R\left( \cos \varphi , \sin \varphi \right) \) или \( R\left( \ch \varphi , \sh \varphi \right) \).
+
+В такой ситуации существует универсальная тригономерическая подстановка \( x = \tg \varphi \):
+\begin{equation*}
+    \begin{aligned}
+        &\cos \varphi =\cos^2 \dfrac{ \varphi}{ 2}- \sin^2 \dfrac{ \varphi}{ 2}= \cos^2 \dfrac{ \varphi}{ 2} \left( 1- \tg^2 \dfrac{ \varphi}{ 2}  \right)= \dfrac{ 1-x^2}{ 1+x^2}\\
+        &\sin \varphi = 2 \sin \dfrac{ \varphi}{ 2} \cos \dfrac{ \varphi}{ 2} = 2 \tg \dfrac{ \varphi}{ 2} \cos^2 \dfrac{ \varphi}{ 2} = \dfrac{ 2x}{ 1+x^2}   \\      
+        &d \varphi = \dfrac{ 2dx}{ 1+x^2} 
+    \end{aligned}
+\end{equation*}
+
+Или в случае гиперболических функций \( x = \th \dfrac{ \varphi}{ 2} \):
+\begin{equation*}
+    \begin{aligned}
+        &\ch \varphi =\ch^2 \dfrac{ \varphi}{ 2}+ \sh^2 \dfrac{ \varphi}{ 2}= \ch^2 \dfrac{ \varphi}{ 2} \left( 1+ \th^2 \dfrac{ \varphi}{ 2}  \right)= \dfrac{ 1+x^2}{ 1-x^2}\\
+        &\sh \varphi = 2 \sh \dfrac{ \varphi}{ 2} \ch \dfrac{ \varphi}{ 2} = 2 \th \dfrac{ \varphi}{ 2} \ch^2 \dfrac{ \varphi}{ 2} = \dfrac{ 2x}{ 1-x^2}   \\      
+        &d \varphi = \dfrac{ 2dx}{ 1-x^2} 
+    \end{aligned}
+\end{equation*}
+
+Кроме того, есть 3 ситуации, в которых классики советуют делать другие замены (для упрощения вычислений):
+\begin{enumerate}
+    \item \( R\left( -\cos \varphi , \sin \varphi \right)=- R\left( \cos \varphi , \sin \varphi \right)  \)
+    \par В такой ситуации советуют делать замену \( x = \sin \varphi \).
+    \item \( R\left( \cos \varphi , -\sin \varphi \right)=- R\left( \cos \varphi , \sin \varphi \right)  \)
+    \par В такой ситуации советуют делать замену \( x = \cos \varphi \).
+    \item \( R\left( -\cos \varphi , -\sin \varphi \right)= R\left( \cos \varphi , \sin \varphi \right)  \)
+    \par В такой ситуации советуют делать замену \( x = \tg \varphi \).
+\end{enumerate}
+
+\begin{example}
+    
+    ~
+
+    \[ \displaystyle\int\limits_{ }^{ } \dfrac{ \cos\varphi+2\sin\varphi}{ 1+ \cos^2 \varphi } d \varphi = \displaystyle\int\limits_{ }^{ } \dfrac{ \cos\varphi}{ 1+\cos^2 \varphi } d \varphi + 2\displaystyle\int\limits_{ }^{ } \dfrac{ \sin\varphi}{ 1+\cos^2 \varphi } d \varphi  \]
+
+    Во втором слагаемом всё понятно, надо занести синус под дифференциал:
+    \[ \displaystyle\int\limits_{ }^{ } \dfrac{ \sin\varphi}{ 1+\cos^2 \varphi } d \varphi= -\displaystyle\int\limits_{ }^{ } \dfrac{ d\left(\cos\varphi\right)}{ 1+\cos^2 \varphi }=-\arctg \left( \cos \varphi \right) +C\]
+
+    В первом слагаемом по совету классиков сделаем замену \( x = \sin \varphi \):
+    \[ \displaystyle\int\limits_{ }^{ } \dfrac{ \cos\varphi}{ 1+\cos^2 \varphi } d \varphi= \displaystyle\int\limits_{ }^{ } \dfrac{ dx}{ 2-x^2} = \dfrac{ 1}{ 2 \;\sqrt[]{2}} \ln \left| \dfrac{ x+\;\sqrt[]{2}}{ x- \;\sqrt[]{2}}\right| +C\]
+\end{example}
 \end{document}

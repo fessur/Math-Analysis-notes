@@ -2,4 +2,33 @@
 \begin{document}
 \newpage
 \section{Пример использования формулы Тейлора для исследования интеграла на сходимость.}
+
+Требуется исследовать на сходимость и абсолютную сходиомость интеграл \( \displaystyle\int\limits_{ 1}^{ + \infty } \ln \left( 1+ \dfrac{ \sin x}{ x^p} \right)dx\). Здесь мы иногда будем ссылаться на результат из \hyperlink{ex:converge_sin}{этого примера.}
+
+Сначала поймём, какие у него особые точки. Во-первых, это бесконечность. Во-вторых, выражение под логарифмом может обнулиться. Но этого не произойдёт потому что при \( x > 1\quad \left| \dfrac{ \sin x}{ x^p} \right|= \dfrac{ \left|\sin x\right|}{ x^p } < \dfrac{ \left|\sin x\right|}{ 1} \leq 1  \). Поэтому \( 1+ \dfrac{ \sin x}{ x^p} >0\) и единственная особенность у интеграла в бесконечности. 
+
+\emph{Аюсолютная сходимость:}
+
+\[ \dfrac{ \sin x}{ x^p} \underset{x \rightarrow + \infty }{\longrightarrow} 0 \implies \left| \ln \left( 1+ \dfrac{ \sin x}{ x^p} \right)\right|\underset{x \rightarrow + \infty }{\sim} \left| \dfrac{ \sin x}{ x^p} \right|= \dfrac{ \left|\sin x\right|}{ x^p} \]
+
+Так как модуль неотрицателен, можно воспользоваться \hyperlink{thm:converge_sim}{признаком сравнения в ассимптотической форме} и исследовать на сходимость уже \( \displaystyle\int\limits_{ 1}^{ + \infty} \dfrac{ \left|\sin x\right|}{ x^p}dx \). Он сходится \( \Longleftrightarrow p>1\).
+
+\emph{Сходимость:}
+
+Здесь трюк с заменой на эквивалентную не прокатит, потому что функция знакопеременная. Но здесь нам может помочь формула Тейлора. В точке \( 0\) раскладываем логарифм:
+\[ \ln \left( 1+ \alpha \right)= \alpha - \dfrac{ \alpha^2}{ 2} +o\left( \alpha^2 \right) \]
+
+С какого-то момента, по определению о-малого 
+\[ \dfrac{ o\left(\alpha^2\right)}{ \alpha ^2} < \dfrac{ 1}{ 2} \implies o\left( \alpha ^2\right) < \dfrac{ 1}{ 2} \alpha ^2 \implies - \dfrac{ \alpha^2}{ 2} +o\left( a^2\right) <0\]
+
+То есть если разложить нашу функцию таким же образом:
+\[ \ln \left( 1+ \dfrac{ \sin x}{ x^p} \right)=\dfrac{ \sin x}{ x^p} \underbrace{- \dfrac{ \sin^2 x}{ 2x^{2p}} + o\left( \dfrac{ \sin^2 x}{ x^{2p}}\right)}_{\text{знакопостоянная}}\]
+
+\[ \displaystyle\int\limits_{ 1}^{ + \infty } \ln \left( 1+ \dfrac{ \sin x}{ x^p}\right)dx= \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \sin x}{ x^p} dx+ \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ -\sin^2 x}{ 2x^{2p}}+o \left( \dfrac{ \sin^2 x}{ x^{2p}}\right)dx\]
+
+Первый из получившихся интегралов сходится при \( p > 0\). А так как под вторым знакопостоянная функция, можно заменить под ним на эквивалентную и исследовать \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ -\sin^2 x}{ 2x^{2p}}dx\). 
+
+\[ \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ -\sin^2 x}{ 2x^{2p}}dx = \dfrac{ 1}{ 4} \underbrace{\displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \cos2x}{ x^{2p}}dx}_{\text{сходится при } p>0}- \dfrac{ 1}{ 4} \underbrace{\displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ 1}{ x^{2p}}dx}_{\text{сходится при } p> \frac{ 1}{ 2} }\]
+
+Итого: интеграл сходится условно при \( \dfrac{ 1}{ 2} < p \leq 1 \) и абсолютно сходится при \( p > 1\).
 \end{document}

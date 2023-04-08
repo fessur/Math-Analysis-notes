@@ -2,4 +2,58 @@
 \begin{document}
 \newpage
 \section{Методы интегрирования рациональных функций. Теорема о первообразной рациональной функции.}
+\emph{Рациональной функцией} называется отношение двух алгебраических многочленов. 
+\[ R\left( x\right)= \dfrac{ P\left(x\right)}{ Q\left( x\right)}\]
+
+Эта дробь может являться правильной, если \( \deg P < \deg Q\), или быть неправильной и допускать представление в виде \( R\left( x\right)=P_1\left( x\right)+R_1\left( x\right) \), где \( P_1\left( x\right)\) - многочлен, \( R_1\left( x\right)\) - рациональная функция - правильная дробь.
+
+\begin{thm}[\hypertarget{thm:int_ratio}{О первообразной рациональной функции}]
+    
+    ~
+
+    Любая рациональная функция имеет элементарную первообразную. 
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Факт из алгебры: любая правильная дробь \( R\left( x\right) \) допускает представление в виде конечной суммы дробей вида 
+    \begin{enumerate}
+        \item \( \dfrac{ A}{ \left( x-a\right)^k} \) - простейшие дроби первого типа, \( A,a \in \R ,\quad k \in \mathbb{N}\)
+        \item \( \dfrac{ Bx+C}{ \left( x^2+px+q\right)^l} \) - простейшие дроби второго типа, \( x^2+px+q\) не представляется в виде произведения многочленов, \( B,C,p,q \in \R ,\quad l \in \mathbb{N}\)
+    \end{enumerate}
+
+    Значит, чтобы научиться интегрировать любую рациональную функцию, нужно научиться интегрировать простейшие дроби обоих видов. 
+    \begin{equation*}
+        \displaystyle\int\limits_{ }^{ } \dfrac{ A}{ \left( x-a^k\right)}dx \underset{t=x-a}{=}A \displaystyle\int\limits_{ }^{ } \dfrac{ dt}{ t^k} = A \cdot 
+        \begin{cases}
+            \ln \left| t\right|,\quad \text{если } k = 1\\ 
+            \frac{ t^{-k+1}}{ -k+1} ,\quad \text{если } k > 1
+        \end{cases} 
+    \end{equation*}
+
+    Остались дроби второго типа. \( x^2+px+q\) не представляется в виде произведения. Значит 
+    \[ p^2-4q<0 \implies q- \dfrac{ p^2}{ 4} > 0 \implies q- \dfrac{ p^2}{ 4} =a^2,\quad a \in \R \]
+
+    \[ x^2+px+q=\left( x^2+px+ \left( \dfrac{ p}{ 2} \right)^2\right)+q- \dfrac{ p^2}{ 4} \underset{t=x+ \frac{ p}{ 2} }{=} t^2+a^2\]
+
+    Для определённого таким же образом \( t\): \( Bx+C=Bt+\left( - \dfrac{ Bp}{ 2} +C\right)=Bt + \tilde{ C}\).
+
+    \[ \displaystyle\int\limits_{ }^{ } \dfrac{ Bx+C}{ \left( x^2+px+q\right)^l} dx= \displaystyle\int\limits_{ }^{ } \dfrac{ Bt+\tilde{C}}{ \left( t^2+a^2\right)} dt=B \underbrace{\displaystyle\int\limits_{ }^{ } \dfrac{ tdt}{ \left( t^2+a^2\right)^l}}_I + \tilde{ C} \underbrace{\displaystyle\int\limits_{ }^{ } \dfrac{ dt}{ \left( t^2+a^2\right)^l}}_{J} \]
+
+    \( I = \displaystyle\int\limits_{ }^{ } \dfrac{ tdt}{ \left( t^2+a^2\right)^l} \underset{v=t^2+a^2}{=} \displaystyle\int\limits_{ }^{ } \dfrac{ dv}{ v^l}\) - умеем вычислять. 
+
+    А \( J\) мы уже вычисляли в \hyperlink{ex:int_recur}{предыдущем примере}. Таким образом, теорема доказана. 
+\end{proof}
+
+Если функция \( f\) не имеет элементарной первообразной, то \( \displaystyle\int\limits_{ }^{ } f\left( x\right)dx\) называется \emph{неберущимся}. Примеры неберущихся интегралов: 
+
+Интегральный синус: \( \si\left( x\right)=\displaystyle\int\limits_{ }^{ } \dfrac{ \sin x}{ x} dx\)
+
+Интегральный косинус: \( \ci\left( x\right)=\displaystyle\int\limits_{ }^{ } \dfrac{ \cos x}{ x} dx\)
+
+Интегральный логарифм: \( \displaystyle\int\limits_{ }^{ } \dfrac{ 1}{ \ln x} \)
+
+Интегралы Френеля: \( \displaystyle\int\limits_{ }^{ } \sin\left( x^2\right)dx,\quad \displaystyle\int\limits_{ }^{ } \cos\left( x^2\right)dx\)
+
 \end{document}

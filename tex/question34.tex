@@ -2,4 +2,40 @@
 \begin{document}
 \newpage
 \section{Признак Дирихле для несобственных интегралов.}
+\begin{thm}[\hypertarget{thm:int_dirihle}{Признак Дирихле для несобственных интегралов}]
+    
+    ~
+
+    \( \Let \;  u \in C\left[ a,b\right),\quad v \in C^1\left[ a,b\right)\) и 
+    \begin{enumerate}
+        \item \( u\) имеет ограниченную первообразную на \( \left[ a,b\right)\)
+        \item \( v\) монотонна на \( \left[ a,b\right)\)
+        \item \( \lim\limits_{ x \rightarrow b-} v\left( x\right)=0\)
+    \end{enumerate}
+    Тогда \( \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)v \left( x\right)dx\) сходится.
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)v\left( x\right)dx= \displaystyle\int\limits_{ a}^{ \rightarrow b} v\left( x\right)d\left( U \left( x\right)\right)\overset{?}{=} U\left( x\right)v \left( x\right)\bigg|_a^b - \displaystyle\int\limits_{ a}^{ \rightarrow b} U \left( x\right)v' \left( x\right)dx\]
+
+    Знак вопроса показывает, что это верно, если оба предела в правой части существуют. Но сейчас мы докажем, что оба эти предела конечны, откуда будет следовать, что \( \displaystyle\int\limits_{ a}^{ \rightarrow b} u \left( x\right)v \left( x\right)dx\) сходится.
+
+    \[ U\left( x\right)v\left( x\right)\bigg|_a^b= \lim\limits_{ c \rightarrow b-}  \underbrace{U\left( c\right)v\left( c\right)}_{\text{огр.} \times \text{б.м.}}-U\left( a\right)v\left( a\right)=-U \left( a\right)v\left( a\right)\]
+
+    То есть двойная подстановка конечна. Осталось разобраться с интегралом в правой части. 
+    
+    По условию \( U\) ограничена \( \implies \exists \; k \in \R :\quad \forall \; x \in \left[ a,b\right)\quad \left| U\left( x\right) \right|\leq k\).
+
+    \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| U\left( x\right)v' \left( x\right)\right|dx= \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| U\left( x\right)\right| \cdot  \left| v'\left( x\right)\right|dx \leq \displaystyle\int\limits_{ a}^{ \rightarrow b} k \cdot  \left| v'\left( x\right)\right|dx=k \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| v' \left( x\right)\right|dx\oeq\]
+
+    По условию \( v\) монотонна, значит её производная сохраняет знак. Поэтому, продолжая цепочку рассуждений:
+    \[ \oeq k \cdot \left| \displaystyle\int\limits_{ a}^{ \rightarrow b} v'\left( x\right)dx\right|=k \cdot \left| v\left( x\right)\bigg|_a^b\right|=k \cdot \left| \lim\limits_{ c \rightarrow b-} v\left( c\right)-v\left( a\right)\right|=k \cdot \left| -v\left( a\right)\right|\]
+
+    Получили \( \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| U\left( x\right)v'\left( x\right)\right|dx \leq k \cdot \left| -v\left( a\right)\right| \implies \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| U\left( x\right)v'\left( x\right)\right|dx\) сходится по \hyperlink{thm:converge_classic}{классическому признаку сравнения.}
+
+    То есть интеграл \( \displaystyle\int\limits_{ a}^{ \rightarrow b} U\left( x\right)v'\left( x\right)dx\) сходится абсолютно. \hyperlink{thm:converge_abs}{Значит он сходится.}
+\end{proof}
 \end{document}

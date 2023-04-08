@@ -2,4 +2,35 @@
 \begin{document}
 \newpage
 \section{Признак Абеля для несобственных интегралов.}
+\begin{thm}[\hypertarget{thm:int_abel}{Признак Абеля для несобственных интегралов}]
+    
+    ~
+
+    \( \Let \; u, v \in C\left[ a,b\right)\) и
+    \begin{enumerate}
+        \item \( \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)dx\) сходится 
+        \item \( v\) монотонна на \( \left[ a,b\right)\)
+        \item \( v\) ограничена на \( \left[ a,b\right)\)
+    \end{enumerate}
+    Тогда \( \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)v\left( x\right)dx\) сходится.
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    \begin{equation*}
+        \begin{cases}
+            v \text{ монотонна на } \left[ a,b\right)\\ 
+            v \text{ ограничена на } \left[ a,b\right)
+        \end{cases}
+        \implies 
+        \exists \; \lim\limits_{ x \rightarrow b-} v\left( x\right)=L \in \R 
+    \end{equation*}
+
+    Пусть \( v_1\left( x\right)=v\left( x\right)-L \implies v\left( x\right)=v_1\left( x\right)+L\). При этом \( v_1\) монотонна и \( \lim\limits_{ x \rightarrow b-} v\left( x\right)=0\).
+    \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)v\left( x\right)dx= \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)\left( v_1\left( x\right)+L\right)dx\overset{?}{=} \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)v_1\left( x\right)dx+L \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)dx\]
+
+    Знак ? показывает, что это верно, если интегралы в правой части сходятся. Но \( \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)dx\) по условию сходится, а \( \displaystyle\int\limits_{ a}^{ \rightarrow b} u\left( x\right)v_1\left( x\right)dx\) сходится по Дирихле. Значит и интеграл в левой части сходится.
+\end{proof}
 \end{document}

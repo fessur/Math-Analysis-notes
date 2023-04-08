@@ -22,10 +22,10 @@
 
 \begin{note}
     
-    ~
+    \hypertarget{note:pm}{~}
 
     Пусть \( x \in \R \). Обозначим \( x_+= \max\limits_{ } \left( x, 0\right),\quad x_-= \max\limits_{ } \left( -x, 0\right)\). Тогда
-    \[ x_+ - x_-=x,\quad x_+ +x_-=x,\quad x_+,x_- \geq 0,\quad x_+, x_- \leq \left| x\right|\]
+    \[ x_+ - x_-=x,\quad x_+ +x_-=\left| x\right|,\quad x_+,x_- \geq 0,\quad x_+, x_- \leq \left| x\right|\]
 \end{note}
 
 Применим это замечание к функциям: если \( f\) - функция, то пусть 
@@ -106,8 +106,8 @@
     \end{enumerate}
 \end{proof}
 
-В интеграле \( \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx\) есть неявное ограничение, что \( \left[ a,b\right]\) - отрезок, то есть \( a \geq b\). Мы хотим убрать это ограничение. 
-Для этого при \( a < b\) полагают \( \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx = - \displaystyle\int\limits_{ b}^{ a} f\left( x\right)dx\). Все свойства интеграла при этом сохраняются (доказательство - разбор случаев).
+В интеграле \( \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx\) есть неявное ограничение, что \( \left[ a,b\right]\) - отрезок, то есть \( a \leq b\). Мы хотим убрать это ограничение. 
+Для этого при \( a > b\) полагают \( \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx = - \displaystyle\int\limits_{ b}^{ a} f\left( x\right)dx\). Все свойства интеграла при этом сохраняются (доказательство - разбор случаев).
 
 \begin{thm}[\hypertarget{thm:simple_average}{Теорема о среднем}]
     \( \Let \; f \in C\left[ a,b\right]\)
@@ -122,8 +122,8 @@
 
     Из 4 свойства определённого интеграла мы знаем, что \( \dfrac{ \displaystyle\int_{a}^{b}f\left(x\right)fx}{ b-a} \in \left[ \min\limits_{ \left[ a,b\right]}f, \max\limits_{ \left[ a,b\right]} f \right]\). По теореме Вейерштрасса функция \( f\), непрерывная 
     на отрезке, достигает на нём своего минимума и максимума. А по теореме Коши-Больцано о промежуточном значении, она должна принимать и все значения между минимумом и максимумом. Значит
-    \[ \exists \; c \in \left[ a,b\right]:\quad \dfrac{ \displaystyle\int_{a}^{b}f\left(x\right)dx}{ b-a} = c\]
-    \[ \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx = c \cdot \left( b-a\right)\]
+    \[ \exists \; c \in \left[ a,b\right]:\quad \dfrac{ \displaystyle\int_{a}^{b}f\left(x\right)dx}{ b-a} = f(c)\]
+    \[ \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx = f(c) \cdot \left( b-a\right)\]
 \end{proof}
 
 \begin{thm}[Оценка модуля интеграла]

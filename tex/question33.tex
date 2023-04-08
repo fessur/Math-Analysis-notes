@@ -2,4 +2,59 @@
 \begin{document}
 \newpage
 \section{Связь сходимости несобственного интеграла с его абсолютной сходимостью.}
+Интеграл \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx\) называется \emph{сходящимся абсолютно}, если \( \displaystyle\int\limits_{ a}^{ \rightarrow b } \left| f\left( x\right)\right|dx\).
+
+\begin{thm}[\hypertarget{thm:converge_abs}{Связь сходимости с абсолютной сходимостью}]
+    
+    ~
+
+    \begin{enumerate}
+        \item Из абсолютной сходимости следует сходимость
+        \item \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx\) сходится абсолютно \( \Longleftrightarrow\) \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f_+\left( x\right)dx, \;\displaystyle\int\limits_{ a}^{ \rightarrow b} f_-\left( x\right)dx\) сходятся
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item [2.] \( \boxed{ \Longrightarrow }\)
+        \par \hyperlink{note:pm}{По старому замечанию} \( f_+\left( x\right)+f_-\left( x\right)=\left| f\left( x\right)\right|,\quad f_\pm\left( x\right) \geq 0 \implies \begin{cases}f_+\left( x\right) \leq \left| f\left( x\right)\right|\\f_-\left( x\right) \leq \left| f\left( x\right)\right| \end{cases}\)
+        \par \hyperlink{thm:converge_classic}{Тогда по классическому признаку сравнения} 
+        \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| f\left( x\right)\right|dx \text{ сходится } \implies \displaystyle\int\limits_{ a}^{ \rightarrow b} f_+\left( x\right)dx,\; \displaystyle\int\limits_{ a}^{ \rightarrow b} f_-\left( x\right)dx \text{ сходятся}\]
+        \( \boxed{ \Longleftarrow}\)
+        \par Если \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f_\pm \left( x\right)dx\) сходятся, то \( \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| f\left( x\right)\right|dx= \displaystyle\int\limits_{ a}^{ \rightarrow b} f_+\left( x\right)dx+ \displaystyle\int\limits_{ a}^{ \rightarrow b} f_-\left( x\right)dx\) сходится. 
+        \item [1.] Из второго пункта следует, что \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f_\pm\left( x\right)dx\) сходятся. Значит 
+        \[ \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx= \displaystyle\int\limits_{ a}^{ \rightarrow b} f_+\left( x\right)dx- \displaystyle\int\limits_{ a}^{ \rightarrow b} f_-\left( x\right)dx \text{ тоже сходится}\]
+    \end{enumerate}
+\end{proof}
+
+Если \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx\) сходится, но не абсолютно сходится, то он называется \emph{условно сходящимся.} 
+
+\begin{note}
+    
+    ~
+
+    Если \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx\) условно сходится, то \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f_\pm\left( x\right)dx\) оба расходятся. 
+
+    Если бы они оба сходились, то их сумма, то есть \( \displaystyle\int\limits_{ a}^{ \rightarrow b} \left| f\left( x\right)\right|dx\), cходилась бы, а значит интеграл сходился бы абсолютно.
+    
+    Если бы один сходился, а другой расходился, то их разность, то есть \( \displaystyle\int\limits_{ a}^{ \rightarrow b} f\left( x\right)dx\) расходилась бы. 
+\end{note}
+
+Абсолютная сходимость - ещё один инструмент исследования интегралов от знакопеременных функций на сходимость. Рассмотрим пример. 
+
+\begin{example}
+    
+    ~
+
+    Требуется исследовать на сходимость интеграл \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \sin x}{ x^2} dx\). 
+    
+    Подынтегральная функция будет менять знак в любой окрестности \( + \infty \). Поэтому ни один известный нам пока признак сравнения не применим. Но вот функция \( \left| \dfrac{ \sin x}{ x^2} \right|\) уже знакопостоянная. 
+
+    \( \left| \dfrac{ \sin x}{ x^2} \right| \leq \dfrac{ 1}{ x^2} \). При этом \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ dx}{ x^2} \) \hyperlink{ex:converge}{сходится}. Значит по \hyperlink{thm:converge_classic}{классическому признаку сравнения} \( \displaystyle\int\limits_{ 1}^{ + \infty } \left| \dfrac{ \sin x}{ x^2} \right|dx\) сходится. 
+
+    Получается \( \displaystyle\int\limits_{ 1}^{ + \infty} \dfrac{ \sin x}{ x^2} dx\) сходится абсолютно. \hyperlink{thm:converge_abs}{Значит он сходится.}
+\end{example}
 \end{document}

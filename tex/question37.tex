@@ -2,4 +2,33 @@
 \begin{document}
 \newpage
 \section{Сходимость и абсолютная сходимость несобственных интегралов \( \int_{ 1}^{ + \infty} \dfrac{ \cos\left(\lambda x\right)}{ x^p}dx\) и \( \int_{ 1}^{ + \infty} \dfrac{ \sin\left(\lambda x\right)}{ x^p}dx\)}
+\hypertarget{ex:converge_sin}{~}
+Требуется исследовать на сходимость и абсолютную сходимость интеграл \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \sin( \lambda x)}{ x^p} dx\). 
+При \( \lambda =0\) подынтегральная функция просто тождетсвенно равна 0 и он, очевидно, сходится \( \forall \; p \in \R \). Будем рассматривать \( \lambda \neq 0\).
+
+\emph{Сходимость:}
+
+Функция \( \sin\left( \lambda x\right)\) имеет ограниченную первообразную (равную \( - \dfrac{ 1}{ \lambda } \cos\left( \lambda x\right)\)). При \( p > 0\) функция 
+\( \dfrac{ 1}{ x^p}\) строго убывает и \( \lim\limits_{ x \rightarrow + \infty } \dfrac{ 1}{ x^p} =0\). Таким образом, \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \sin\left(\lambda x\right)}{ x^p}dx \) сходится при \( p > 0\) \hyperlink{thm:int_dirihle}{по признаку Дирихле.} 
+
+При \( p=0\) интеграл превращается в 
+\[ \displaystyle\int\limits_{ 1}^{ + \infty } \sin\left( \lambda x\right)dx= - \dfrac{ 1}{ \lambda } \cos \left( \lambda x\right)\bigg|_1^{+ \infty } \text{ - очевидно расходится.}\]
+
+При \( p < 0\) рассмотрим \( q=-p,\quad q>0\). \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \sin\left( \lambda x\right)}{ x^p} dx= \displaystyle\int\limits_{ 1}^{ + \infty } x^q\sin\left(\lambda x\right)dx\). Если бы этот интеграл сходился, то \hyperlink{thm:int_abel}{по признаку Абеля} сходился бы интеграл
+\[ \displaystyle\int\limits_{ 1}^{ + \infty } \left( x^q\sin\left( \lambda x\right)\right) \cdot  \dfrac{ 1}{ x^q} dx= \displaystyle\int\limits_{ 1}^{ + \infty } \sin\left( \lambda x\right)dx\]
+
+Но он, как мы уже показали, расходится. 
+
+\emph{Абсолютная сходимость:}
+
+Будем исследовать на сходимость интеграл \( \displaystyle\int\limits_{ 1}^{ + \infty } \left| \dfrac{ \sin \left( \lambda x\right)}{ x^p} \right|dx= \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \left|\sin\left(\lambda x\right)\right|}{ x^p} dx\). Это интеграл от знакопостоянной функции. 
+
+\( \dfrac{ \left|\sin\left(\lambda x\right)\right|}{ x^p} \leq  \dfrac{ 1}{ x^p} \). \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ dx}{ x^p}\) \hyperlink{ex:converge}{сходится при \( p>1\)}. Тогда по \hyperlink{thm:converge_classic}{классическому признаку сравнения} \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \left|\sin\left(\lambda x\right)\right|}{ x^p} dx \) тоже сходится. 
+
+Если \( 0 < p \leq 1\), оценим синус так: \( \left| \sin\left( \lambda x\right)\right| \geq \sin^2\left( \lambda x\right)\). Тогда 
+\[ \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \left|\sin\left(\lambda x\right)\right|}{ x^p} dx \geq \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \sin^2\left( \lambda x\right)}{ x^p} dx= \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ 1-\cos\left(2\lambda x\right)}{ x^p}dx= \underbrace{\displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ dx}{ x^p}}_{\text{расходится}} - \underbrace{\displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \cos\left(2\lambda x\right)}{ x^p}dx}_{\text{сходится по Дирихле}} \]
+
+При \( p < 0\) говорить про абсолютную сходимость не приходится, потому что там даже обычной сходимости нет. 
+
+Итого: \( \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ \sin\left(\lambda x\right)}{ x^p} dx\) сходится (в том числе и абсолютно) при \( \lambda =0,\quad p \in \R \). Если же \( \lambda \neq 0\), то он сходится при \( p > 0\) и абсолютно сходится при \( p > 1\).
 \end{document}

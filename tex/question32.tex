@@ -2,4 +2,22 @@
 \begin{document}
 \newpage
 \section{Исследование на сходимость несобственного интеграла \( \int_{ 2}^{ + \infty } \dfrac{ dx}{ x^p\ln^qx}\).}
+У этого интеграла одна особенность в \( + \infty \), потому что на луче от \( 2 \) до \( + \infty \) логарифм и степень обнулиться не могут. При исследовании 
+будем обозначать \( f\left( x\right)=\dfrac{ 1}{ x^p\ln^qx}= \dfrac{ \ln^{-q}x}{ x^p} \)
+\begin{enumerate}
+    \item Если \( p > 1\). Тогда \( \exists \; p' \in \left( 1, p\right)\).
+    \par \( \dfrac{ 1}{ x^p} = \dfrac{ 1}{ x^{p'}} \cdot \dfrac{ 1}{ x^{p-p'}} \)
+    \par Известный факт, что \( \forall \; \alpha >0\quad \ln x\underset{x \rightarrow + \infty }{=} o\left( x^{ \alpha }\right) \implies \ln ^{-q}x \underset{x \rightarrow + \infty }{=} o\left( x^{p-p'}\right)\). Тогда 
+    \[ f\left( x\right)= \dfrac{ 1}{ x^{p'}} \cdot \dfrac{ \ln^{-q}x}{ x^{p-p'}} = \dfrac{ 1}{ x^{p'}} \cdot o\left( 1\right) =o ( \underbrace{\dfrac{ 1}{ x^{p'}}}_{g \left( x\right)} )\]
+    \par Получили, что \( f\left( x\right) \leq g \left( x\right)\), начиная с какого-то момента. \hyperlink{ex:converge}{Как обсуждали в примере,} при \( p'>1\quad \displaystyle\int\limits_{ 2}^{ + \infty } g \left( x\right)dx\) сходится. 
+    Значит по \hyperlink{thm:converge_classic}{классическому признаку сравнения} \( \displaystyle\int\limits_{ 2}^{ + \infty } f\left( x\right)dx\) тоже сходится.
+    \item Если \( p<1\). Тогда \( \exists \; p' \in \left( p,1\right)\).
+    \par Как обсуждалось в предыдущем случае \( \ln ^qx=o \left( x^{p'-p}\right) \implies \dfrac{ 1}{ x^{p'-p}}=o \left( \ln ^{-q}x\right) \). Тогда 
+    \[ \underbrace{ \dfrac{ 1}{ x^{p'}} }_{g \left( x\right)} = \dfrac{ 1}{ x^p} \cdot \dfrac{ 1}{ x^{p'-p}} = \dfrac{ 1}{ x^p} \cdot o\left( \ln ^{-q}x\right)=o \left( \underbrace{\dfrac{ \ln^{-q}x}{ x^p}}_{f \left( x\right)} \right)\]
+    \par То есть \( g \left( x\right) \leq f \left( x\right)\), начиная с какого-то момента. \hyperlink{ex:converge}{Всё по тому же примеру} \( \displaystyle\int\limits_{ 2}^{ + \infty } g \left( x\right)dx\) расходится. 
+    Значит по \hyperlink{thm:converge_classic}{классическому признаку сравнения} \( \displaystyle\int\limits_{ 2}^{ + \infty } f\left( x\right)dx\) тоже расходится. 
+    \item Если \( p=1\).
+    \[ \displaystyle\int\limits_{ 2}^{ + \infty } f\left( x\right)dx= \displaystyle\int\limits_{ 2}^{ + \infty } \dfrac{ \ln^{-q}x}{ x} dx= \displaystyle\int\limits_{ 2}^{ + \infty } \ln ^{-q}d\left( \ln x\right)\underset{y=\ln x}{=} \displaystyle\int\limits_{ \ln 2}^{ + \infty } y^{-q}dy= \displaystyle\int\limits_{ \ln 2}^{ + \infty } \dfrac{ dy}{ y^q} \]
+    \par \hyperlink{ex:converge}{Этот интеграл уже обсуждался,} он сходится при \( q>1\) и расходится при \( q \leq 1\).
+\end{enumerate}
 \end{document}
