@@ -2,4 +2,31 @@
 \begin{document}
 \newpage
 \section{Интегрирование по частям в несобственном интеграле.}
+
+\emph{ Интегрирование по частям.} \( \Let \; u(x), v(x) \in C^1[a, b)\quad -\infty < a < b \leq +\infty.\) \;
+Тогда:
+\[ \displaystyle\int\limits_{ a}^{ \rightarrow b} udv = uv \bigg |^b_a \; - \; \displaystyle\int\limits_{ a}^{ \rightarrow b} vdu\]
+
+Если два из трёх пределов существуют в конечном смысле, то существует и третий.
+
+\vspace{5mm}
+
+\begin{proof}
+
+    ~
+
+    Для доказательства достаточно устремить A к b слева в формуле выше. \\
+    \[ \displaystyle\int\limits_{ a}^{ A} udv = uv \bigg |^A_a \; - \; \displaystyle\int\limits_{ a}^{ A} vdu\]
+\end{proof}
+
+\vspace{5mm}
+
+\begin{example}
+
+    ~
+
+    \( \displaystyle\int\limits_{0}^{ 1} \ln(x)dx = \underbrace{x\ln(x) \bigg |^1_0}_{0} - \underbrace{\displaystyle\int\limits_{ 0}^{ 1} xd\ln(x)}_{ \int\limits_{ 0}^{ 1} 1dx } = -1\) \\
+    Первый переход нужно писать сначала со знаком вопроса, так как нужно еще проверить пределы на сходимость.
+\end{example}
+
 \end{document}

@@ -2,4 +2,54 @@
 \begin{document}
 \newpage
 \section{Замена переменной в несобственном интеграле.}
+
+\emph{ Замена переменной.} \\
+\( \Let \; f \in C<A, B>\quad \phi: [\alpha, \beta] \; \rightarrow \; <A, B>\quad \phi \; \text{--- строго монотонна}; \; \phi \in C^1;\) 
+
+\vspace{2mm} 
+
+\( \forall \; t \in (\alpha, \beta)\quad \phi'(t) \neq 0;\quad  \phi(\beta) = \lim\limits_{ t \; \rightarrow \; \beta-} \phi(t).\) \\
+Тогда:
+\[ \displaystyle\int\limits_{ \phi(\alpha)}^{ \phi(\beta)} f(x)dx = \displaystyle\int\limits_{ \alpha}^{ \beta} f(\phi(t))\phi'(t)dt\]
+Если сходится один из интегралов, то сходится и другой, и в случае сходимости равенство верно.
+
+\vspace{5mm}
+
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item \( \Let \;  \displaystyle\int\limits_{ \phi(\alpha)}^{ \phi(\beta)} f(x)dx \; \text{--- сходится};\quad \phi(\alpha) = a; \; \phi(\beta) = b;\quad a, b \in \overline{<A, B>}\) 
+
+        ~
+
+        \( \displaystyle\int\limits_{ a}^{ b} f(x)dx = \lim\limits_{ c \; \rightarrow \; b} \displaystyle\int\limits_{ a}^{ c} f(x)dx\quad \text{(c между a и b)} = \lim\limits_{ c \; \rightarrow \; b} F(c) - F(a)\quad (F(x) \; \text{--- первообразная} \\[3mm] \text{на} \; <A, B>) \) 
+
+        ~
+
+        \( \displaystyle\int\limits_{ \alpha}^{ \beta} f(\phi(t))\phi'(t)dt = \lim\limits_{ \gamma \; \rightarrow \; \beta -} \displaystyle\int\limits_{ \alpha}^{ \gamma} f(\phi(t))\phi'(t)dt = \lim\limits_{ \gamma \; \rightarrow \; \beta -} (F(\phi(\gamma)) - F(\phi(\alpha))) = F(b) - F(a) \\[3mm] \text{Здесь мы полагаем, что} \; F(b) = \lim\limits_{ c \; \rightarrow \; b} F(c) \)
+
+        \item \( \displaystyle\int\limits_{ \phi^{-1}(a)}^{ \phi^{-1}(b)} \underbrace{f(\phi(t))\phi'(t)dt}_{g(t)} = \displaystyle\int\limits_{ a}^{ b} g(\phi^{-1}(x))(\phi^{-1})'(x)dx = \displaystyle\int\limits_{ a}^{ b} f(\phi(\phi^{-1}(x))) \phi'(\phi^{-1}(x)) \dfrac{ 1}{ \phi'(t)}dx = \) \\
+        \vspace{3mm}
+        \(= \displaystyle\int\limits_{ a}^{ b} f(x) dx\) \\
+        Равенство выше нужно немного уточнить: \( \phi^{-1}(x) \) --- строго монотонна, \( (\phi^{-1})'(x) = \dfrac{ 1}{ \phi'(t)}\), а так же \( \alpha = \phi^{-1}(a), \; \beta = \phi^{-1}(b). \)
+    \end{enumerate}
+\end{proof}
+
+\vspace{5mm}
+
+\begin{example}
+    
+    ~
+
+    \( \displaystyle\int\limits_{ 0}^{ +\infty} \dfrac{ x}{ (x^2+1)^2}dx = 
+    \displaystyle\int\limits_{ 0}^{ 1} \dfrac{ x}{ (x^2+1)^2}dx \; + \; \displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ x}{ (x^2+1)^2}dx =
+    2 \displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ x}{ (x^2+1)^2}dx = (*)\) \\
+    \vspace{3mm}
+    Последний переход справедлив:
+    \( \displaystyle\int\limits_{ 0}^{ 1} \dfrac{ xdx}{ (x^2+1)^2} = \bigg [x = \dfrac{ 1}{ y} \bigg ] = \displaystyle\int\limits_{ +\infty}^{ 1} \dfrac{ \dfrac{ 1}{ y} \bigg (- \dfrac{ dy}{ y^2} \bigg )}{ \bigg ( \dfrac{ 1}{ y^2} + 1 \bigg )^2} = \displaystyle\int\limits_{ 1}^{ +\infty} \dfrac{ ydy}{ (y^2+1)^2}.\)
+    \vspace{2mm}
+    \( (*) = \bigg [y = x^2+1, \; x = \sqrt{y - 1}, \;dy = 2xdx  \bigg ] = \displaystyle\int\limits_{ 2}^{ +\infty} \dfrac{ dy}{ y^2} = - \dfrac{ 1}{ y} \bigg |^{+\infty}_2 = \dfrac{ 1}{ 2}. \) 
+\end{example}
 \end{document}
