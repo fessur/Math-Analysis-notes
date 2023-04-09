@@ -2,7 +2,8 @@
 \begin{document}
 \newpage
 \section{Аддитивная функция промежутка и ее плотность. Критерий непрерывной плотности.}
-\[ \Let \left[ A,B\right] \subseteq  \R \qquad\Phi:\left\{ \left[ a,b\right]\right\}_{\left[ a,b\right]\in\left[ A,B\right]} \longrightarrow  \R\]
+\( \Let \left[ A,B\right] \subseteq  \R \qquad\Phi:\left\{ \left[ a,b\right]\right\}_{\left[ a,b\right]\in\left[ A,B\right]} \longrightarrow  \R\).
+
 \(\ \Phi\) называется \emph{аддитивной функцией промежутка}, если 
 \[ \forall \; a \leq c \leq b: \left[ a,b\right] \subseteq \left[ A,B\right]\quad\Phi \left( \left[ a,b\right]\right)= \Phi \left( \left[ a,c\right]\right)+ \Phi \left( \left[ c, b\right]\right)\]
 
@@ -55,8 +56,10 @@
 
     \( \Let \; I= \displaystyle\int\limits_{ a}^{ b} \rho(x)dx\), \( X=\left\{ a=x_{ 0},x_{ 1}, \dots,x_{ n}=b\right\}\) - дробление \( \left[ a,b\right]\), \( T = \left\{ t_{ i}\right\}_{i=1}^{n}\) - его оснащение. Вспоминаем определение интеграла по Риману:
     \[ \forall \; \varepsilon >0\quad \exists \; \delta >0:\quad \lambda (X)< \delta \implies \left| I- \sum\limits_{ i=1}^{ n} \rho(t_i) \Delta x_i\right|< \varepsilon \implies I- \varepsilon <\sum\limits_{ i=1}^{ n} \rho\left( t_i\right) \Delta x_i< I+ \varepsilon \]
+
     Причём это верно для любого оснащения \( T\). Вспомним, что мы умеем оценивать \( \Phi\left( \left[ a,b\right]\right)\).
     \[ \Phi\left( \left[ a,b\right]\right)= \sum\limits_{ k=1}^{ n} \Phi\left( \left[ x_{k-1}, x_k\right]\right) \leq \sum\limits_{ k=1}^{ n} \max\limits_{ \left[ x_{k-1},x_k\right]}\rho\;\cdot \Delta x_k= \sum\limits_{ k=1}^{ n} \rho\left( c_k\right) \Delta x_k\]
+
     для некоторых \( c_k\in\left[ x_{k-1}, x_k\right]\). Заметим, что \( \sum\limits_{ k=1}^{ n} \rho\left( c_k\right) \Delta x_k\) - это сумма Римана, а интеграл \( I\) это как раз предел таких сумм, поэтому 
     \[ \sum\limits_{ k=1}^{ n} \rho\left( c_k\right) \Delta x_k < I + \varepsilon \]
 

@@ -7,9 +7,10 @@
 
     ~
 
-    \[ \Let \; f \in C \langle A,B \rangle ,\quad a \in \langle A,B \rangle,\quad \Phi \left( x\right)= \displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt \]
+    \( \Let \; f \in C \langle A,B \rangle ,\quad a \in \langle A,B \rangle,\quad \Phi \left( x\right)= \displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt \)
 
-    Тогда \( \Phi\) дифференцируема на \( \langle A,B \rangle \) и \( \forall \; x \in \langle A,B \rangle\quad \Phi' \left( x\right)=f\left( x\right)\)
+    Тогда 
+    \[ \Phi \text{ дифференцируема на } \langle A,B \rangle \text{ и } \forall \; x \in \langle A,B \rangle\quad \Phi' \left( x\right)=f\left( x\right)\]
 \end{thm}
 
 \begin{proof}
@@ -38,7 +39,7 @@
     
     ~
 
-    Все первообразные по теореме Барроу представимы в виде \( F(x)=\displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt + C\)
+    Все первообразные по \hyperlink{thm:barrow}{теореме Барроу} представимы в виде \( F(x)=\displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt + C\)
 \end{proof}
 
 \begin{thm}[\hypertarget{thm:main_thm}{Формула Ньютона-Лейбница (основная теорема анализа)}]
@@ -55,7 +56,7 @@
     
     ~
 
-    Рассмотрим функцию \( \Phi\left( x\right)= \displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt\). По теореме Барроу она является первообразной для \( f\). \hyperlink{thm:primitive_structure}{Но \( F\) тоже первообразная, поэтому} \( F\left( x\right)= \Phi \left( x\right)+C\). 
+    Рассмотрим функцию \( \Phi\left( x\right)= \displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt\). По \hyperlink{thm:barrow}{теореме Барроу} она является первообразной для \( f\). \hyperlink{thm:primitive_structure}{Но \( F\) тоже первообразная, поэтому} \( F\left( x\right)= \Phi \left( x\right)+C\). 
     \begin{equation*}
         \begin{aligned}
             F\left( b\right)-F\left( a\right)=\left( \Phi \left( b\right)+C\right)- \left( \Phi \left( a\right) + C\right) = \Phi \left( b\right)- \Phi\left( a\right)= \displaystyle\int\limits_{ a}^{ b} f\left( t\right)dt - \underbrace{\displaystyle\int\limits_{ a}^{ a} f\left( t\right)dt}_{0}= \displaystyle\int\limits_{ a}^{ b} f\left( t\right)dt
@@ -69,17 +70,17 @@
     
     ~
 
-    \( \Let \; f,g \in C \langle A,B \rangle ,\quad a,b \in \langle A,B \rangle ,\quad c_1, c_2 \in \R \)
+    \( \Let \; f,g \in C \langle A,B \rangle ,\quad a,b \in \langle A,B \rangle ,\quad c_1, c_2 \in \R \).
 
     Тогда
     \[ \displaystyle\int\limits_{ a}^{ b} \left( c_1f\left( x\right)+c_2g\left( x\right)\right)dx= c_1 \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx + c_2 \displaystyle\int\limits_{ a}^{ b} g \left( x\right)dx\]
 \end{thm}
 \begin{proof}
-    Всё получается из линейности непределённого интеграла и формулы Ньютона-Лейбница. 
+    Всё получается из линейности непределённого интеграла и \hyperlink{thm:main_thm}{формулы Ньютона-Лейбница.} 
 
     Пусть \( F\) - первообразная для \( f\) на \( \langle A, B \rangle \), \( G\) - первообразная для \( g\) на \( \langle A,B \rangle \). Тогда \( c_1 F + c_2G\) - первообразная для \( c_1f+c_2g\) на \( \langle A,B \rangle \).
 
-    По формуле Ньютона-Лейбница:
+    По \hyperlink{thm:main_thm}{формуле Ньютона-Лейбница}:
     \[ \displaystyle\int\limits_{ a}^{ b} \left( c_1f\left( x\right)+c_2g\left( x\right)\right)dx=c_1F\left( x\right)+c_2G\left( x\right)\bigg|_a^b= c_1\left( F\bigg|_a^b\right)+c_2\left( G\bigg|_a^b\right)=c_1 \displaystyle\int\limits_{ a}^{ b} f\left( x\right)dx +c_2 \displaystyle\int\limits_{ a}^{ b} g \left( x\right)dx\]
 \end{proof}
 \end{document}

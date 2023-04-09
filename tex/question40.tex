@@ -2,6 +2,20 @@
 \begin{document}
 \newpage
 \section{Вычисление площадей.}
+\emph{Площадь} - неотрицательная функция множества, заданная на некой совокупности множеств \( D(S)\), которые называются \emph{квадрируемыми}. Более полное и подробное определение площади будет дано когда-нибудь позже, когда мы будем разбирать теорию меры, а пока ограничимся этим. \\
+
+{\parindent0pt \textbf{Свойства площади:}}
+
+\begin{enumerate}
+    \item \emph{Аддитивность.} Мы привыкли, что площадь аддитивна в том смысле, что если разрезать фигуру на 2 части, то площадь фигуры - это сумма площадей
+    обрезков. Но площадь аддитивна ещё и в таком смысле:
+    \[ A,B\in D\left( S\right),\quad A \cap B=\varnothing \implies S\left( A \cup B\right)=S\left( A\right)+S\left( B\right)\]
+    Это свойство, в частности, позволяет во многих задачах рассматривать площадь как аддитивную функцию промежутка и для её вычисления применять признак плотности. \hyperlink{q15}{Пример можно найти в 15 билете.}
+    \item \emph{Инвариантность относительно изометрий (движений).} 
+    \[ \Let \;  u: \R^2 \longrightarrow \R^2:\quad  \;\forall \;x,y\in\R^2\quad \left| \left| u\left( x\right)-u\left( y\right)\right|\right|=\left| \left| x-y\right|\right| \implies S\left( u\left( A\right)\right)=S\left( A\right)\]  
+    Отображение u, удовлетворяющее условию этого утверждения, называется \hypertarget{def:movement}{\emph{движением}}.
+\end{enumerate}
+
 Если \( f \geq 0\), то \( \displaystyle\int\limits_{ a}^{ b}f(x)dx=S\left( \left[ a,b\right],f\right)\) - \emph{площадь подграфика} функции \( f\).
 
 \begin{thm}[Площадь криволинейной трапеции]
@@ -22,29 +36,34 @@
     
     \[ \Let \; m= \min\limits_{ \left[ a,b\right]} f\left( x\right),\quad f_1\left( x\right)=f\left( x\right)-m, \quad f_2\left( x\right)=f\left( x\right)-m\]
     \[ E_1=\left\{ \left( x,y\right):\; f_1\left( x\right) \leq y \leq g_1\left( x\right)\right\}=E+ \left( 0,m\right)\quad\text{-  сдвиг на вектор}\]
+
     \( S(E_1)=S(E)\), т.к. площадь инвариантна относительно изометрий, в том числе и относительно параллельного переноса. При этом \( f_1 \geq 0,\; g \geq 0\), поэтому
     \[ S\left( E\right)=S\left( \left[ a,b\right],g_1\right)-S\left( \left[ a,b\right],f_1\right)= \displaystyle\int\limits_{ a}^{ b} \left( g\left( x\right)-m\right)dx- \displaystyle\int\limits_{ a}^{ b} \left( f\left( x\right)-m\right)dx= \displaystyle\int\limits_{ a}^{ b} g\left( x\right)-f\left( x\right)dx\]
 \end{proof}
 
+\newpage
 \begin{example}[\hypertarget{thm:elips_area}{Площадь эллипса}]
 
     ~
 
-    \InsertBoxL{0}{
+    \InsertBoxR{0}{
         \begin{minipage}[t]{6cm} 
             \includegraphics[width=\linewidth]{40_elips.pdf} 
         \end{minipage}
     }
     Вообще, эллипс - это кривая, но здесь речь идёт про площадь множества, ограниченного ей. Если \( a, b\) - полуоси эллипса, то найдём площадь множества 
     \[ E = \left\{ \dfrac{ x^2}{ a^2}+ \dfrac{ y^2}{ b^2} \leq 1\right\}\]
+
     Т.к. эллипс делится осями координат на 4 симметричные части, будем считать часть одной из них (заштрихованной), а ответ получим умножением на 4. 
     \[ S\left( E\right)=4\left( E \cap \left\{ x \geq 0, \;y \geq 0\right\}\right) = 4S(E_1)\]
+
     Площадь \(E_1\) будем считать как площадь подграфика функции, заданной уравнением \\
     \( \dfrac{ x^2}{ a^2}+ \dfrac{ y^2}{ b^2}=1\) в первой координатной четверти. 
     \[ y= b\;\sqrt[]{1- \dfrac{ x^2}{ a^2}}\]
     \[ S\left( E_1\right)= \displaystyle\int\limits_{ 0}^{ a} b \;\sqrt[]{1- \dfrac{ x^2}{ a^2}}dx \underset{\tilde{x}= \frac{ x}{ a}}{=} ab\displaystyle\int\limits_{ 0}^{ 1} \sqrt[]{1- \tilde{x}^2}d \tilde{x} \underset{ 
         t=\arcsin{ \tilde{x}}}{=} ab\displaystyle\int\limits_{ 0}^{ \frac{ \pi}{ 2}} \cos^2tdt= \dfrac{ \pi}{ 4}ab\]
     \[ \boxed{S\left( E\right)= \pi ab}\]
+
     Так мы заодно проверили, что площадь круга равна \( \pi r^2\).
 \end{example}
 
@@ -62,10 +81,11 @@
     \end{minipage}
     }   
 
-    Рассмотрим аддитивную функцию промежутка \( S(\left[ \alpha , \beta \right])\) - площадь части нашего криволинейного сектора, заключённой между 
+    Рассмотрим аддитивную функцию промежутка \\
+    \( S(\left[ \alpha , \beta \right])\) - площадь части нашего криволинейного сектора, заключённой между 
     углами \( \alpha \) и \( \beta \). Она определена на всех подотрезках отрезка \( \left[ a,b\right]\). Рассмотрим произвольный подотрезок \( \left[ \alpha , \beta \right]\).
     Площадь соответствующей части криволинейного сектора ограничивается снизу вписанным круговым сектором с радиусом, равным \( \min\limits_{ \varphi \in \left[ \alpha , \beta \right]} r\left( \varphi \right)\). 
-    Она также ограничивается снизу "описанным" круговым сектором с радиусом \( \max\limits_{ \varphi \in \left[ \alpha , \beta \right]} r\left( \varphi \right)\). Поэтому мы можем написать:
+    Она также ограничивается снизу "описанным"  круговым сектором с радиусом \( \max\limits_{ \varphi \in \left[ \alpha , \beta \right]} r\left( \varphi \right)\). Поэтому мы можем написать:
     \[ \pi \left( \min\limits_{ \varphi \in \left[ \alpha , \beta \right]} r\left( \varphi \right) \right)^2\cdot \dfrac{ \beta-\alpha}{ 2 \pi } \leq S(\left[ \alpha , \beta \right]) \leq \pi \left( \max\limits_{ \varphi \in \left[ \alpha , \beta \right]} r\left( \varphi \right) \right)^2\cdot \dfrac{ \beta-\alpha}{ 2 \pi }\]
 
     Немного причесав эти неравенства, получим:
