@@ -2,17 +2,15 @@
 \begin{document}
 \newpage
 \section{Неравенство Гёльдера и его следствия для сумм, в т.ч. неравенство Коши.}
-Пусть \( x\) - вектор из \( \R ^n\) (то есть \( x = \left( x_1, \ldots , x_n\right),\quad \forall \; i\quad x_i \in \R \)), \( p \geq 1\).
-\emph{p-нормой вектора \(x\)} называют \( \left( \sum\limits_{ k=1}^{ n} \left| x_k\right|^p\right)^ \frac{ 1}{ p}=\left| \left| x\right|\right|_p\). 
-Чаще всего используется \( p=2\), тогда норма - это длина вектора, в такой ситуации в обозначении нормы \( p\) опускают. 
-
-Пусть \( x, y\) - векторы из \( \R ^n\). \emph{Скалярным произведением векторов \( x,y\)} называют \( \sum\limits_{ k=1}^{ n} x_ky_k= \langle x, y \rangle \).  
-\begin{thm}[Неравенство Гёльдера для неотрицательных чисел]
+Пусть \( x, y\) - векторы из \( \R ^n\). \emph{Скалярным произведением векторов \( x,y\)} называют \\
+\( \langle x, y \rangle=\sum\limits_{ k=1}^{ n} x_ky_k \).  
+\begin{thm}[\hypertarget{thm:Golder_plus}{Неравенство Гёльдера для неотрицательных чисел}]
 
     ~
 
-    \[ \Let \; p, q > 1,\quad \dfrac{ 1}{ p}+ \dfrac{ 1}{ q}=1,\quad a_1, \ldots , a_n \geq 0,\quad b_1, \ldots , b_n \geq 0\]
-    \[ a=\left( a_1, \ldots , a_n\right),\quad b=\left( b_1, \ldots , b_n\right)\]
+    \( \Let \; p, q > 1,\quad \dfrac{ 1}{ p}+ \dfrac{ 1}{ q}=1,\quad a_1, \ldots , a_n \geq 0,\quad b_1, \ldots , b_n \geq 0,\)\\
+    \( a=\left( a_1, \ldots , a_n\right),\quad b=\left( b_1, \ldots , b_n\right)\)
+
     Тогда
     \[ \sum\limits_{ k=1}^{ n} a_kb_k \leq \left( \sum\limits_{ k=1}^{ n} a_k^p\right)^ \frac{ 1}{ p}\cdot \left( \sum\limits_{ k=1}^{ n} b_k^q\right)^ \frac{ 1}{ q}\]
     Или (то же самое только по-другому записано)
@@ -87,13 +85,14 @@
     
     \[ \sum\limits_{ k=1}^{ n} \left| x_k\right|\left| y_k\right| = \sum\limits_{ k=1}^{ n} a_kb_k= \langle a, b \rangle \]
 
-    Для векторов \( a\) и \( b\) выполняется неравенство Гёльдера для неотрицательных чисел:
+    Для векторов \( a\) и \( b\) выполняется \hyperlink{thm:Golder_plus}{неравенство Гёльдера для неотрицательных чисел:}
     \[ \langle a, b \rangle \leq \left| \left| a\right|\right|_p \cdot \left| \left| b\right|\right|_q\]
 
     Норма не зависит от знака, потому что в её определении есть модуль. Поэтому:
     \[ \left| \left| a\right|\right|_p \cdot \left| \left| b\right|\right|_q=\left| \left| x\right|\right|_p \cdot \left| \left| y\right|\right|_q\]
 
-    Если пройти по этой цепочке от начала до конца, то как раз и получится, что \( \left| \langle x, y \rangle \right| \leq \left| \left| x\right|\right|_p \cdot \left| \left| y\right|\right|_q\)
+    Если пройти по этой цепочке от начала до конца, то как раз и получится 
+    \[ \left| \langle x, y \rangle \right| \leq \left| \left| x\right|\right|_p \cdot \left| \left| y\right|\right|_q\]
 \end{proof}
 
 \begin{crl}[Неравенство КБШ]

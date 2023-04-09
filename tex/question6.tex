@@ -2,7 +2,8 @@
 \begin{document}
 \newpage
 \section{Определение первообразной и неопределенного интеграла; описание первообразной на промежутке.}
-\( E \subseteq \R ,\quad E\) - конечное обхединение невырожденных промежутков, \( f, F: E \longrightarrow \R \). \( F\) называется \emph{первообразной} для \( f\) (на \( E\)), если 
+\( E \subseteq \R ,\quad E\) - конечное обхединение невырожденных промежутков, \( f, F: E \longrightarrow \R \). \\
+\( F\) называется \emph{первообразной} для \( f\) (на \( E\)), если 
 \[ \forall \; x \in E\quad \exists \; F'\left( x\right) \in \R\quad \text{и}\quad F'\left( x\right)=f\left( x\right)\]
 
 \begin{prop}{Вопрос на засыпку}
@@ -11,19 +12,19 @@
     которая говорит, что у производной не может быть разрывов первого рода. 
 
     А существует ли вообще разрывная функция, у которой есть первообразная? Ответ точно такой же, как и на вопрос "А существует ли дифференцируемая функция 
-    с разрывной производной?" - существует. Вот пример:
+    с разрывной производной?"\ - существует. Вот пример:
     \begin{equation*}
         \begin{aligned}
             &f(x)=
             \begin{cases}
-                2x \cdot \sin \dfrac{ 1}{ x} - \cos \dfrac{ 1}{ x} ,\quad x \neq 0\\
-                0,\quad x=0 
+                2x \cdot \sin \dfrac{ 1}{ x} - \cos \dfrac{ 1}{ x} , &x \neq 0\\
+                0,\quad &x=0 
             \end{cases}
         \\
             &F(x)=
             \begin{cases}
-                x^2\sin \dfrac{ 1}{ x},\quad x \neq 0\\
-                0,\quad x=0
+                x^2\sin \dfrac{ 1}{ x}, &x \neq 0\\
+                0,\quad &x=0
             \end{cases}
         \end{aligned}
     \end{equation*}
@@ -47,17 +48,16 @@
 
     ~
 
-    \( 2\quad \boxed{ \implies }\quad  1\):
-
+    \( \quad \boxed{ 2\Longrightarrow 1}:\)
     \[ G - F = c \implies G'=\left( F+c\right)'=F'+c'=F'=f \implies G \text{ - первообразная для } f\]
 
-    \( 1\quad \boxed{ \implies }\quad 2\):
+    \( \quad \boxed{ 1\Longrightarrow 2}:\)
 
     Сначала покажем, что если у некоторой функции \( H\) производная равна 0 на \( \langle A, B \rangle \), то \( H\) - постоянная. 
     Рассмотрим произвольные \( x_1, x_2 \in \langle A,B \rangle \). По теореме Лагранжа существует точка \( c\):
     \[ H\left( x_1\right)-H\left( x_2\right)=H'\left( c\right)\left| x_1-x_2\right|\]
 
-    Но производная H во всех точках 0, значит и \( H'\left( c\right)=0 \implies H\left( x_1\right)=H\left( x_2\right)\quad \forall \; x_1, x_2 \in \langle A,B \rangle \)
+    Но производная H во всех точках 0, значит и \( H'\left( c\right)=0 \implies H\left( x_1\right)=H\left( x_2\right)\).
 
     Вернёмся к доказательству нашего утверждения:
     \[ \left( G-F\right)'=G'-F'=f-f=0 \implies G-F \text{ - постоянная}\]
