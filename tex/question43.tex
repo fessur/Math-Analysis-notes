@@ -37,7 +37,7 @@
     Запомним этот факт. 
 
     Рассмотрим произвольное дробление \( X=(a=x_0, x_1, \ldots , x_N=b):\quad \lambda \left( X\right)< \delta \). 
-    \[ \left| l \left( X, \gamma \right)- I\right|=\left| l \left( X, \gamma \right)- \displaystyle\int\limits_{ a}^{ b} \left| \left| \gamma '\left( t\right)\right|\right|dt\right|=\left| \sum\limits_{ k=1}^{ N} \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right|\right|\oeq\]
+    \[ \left| l \left( X, \gamma \right)- I\right|=\left| l \left( X, \gamma \right)- \displaystyle\int\limits_{ a}^{ b} \left| \left| \gamma '\left( t\right)\right|\right|dt\right|=\left| \sum\limits_{ k=1}^{ N} \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right|- \sum\limits_{ k=1}^{ N} \displaystyle\int\limits_{ x_{k-1}}^{ x_k} \left| \left| \gamma '\left( t\right)\right|\right|dt\right|\oeq\]
 
     Заметим, что по теореме Лагранжа существуют такие точки \( c_{k,i}\):
     \[ \left| \left| \gamma \left( x_k\right)- \gamma \left( x_{k-1}\right)\right|\right|= \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \left( \gamma _i\left( x_k\right)- \gamma _i\left( x_{k-1}\right)\right)^2}= \;\sqrt[]{ \sum\limits_{ i=1}^{ n} \left( \gamma _i'^2 \left( c_{k,i}\right) \cdot \Delta x_k^2\right)}\]
