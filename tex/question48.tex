@@ -1,0 +1,71 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Связь сходимости ряда с поведением его остатков. Линейность суммирования.}
+
+\( \sum\limits_{ k=n}^{ \infty } a_k\) называется \emph{остатком числового ряда} \( \sum\limits_{ k=1}^{ \infty } a_k\).
+
+\begin{thm}[Связь сходимости ряда с поведением его остатков]
+    
+    ~
+
+    Следующие утверждения равносильны:
+    \begin{enumerate}
+        \item \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится
+        \item \( \exists \; n \in \N:\quad \sum\limits_{ k=n}^{ \infty } a_k\) сходится
+        \item \(
+            \begin{cases}
+                \forall \; n \in \N\quad \sum\limits_{ k=n}^{ \infty } a_k \text{ сходится} \\
+                \sum\limits_{ k=n}^{ \infty } a_k \underset{n \rightarrow \infty }{ \longrightarrow } 0
+            \end{cases}
+        \)
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    
+    ~\\
+    \( \boxed{ 3\Longrightarrow 2}:\) 
+    
+    Очевидно. 
+    ~\\
+    \( \boxed{ 2 \Longrightarrow 1}:\)
+
+    \( \Let \; \tilde{ S}_N = \sum\limits_{ k=n}^{ N} a_k\). Тогда 
+    \( S_N = \sum\limits_{ k=1}^{ N-1} a_k + \underbrace{\tilde{ S}_N}_{\text{сходится}} \Longrightarrow S_n \text{ сходится.}\)
+    ~\\
+    \( \boxed{ 1 \Longrightarrow 3}:\)
+
+    \( \forall \; n \in \N\quad \tilde{ S}_N= \sum\limits_{ k=n}^{ N} a_k\). Тогда 
+    \( \underbrace{\tilde{ S}_N}_{\text{сходится}}= S_N- \sum\limits_{ k=1}^{ n-1} a_k \Longrightarrow S_N \text{ сходится.}\)
+
+    Доказали, что любой остаток сходится. Кроме того, если сделать предельный переход при \( N \longrightarrow \infty \):
+    \[ \sum\limits_{ k=n}^{ \infty } a_k= \sum\limits_{ k=1}^{ \infty } a_k - \sum\limits_{ k=1}^{ n-1} a_k\]
+
+    Если \( n \longrightarrow \infty \), то \( \sum\limits_{ k=1}^{ \infty } a_k \longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\), т.к. не зависит от n, и \( \sum\limits_{ k=1}^{ n-1} a_k \longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\) по определению. Поэтому \( \sum\limits_{ k=n}^{ \infty } a_k \underset{n \rightarrow \infty }{ \longrightarrow }0\).
+\end{proof}
+
+\begin{thm}[Линейность суммирования]
+    
+    ~
+
+    \( \sum\limits_{ k=1}^{ \infty } a_k\), \( \sum\limits_{ k=1}^{ \infty } b_k\) - сходящиеся числовые ряды, \( \alpha , \beta \in \C\).
+
+    Тогда
+    \[ \sum\limits_{ k=1}^{ \infty } \left( \alpha a_k+ \beta b_k\right) \text{ сходится и } \sum\limits_{ k=1}^{ \infty } \left( \alpha a_k+ \beta b_k\right)= \alpha  \sum\limits_{ k=1}^{ \infty }a_k + \beta \sum\limits_{ k=1}^{ \infty } b_k\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Ряд - это предел, а для пределов данное свойство выполнено.
+\end{proof}
+
+\begin{note}
+    Сходящийся + Сходящийся = Сходящийся
+
+    Сходящийся + Расходящийся = Расходящийся 
+    
+    Расходящийся + Расходящийся = ? \( \longrightarrow \) это зависит от конкретных рядов
+\end{note}
+
+\end{document}

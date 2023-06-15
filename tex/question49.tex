@@ -1,0 +1,82 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Сумма геометрической прогрессии; оценка частичных сумм рядов \( \sum_{ k=1}^{ \infty } \cos\left( k \alpha \right)\) и \( \sum_{ k=1}^{ \infty } \sin\left( k \alpha \right)\). Другие примеры рядов.}
+
+\begin{example}
+    
+    \hypertarget{ex:series}{~}
+
+    \begin{enumerate}
+        \item \( \sum\limits_{ k=1}^{ \infty } ka\). \par
+        При \( a \neq 0\) не выполнено \hypertarget{thm:nes_converge_series}{необходимое условие сходимости ряда}. При \( a = 0\) все частичные суммы равны 0, значит предел тоже равен 0.
+        \item \( \sum\limits_{ k=1}^{ \infty } \left( -1\right)^{k-1}=1 + \left( -1\right)+1+\left( -1\right)+ \ldots \) \par 
+        \( S_n= \begin{cases}
+            0,\; \text{если } n\text{ чётно}\\ 
+            1,\; \text{если } n\text{ нечётно}
+        \end{cases}\)
+        \par Предела \( S_n\) не существует \( \Longrightarrow\) ряд расходится.
+        \item \( \sum\limits_{ k=1}^{ \infty } \dfrac{ 1}{ k\left( k+1\right)} \).\par 
+        \( S_n = \sum\limits_{ k=1}^{ n} \dfrac{ 1}{ k\left( k+1\right)} = \sum\limits_{ k=1}^{ n} \left( \dfrac{ 1}{ k} - \dfrac{ 1}{ k+1} \right)= 1 - \dfrac{ 1}{ n+1} \underset{n \rightarrow \infty }{ \longrightarrow }1\)
+        \item Геометрическая прогрессия. \( \sum\limits_{ k=1}^{ \infty } z^k\).\par 
+        \( S_n= \dfrac{ 1-z^{n+1}}{ 1-z}= \dfrac{ 1}{ 1-z} - \underbrace{\dfrac{ z^{n+1}}{ 1-z}}_{\text{сходится} \Leftrightarrow \left| z\right| <1}  \). \par 
+        И если \( \left| z\right| < 1\), то \( \dfrac{ z^{n+1}}{ 1-z} \underset{n \rightarrow \infty }{ \longrightarrow }0\) и \( \sum\limits_{ k=1}^{ \infty } z^k= \dfrac{ 1}{ 1-z} \).
+        \item Гармонический ряд. \( \sum\limits_{ k=1}^{ \infty } \dfrac{ 1}{ k} \).\par
+        Частничную сумма \( H_n=1+ \dfrac{ 1}{ 2} + \ldots + \dfrac{ 1}{ n} \) такого ряда называют n-ым гармоническим числом. \par 
+        По теореме Лагранжа \( \exists \; c \in \left( n, n+1\right):\quad \ln \left( n+1\right)- \ln \left( n\right)= \ln '\left( c\right) \cdot1= \dfrac{ 1}{ c} \). \par 
+        С другой стороны \( \ln \left( n+1\right)- \ln \left( n\right)= \ln \left( n\right) + \ln \left( 1+ \dfrac{ 1}{ n} \right)- \ln \left( n\right)= \ln \left( 1 + \dfrac{ 1}{ n} \right)\). \par 
+        То есть \( \ln \left( 1 + \dfrac{ 1}{ n} \right) = \dfrac{ 1}{ c} \in \left( \dfrac{ 1}{ n+1} , \dfrac{ 1}{ n} \right)\). \par 
+        \[ H_n = \sum\limits_{ k=1}^{ n} \dfrac{ 1}{ k} > \sum\limits_{ k=1}^{ n} \ln \left( 1+ \dfrac{ 1}{ k} \right)= \sum\limits_{ k=1}^{ n} \ln \left( \dfrac{ k+1}{ k} \right)= \ln \left( \dfrac{ 2}{ 1} \cdot \dfrac{ 3}{ 2} \cdot \ldots \cdot \dfrac{ n+1}{ n} \right)= \ln \left( n+1\right) \longrightarrow +\infty \]
+        \par Таким образом, гармонический ряд расходится. Можно оценить его также сверху:
+        \[ H_n= 1 + \dfrac{ 1}{ 2} + \ldots + \dfrac{ 1}{ n} < 1 + \sum\limits_{ k=2}^{ n} \ln \left( 1+ \dfrac{ 1}{ k-1} \right)=1 + \ln \left( \dfrac{ 2}{ 1} \cdot \dfrac{ 3}{ 2} \cdot \ldots \cdot \dfrac{ n}{ n-1} \right)=1+ \ln \left( n\right)\]
+        \par Итого \( \ln \left( n+1\right)< H_n< \ln \left( n\right)+1\), то есть \( H_n \sim \ln \left( n\right)\).
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    
+    ~
+
+    Рассмотрим ряд \( \sum\limits_{ k=1}^{ \infty } \sin\left( k \alpha \right)\).
+
+    Если бы он сходился, то по необходимому условию \( \sin\left( k \alpha \right) \longrightarrow 0\) и \( \sin \left( \left( k+1\right) \alpha \right) \longrightarrow 0\) (это то же самое). 
+
+    \[ \sin\left( \left( k+1\right) \alpha \right)=\sin\left( k \alpha \right) \cdot \cos \alpha + \cos\left( k \alpha \right) \cdot \sin \alpha \longrightarrow 0\]
+
+    При этом \( \lim\limits_{ k \rightarrow \infty } \sin\left( k \alpha \right) =0,\quad \lim\limits_{ k \rightarrow \infty } \sin \alpha \neq 0,\quad \lim\limits_{ k \rightarrow \infty } \cos \alpha \neq 0\). Значит \( \lim\limits_{ k \rightarrow \infty } \cos \left( k \alpha \right)=0\). 
+    
+    Но такого быть не может, потому что \( \sin^2\left( k \alpha \right)+\cos^2\left( k \alpha \right)=1\). Левая часть стремится к 0, правая к 1. Значит ряд \( \sum\limits_{ k=1}^{ \infty } \sin\left( k \alpha \right)\) расходится.
+
+    Но можно сказать и больше. Пусть \( S\left( n\right)= \sum\limits_{ k=1}^{ n} \sin\left( k \alpha \right),\quad C\left( n\right)= \sum\limits_{ k=1}^{ n} \cos\left( k \alpha \right)\). Тогда
+
+    \begin{equation*}
+        \begin{aligned}
+            & C\left( n\right)+iS\left( n\right)= \sum\limits_{ k=1}^{ n} \cos\left( k \alpha \right) + i\sin\left( k \alpha \right)= \sum\limits_{ k=1}^{ n} e^{ik \alpha }= \dfrac{ e^{ik\alpha}-1}{ e^{i\alpha}-1} =\\ 
+            & = \dfrac{ e^\frac{{i\alpha}\left(n+1\right)}{ 2}\left(e^{\frac{i\alpha\left(n+1\right)}{2}}-e^{-\frac{i\alpha\left(n+1\right)}{2}}\right)}{ e^{ \frac{ i\alpha}{ 2} } \left( e^{ \frac{ i\alpha}{ 2}}-e^{ -\frac{ i\alpha}{ 2}}\right)} =\dfrac{ \nicefrac{ e^\frac{{i\alpha}\left(n+1\right)}{ 2}\left(e^{\frac{i\alpha\left(n+1\right)}{2}}-e^{-\frac{i\alpha\left(n+1\right)}{2}}\right)}{ 2i} }{ \nicefrac{ e^{\frac{i\alpha}{2} }\left(e^{\frac{i\alpha}{2}}-e^{-\frac{i\alpha}{2}}\right)}{2i} }=\\ 
+            & = e^{ \frac{ i\alpha n}{ 2} } \dfrac{ \sin\frac{\alpha\left(n+1\right)}{ 2}}{ \sin \frac{ \alpha}{ 2} } 
+        \end{aligned}
+    \end{equation*}
+
+    \[ \left| C\left( n\right) + iS\left( n\right)\right|=\dfrac{ \left| \sin\frac{\alpha\left(n+1\right)}{ 2}\right|}{ \left|\sin \frac{ \alpha}{ 2}\right|} \leq \dfrac{ 1}{ \left|\sin \frac{ \alpha}{ 2} \right|} \]
+
+И так как \( \left| C\left( n\right)\right|,\; \left| S\left( n\right)\right| \leq \left| C\left( n\right)+i S\left( n\right)\right|\), получаем важный результат:
+
+\[ \boxed{\left| C\left( n\right)\right| \leq \dfrac{ 1}{ \left| \sin \frac{ \alpha}{ 2} \right|} \\}\]
+
+\[ \boxed{\left| S\left( n\right)\right| \leq \dfrac{ 1}{ \left| \sin \frac{ \alpha}{ 2} \right|} \\}\]
+
+Частичные суммы рядов \( \sum\limits_{ k=1}^{ \infty } \sin \left( k \alpha \right)\) и \( \sum\limits_{ k=1}^{ \infty } \cos\left( k \alpha \right)\) ограничены.
+
+\end{example}
+
+\begin{thm}
+    
+    ~
+
+    \( \Let \; \alpha \neq \pi r,\quad r \in \Q\).
+
+    Тогда
+    \[ \forall \; \varepsilon >0\quad \forall \; y \in \left[ -1, 1\right]\quad \forall \; \forall \; N \in \N\quad \exists \; n > N:\quad \left| \sin \left( n \alpha \right)-y\right| < \varepsilon \]
+\end{thm}
+
+\end{document}

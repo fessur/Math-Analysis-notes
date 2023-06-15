@@ -1,0 +1,58 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Признаки Дирихле и Абеля для числовых рядов}
+
+\begin{thm}[\hypertarget{thm:series_dirihle}{Признак Дирихле для числовых рядов}]
+    
+    ~
+
+    \( \Let \; \left\{ a_k\right\} \subset \C,\quad \left\{ b_k\right\} \subset \R,\quad \left\{ b_k\right\}\) монотонна, \( A_n= \sum\limits_{ k=1}^{ n} a_k,\quad A_n\) ограничена, \( b_n \underset{n \rightarrow \infty }{\longrightarrow} 0\).
+    
+    Тогда 
+    \[ \sum\limits_{ k=1}^{ \infty } a_kb_k \text{ сходится}\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    По условию \( A_n\) ограничена, то есть \( \forall \; k\quad \left| A_k\right|<C\). Ещё по условию \( b_k \longrightarrow 0 \Longrightarrow \) \par \(\forall \; \varepsilon >0\quad \exists \; N:\quad \forall \; k \geq N\quad \left| b_k\right|< \dfrac{ \varepsilon}{ 4C} \).
+
+    Полагая \( A_0 = 0\) и \( m > N\), применим \hyperlink{thm:abel_transform}{преобразование Абеля}:
+
+    \[ \left|\sum\limits_{ k=m}^{ n} a_kb_k\right|=\left|A_nb_n-A_{m-1}b_m- \sum\limits_{ k=m}^{ n-1} A_k\left( b_{k+1}-b_k\right)\right| \leq \left| A_nb_n\right|+\left| A_{m-1}b_m\right|+\left| \sum\limits_{ k=m}^{ n-1} A_k\left( b_{k+1}-b_k\right)\right|\]
+
+    \begin{equation*}
+        \begin{aligned}
+            & \left| A_nb_n\right| = \left| A_n\right|\left| b_n\right| < \dfrac{ \varepsilon}{ 4}\\ 
+            & \left| A_{m-1}b_m\right|=\left| A_{m-1}\right|\left| b_m\right| < \dfrac{ \varepsilon}{ 4} \\ 
+            & \left| \sum\limits_{ k=m}^{ n-1} A_k\left( b_{k+1}-b_k\right)\right| \leq \sum\limits_{ k=m}^{ n-1} \left| A_k\right|\left| b_{k+1}-b_k\right| \leq C \sum\limits_{ k=m}^{ n-1} \left| b_{k+1}-b_k\right|
+        \end{aligned}
+    \end{equation*}
+    
+    Так как последовательность \( \left\{ b_n\right\}\) монотонна:
+    \[ C \sum\limits_{ k=m}^{ n-1} \left| b_{k+1}-b_k\right| \leq C \left| \sum\limits_{ k=m}^{ n-1} b_{k+1}-b_k\right|=C\left| b_n-b_m\right| \leq C\left( \left| b_n\right|+\left| b_m\right|\right) < \dfrac{ \varepsilon}{ 2} \]
+
+    Итого \( \forall \; \varepsilon >0\quad \exists \; N:\quad \forall \; m > N,\quad \forall \; n \geq m\quad \left| \sum\limits_{ k=m}^{ n} a_kb_k\right| < \varepsilon \), значит ряд \( \sum\limits_{ k=1}^{ \infty } a_kb_k\) сходится по \hyperlink{thm:series_Koshi}{критерию Коши}. 
+\end{proof}
+
+\begin{thm}[Признак Абеля для числовых рядов]
+    
+    ~
+
+    \( \Let \; \left\{ a_k\right\} \subset \C,\quad \left\{ b_k\right\} \subset \R ,\quad \left\{ b_k\right\}\) монотонна, \( \left\{ b_k\right\}\) ограничена, \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится. 
+
+    Тогда
+    \[ \sum\limits_{ k=1}^{ \infty } a_kb_k\text{ сходится}\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \( \lim\limits_{ k \rightarrow \infty } b_k=b \in \R \), т.к. \( \left\{ b_n\right\}\) монотонна и ограничена. 
+
+    Рассмотрим последовательность \( \delta _k=b_k-b \Longrightarrow \delta _k\) монотонна, \( \delta _k \longrightarrow 0\). Тогда 
+
+    \[ \sum\limits_{ k=1}^{ \infty } a_kb_k= \underbrace{\sum\limits_{ k=1}^{ \infty } a_k \delta _k}_{\textrm{сходится по Дирихле}} + \underbrace{\sum\limits_{ k=1}^{ \infty } a_kb}_{\textrm{сходится по условию}}\]
+\end{proof}
+\end{document}

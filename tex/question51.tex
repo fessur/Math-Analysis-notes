@@ -1,0 +1,75 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Характеристика сходимости положительного ряда через ограниченность последовательности частичных сумм. Признак сравнения и его следствия и частные случаи.}
+
+\begin{thm}[Критерий сходимости положительного ряда]
+    
+    ~
+
+    \( \Let \; \sum\limits_{ k=1}^{ \infty } a_k\) - ряд, \( \forall \; k \in \N\quad a_k \geq 0,\quad S_n = \sum\limits_{ k=1}^{ n} a_k\).
+
+    Тогда
+    \[ \sum\limits_{ k=1}^{ \infty } a_k \text{ сходится } \Longleftrightarrow \left\{ S_n\right\} \text{ ограничена сверху}\]
+\end{thm}
+\begin{proof}
+    
+    ~
+    \\\( \boxed{\Longrightarrow}\)
+
+    Сходящаяся последовательность ограничена, а так как \( \forall \; k\quad a_k \geq 0 \Longrightarrow S_k \geq 0\), достаточно ограниченности сверху.
+    \\ \( \boxed{\Longleftarrow}\)
+
+    Последовательность \( \left\{ S_n\right\}\) ограничена и возрастает. Значит она сходится к своему супремуму.
+\end{proof}
+
+\begin{note}
+    Если \( \forall \; k\quad a_k \geq 0\), то \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится, либо равен \( + \infty \).
+\end{note}
+
+\begin{thm}[Признак сравнения]
+    
+    ~
+
+    \( \Let \; \forall \; k \in \N\quad a_k \geq 0, \;b_k \geq 0,\quad a_k\underset{k \rightarrow \infty }{=}O\left( b_k\right)\).
+
+    Тогда
+
+    \begin{equation*}
+        \begin{aligned}
+            &\sum\limits_{ k=1}^{ \infty } b_k \text{ сходится } \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k \text{ сходится}\\
+            & \sum\limits_{ k=1}^{ \infty} a_k \text{ расходится } \Longrightarrow \sum\limits_{ k=1}^{ \infty } b_k \text{ расходится}
+        \end{aligned}
+    \end{equation*}
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    По определению О-большого \( \exists \; C, N:\quad \forall \; k \geq N\quad a_k \leq C\cdot b_k\). 
+
+    Пусть \( S_n = \sum\limits_{ k=N}^{ n} a_k,\quad T_n= \sum\limits_{ k=N}^{ n} b_k \Longrightarrow S_n \leq C\cdot T_n\).
+
+    \( \sum\limits_{ k=1}^{ \infty } b_k\) сходится \( \Longrightarrow \sum\limits_{ k=N}^{ \infty } b_k\) сходится \( \Longrightarrow \exists \; \lim\limits_{ n \rightarrow \infty } T_n= \sup\limits_{ } T_n =T\in \R \Longrightarrow S_n \leq C\cdot T\)
+
+    То есть последовательность \( \left\{ S_n\right\}\) ограничена и возрастает \( \Longrightarrow \sum\limits_{ k=N}^{ \infty } a_k\) сходится \( \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\) сходится. 
+
+    Если же \( \sum\limits_{ k=1}^{ \infty } a_k\) расходится, то \( \lim\limits_{ n \rightarrow \infty } S_n = + \infty \). После предельного перехода получим \( + \infty \leq C\cdot T\), значит \( T = + \infty \), то есть \( \sum\limits_{ k=N}^{ \infty} b_k\) расходится \( \Longrightarrow \sum\limits_{ k=1}^{ \infty } b_k\) расходится. 
+\end{proof}
+
+\begin{thm}[Признак сравнения в ассимптотической форме]
+    
+    ~
+
+    \( \Let \; a_k \geq 0,\quad \forall \; k\quad b_k \underset{k \rightarrow \infty }{\sim}a_k\).
+
+    Тогда 
+    \[ \sum\limits_{ k=1}^{ \infty } a_k\text{ сходится } \Longleftrightarrow \sum\limits_{ k=1}^{ \infty } b_k\text{ сходится }\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \( b_k \sim a_k \Longrightarrow b_k = \varphi _k \cdot a_k,\quad \varphi \longrightarrow 1\Longrightarrow b_k \geq 0\) начиная с некоторого номера. Тогда всё следует из предыдущего признака сравнения, т.к. \( b_k \sim a_k \Longleftrightarrow a_k=O\left( b_k\right),\quad b_k=O\left( a_k\right)\).
+\end{proof}
+\end{document}

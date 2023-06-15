@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Признаки Даламбера и Коши для положительных рядов.}
+\begin{thm}[Признак Коши сходимости ряда]
+    
+    ~
+
+    \( \Let \; \forall \; k\quad a_k \geq 0,\quad q=\overline{ \lim\limits_{ k \rightarrow \infty } } \;\sqrt[k]{a_k}\).
+
+    Тогда
+    \begin{enumerate}
+        \item \(q \in \left[ 0, 1\right) \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k \text{ сходится}\)
+        \item \(q > 1 \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k \text{ расходится} \) 
+        \item \(q = 1 \Longrightarrow \text{ признак Коши не применим} \)
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item Рассмотрим \( \tilde{ q} = \dfrac{ 1+q}{ 2} \in \left( q, 1\right)\) \par
+        \( q=\overline{ \lim\limits_{ k \rightarrow \infty } } \;\sqrt[k]{a_k} \Longrightarrow \exists \; N \in \N:\quad \forall \; k \geq N\quad \;\sqrt[k]{a_k}<q + \varepsilon \). \par
+        Возьмём \( \varepsilon = \dfrac{ 1-q}{ 2} \), тогда \( q+ \varepsilon = \dfrac{ 1+q}{ 2}= \tilde{ q} \), то есть \( \;\sqrt[k]{a_k}< \tilde{ q} \Longrightarrow a_k < \tilde{ q}^k\). \par
+        \( \sum\limits_{ k=1}^{ \infty } \tilde{ q}^k\) сходится как убывающая геометрическая прогрессия. Значит по признаку сравнения ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) тоже сходится.
+        \item \( q=\overline{ \lim\limits_{ k \rightarrow \infty } } \;\sqrt[k]{a_k} > 1 \Longrightarrow \forall \; N \in \N\quad \exists \; K \geq N:\quad \;\sqrt[k]{a_k}>1 \Longrightarrow a_k>1\).
+        \par Значит \( \lim\limits_{ k \rightarrow \infty } a_k \neq 0\), то есть нет необходимого условия сходимости.
+    \end{enumerate}
+\end{proof}
+
+\begin{thm}
+    
+    ~
+
+    \( \Let \; \forall \; k\quad a_k > 0,\quad \exists \; \lim\limits_{ k \rightarrow \infty } \dfrac{ a_{k+1}}{ a_k} =q\).
+
+    Тогда
+    \begin{enumerate}
+        \item \(q \in \left[ 0, 1\right) \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k \text{ сходится}\)
+        \item \(q > 1 \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k \text{ расходится} \) 
+        \item \(q = 1 \Longrightarrow \text{ признак Даламбера не применим} \)
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item Рассмотрим \( \tilde{ q} = \dfrac{ 1+q}{ 2} \in \left( q, 1\right)\) \par
+        \( q=\lim\limits_{ k \rightarrow \infty } \dfrac{ a_{k+1}}{ a_k}  \Longrightarrow \exists \; N \in \N:\quad \forall \; k \geq N\quad \dfrac{ a_{k+1}}{ a_k}< q  + \varepsilon \). \par
+        Возьмём \( \varepsilon = \dfrac{ 1-q}{ 2} \), тогда \( q+ \varepsilon = \dfrac{ 1+q}{ 2}= \tilde{ q} \), то есть \( \dfrac{ a_{k+1}}{ a_k} < \tilde{ q} \). \par
+        \( a_{N+m}= \dfrac{ a_{N+m}}{ a_{N+m-1}}\cdot \dfrac{ a_{N+m-1}}{ a_{N+m-2}}\cdot \ldots \cdot \dfrac{ a_{N+1}}{ a_N}\cdot a_N \leq \tilde{ q}^m \cdot a_N  \). \par 
+        Ряд \( \sum\limits_{ m=0}^{ \infty } \tilde{ q}^m\cdot a_N\) сходится \( \Longrightarrow \sum\limits_{ k=N}^{ \infty } a_k\) сходится по признаку сравнения \( \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\) сходится. 
+        \item \( q = \lim\limits_{ k \rightarrow \infty } \dfrac{ a_{k+1}}{ a_k}>1 \Longrightarrow \dfrac{ a_{k+1}}{ a_k}>1 \) начиная с некоторого номера, то есть \( a_{k+1}>a_k\). \par 
+        Значит с какого-то момента \( \left\{ a_k\right\}\) возрастает, но все члены этой последовательности положительны. Значит \( \lim\limits_{ k \rightarrow \infty } a_k \neq 0\), ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) расходится, т.к. нет необходимого условия сходимости. 
+    \end{enumerate}
+\end{proof}
+\end{document}

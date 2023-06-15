@@ -1,0 +1,53 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Признаки Даламбера и Коши абсолютной сходимости рядов. Преобразование Абеля}
+
+\begin{thm}[Признак Коши для абсолютной сходимости рядов]
+    
+    ~
+
+    \( \lim\limits_{ k \rightarrow \infty } \;\sqrt[k]{a_k}=q\).
+
+    Тогда
+    \begin{enumerate}
+        \item \( q \in \left[ 0, 1\right) \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\) сходится абсолюнто 
+        \item \( q > 1 \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\) расходится
+    \end{enumerate}
+\end{thm}
+
+\begin{thm}[Признак Даламбера для абсолютной сходимости рядов]
+    
+    ~
+
+    \( \lim\limits_{ k \rightarrow \infty } \dfrac{ \left| a_{k+1}\right|}{ \left| a_k\right|} =q\).
+
+    Тогда
+    \begin{enumerate}
+        \item \( q \in \left[ 0, 1\right) \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\) сходится абсолюнто 
+        \item \( q > 1 \Longrightarrow \sum\limits_{ k=1}^{ \infty } a_k\) расходится
+    \end{enumerate}
+\end{thm}
+
+\begin{thm}[\hypertarget{thm:abel_transform}{Преобразование Абеля}]
+    
+    ~
+
+    Пусть \( \left\{ a_k\right\}, \left\{ b_k\right\}\) - числовые последовательности, \( m \leq n,\quad A_k= \sum\limits_{ j=m}^{ k} a_j+A,\quad A_{m-1}=A\).
+
+    Тогда 
+    \[ \sum\limits_{ k=m}^{ n} a_kb_k=A_nb_n-A_{m-1}b_m- \sum\limits_{ k=m}^{ n-1} A_k\left( b_{k+1}-b_k\right)\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{equation*}
+        \begin{aligned}
+            &\sum\limits_{ k=m}^{ n} a_kb_k= \sum\limits_{ k=m}^{ n} \left( A_k-A_{k-1}\right)b_k= \sum\limits_{ k=m}^{ n} A_kb_k- \sum\limits_{ k=m}^{ n} A_{k-1}b_k=\\
+            &=A_nb_n+ \sum\limits_{ k=m}^{ n-1} A_kb_k- \sum\limits_{ k=m}^{ n-1} A_kb_{k+1}-A_{m-1}b_m= A_nb_n-A_{m-1}b_m - \sum\limits_{ k=m}^{ n-1} A_k\left( b_{k+1}-b_k\right)
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+
+\end{document}

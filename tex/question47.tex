@@ -1,0 +1,46 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Критерий Коши для числовых рядов; необходимое условие сходимости ряда.}
+
+\( \Let \; \left\{ a_k\right\}\) - числовая последовательность. Символ \( \sum\limits_{ k=1}^{ \infty } a_k=a_1+a_2+ \ldots \) называется \emph{числовым рядом} с общим членом \( a_k\).
+
+n-й \emph{частичной суммой} ряда \( \sum\limits_{ k=1}^{ \infty } a_k\) называется \( S_n= \sum\limits_{ k=1}^{ n} a_k\). Иногда рассматриваются ряды \( \sum\limits_{ k=m}^{ \infty } a_k \). В этой ситуации \( S_n = \sum\limits_{ k=m}^{ n} a_k\).
+
+Если \( \exists \; \lim\limits_{ n \rightarrow \infty } S_n = S \in \overline{ \R } \) (или \( \widehat{ \C} \)), то говорят, что \( \sum\limits_{ k=1}^{ \infty } a_k = S\). При этом если \( S\) конечно, то говорят, что ряд сходится к \( S\). В остальных случаях говорят, что ряд расходится (т. е. если предел не существует, либо существует в бесконечном смысле).
+
+\begin{thm}[\hypertarget{thm:series_Koshi}{Критерий Больцано-Коши для числовых рядов}]
+    
+    ~
+
+    \[ \sum\limits_{ k=1}^{ \infty } a_k \text{ сходится } \Longleftrightarrow \forall \; \varepsilon >0\quad \exists \; N \in \N:\quad \forall \; n \geq N\quad \forall \; p \in \Z_+\quad \left| \sum\limits_{ k=n}^{ n+p} a_k\right| < \varepsilon \]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Последовательность \( \left\{ S_k\right\}\) числовая, а для числовых последовательностей выполняется критерий Коши: 
+
+    \[ \exists \; \lim\limits_{ n \rightarrow \infty } S_n \Longleftrightarrow \forall \; \varepsilon >0\quad \exists \; n,m \geq N:\quad \left| S_m-S_n\right|< \varepsilon \]
+
+    В этом утверждении можно рассматривать только \( m \geq n\), т.к. под модулем \( x_m\) и \( x_n\) можно всегда поменять местами. Обозначим \( p = m - n\):
+    \[ \left| \sum\limits_{ k=n}^{ n+p} a_k\right|=\left| S_m-S_{n-1}\right|=\left| S_m-S_n+a_n\right| \leq \left| S_m-S_n\right|+\left| a_n\right| \leq \left| S_m-S_n\right|< \varepsilon\]
+
+    Тогда критерий Коши для последовательностей превращается в критерий Коши для числовых рядов.
+\end{proof}
+
+\begin{crl}[\hyperlink{thm:nes_converge_series}{Необходимое условие сходимости ряда}]
+    
+    ~
+
+    Если ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится, то \( \lim\limits_{ k \rightarrow \infty } a_k=0\).
+\end{crl}
+\begin{proof}
+    
+    ~
+
+    Возьмём \( p = 0\) в Критерии Коши. Получим:
+    \[ \sum\limits_{ k=1}^{ \infty } a_k \text{ сходится } \Longrightarrow \forall \; \varepsilon >0\quad \exists \; N \in \N:\quad \left| a_k\right| < \varepsilon \Longleftrightarrow \lim\limits_{ k \rightarrow \infty } a_k=0\]
+\end{proof}
+
+\end{document}

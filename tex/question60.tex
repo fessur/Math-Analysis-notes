@@ -1,0 +1,54 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Свойства произведений рядов "по квадратам" и по Коши. Пример произведения рядов, сходимость которого зависит от способа перемножения}
+\begin{thm}
+    
+    \hypertarget{thm:series_mul_squares}{~}
+
+    \( \Let \; \sum\limits_{ k=1}^{ \infty } a_k,\; \sum\limits_{ k=1}^{ \infty } b_k\) сходятся, \( \sum\limits_{ k=1}^{ \infty } p_k\) - ряд, полученный произведением по квадратам. 
+
+    Тогда 
+    \[ \sum\limits_{ k=1}^{ \infty } p_k \textrm{ сходится и } \sum\limits_{ k=1}^{ \infty } p_k=\left( \sum\limits_{ k=1}^{ \infty } a_k\right)\left( \sum\limits_{ k=1}^{ \infty } b_k\right)\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Обозначим \( A_n = \sum\limits_{ k=1}^{ n} a_k,\quad B_n= \sum\limits_{ k=1}^{ n} b_k,\quad P_n= \sum\limits_{ k=1}^{ n} p_k\).
+
+    Если \( n\) - полный квадрат, то есть \( n = k^2\), то \( P_{k^2}\) покрывает целиком некоторый квадрат без остатка и можно написать \( P_{k^2}=A_k\cdot B_k\). Тогда если \( k \longrightarrow \infty\), то \( P_{k^2} \longrightarrow AB\).
+
+    Если \( n\) - не полный квадрат, то пусть \( k=\lfloor \sqrt[]{n} \rfloor,\quad m=n-k^2\).
+
+    Если \( m \leq k+1\) (то есть кроме квадрата остаётся горизонтальная полоска), то
+    \[ P_n=P_{k^2}+a_{k+1}b_1+a_{k+1}b_2+ \ldots +a_{k+1}b_m=P_{k^2}+\underbrace{a_{k+1}}_{ \longrightarrow 0} \cdot\underbrace{B_m}_{\textrm{огр.}} \longrightarrow AB\]
+
+    Если \( m > k+1\) (то есть до полного квадрата остаётся вертикальная полоска), то 
+    \[ P_n=P_{\left( k+1\right)^2}-\left( a_1b_{k+1}+a_2b_{k+1}+ \ldots +\underset{j<k+1}{a_jb_{k+1}}\right)=P_{\left( k+1\right)^2}-\underbrace{b_{k+1}}_{ \longrightarrow 0}\cdot \underbrace{A_j}_{\textrm{огр.}} \longrightarrow AB\]
+
+    Все три подпоследовательности последовательности \( \left\{ P_n\right\}\) сходятся к \( AB\). 
+    
+    Значит \( P_n \longrightarrow AB\)
+\end{proof}
+
+\begin{example}[Пример ряда, сходимость которого зависит от способа перемножения]
+
+    ~
+    
+    Рассмотрим ряд \( \sum\limits_{ k=1}^{ \infty } a_k=\sum\limits_{ k=1}^{ \infty } \dfrac{ \left(-1\right)^{k-1}}{ \;\sqrt[]{k}} \). Он \hyperlink{thm:series_dirihle}{сходится по Дирихле}. Значит и ряд, полученный перемножением его на себя по квадратам, тоже сходится. 
+    
+    Теперь рассмотрим ряд, полученный перемножением его на себя по Коши: 
+    \begin{equation*}
+        \begin{aligned}
+             \sum\limits_{ n=2}^{ \infty } \sum\limits_{ k=1}^{ n-1} a_k\cdot a_{n-k}&= \sum\limits_{ n=2}^{ \infty } \sum\limits_{ k=1}^{ n-1} \dfrac{ (-1)^{k-1}}{ \;\sqrt[]{k}}\cdot \dfrac{ (-1)^{n-k-1}}{ \;\sqrt[]{n-k}}= \sum\limits_{ n=2}^{ \infty } \sum\limits_{ k=1}^{ n-1} \left( -1\right)^n \dfrac{ 1}{ \;\sqrt[]{k} \;\sqrt[]{n-k}}= \\ 
+            & = \sum\limits_{ n=2}^{ \infty } \left( -1\right)^n \sum\limits_{ k=1}^{ n-1} \dfrac{ 1}{ \;\sqrt[]{k} \;\sqrt[]{n-k}}
+        \end{aligned}
+    \end{equation*}
+
+    Но общий член такого ряда по модулю:
+    \[ \left| \left( -1\right)^n \sum\limits_{ k=1}^{ n-1} \dfrac{ 1}{ \;\sqrt[]{k} \;\sqrt[]{n-k}}\right| = \left| \sum\limits_{ k=1}^{ n-1} \dfrac{ 1}{ \;\sqrt[]{k} \;\sqrt[]{n-k}}\right| \geq \left| \sum\limits_{ k=1}^{ n-1} \dfrac{ 1}{ \;\sqrt[]{k} \;\sqrt[]{n-1}} \right| \geq \left| \sum\limits_{ k=1}^{ n-1} \dfrac{ 1}{ n-1} \right|=1\]
+
+    Значит не выполняется необходимое условие сходимости ряда. То есть произведение по Коши расходится, а по квадратам сходится. 
+\end{example}
+\end{document}

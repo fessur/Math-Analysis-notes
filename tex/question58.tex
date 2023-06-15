@@ -1,0 +1,49 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Перестановка членов абсолютно сходящегося ряда. Расходимость рядов из компонент условно сходящегося ряда. Теорема Римана (без доказательства)}
+
+\begin{thm}[\hypertarget{thm:series_transpose}{Перестановка членов абсолютно сходящегося ряда}]
+    
+    ~
+
+    \( \Let \; \left\{ a_k\right\} \subset \C,\quad \sum\limits_{ k=1}^{ \infty } a_k\) сходится абсолютно. 
+
+    Тогда 
+    \[ \forall \; \textrm{биекции } \varphi: \N \longrightarrow \N\quad \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)} \textrm{ сходится абсолютно и } \sum\limits_{ k=1}^{ \infty } a_k= \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)}\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item Рассмотрим случай, когда \( a_k \in \R ,\quad a_k \geq 0 \). Тогда
+        \[ \forall \; n\quad \tilde{ S_n}= \sum\limits_{ k=1}^{ n} a_{ \varphi \left( k\right)} \leq \sum\limits_{ k=1}^{ \max\limits_{ k=1 \ldots n} \varphi \left( k\right)} a_k \leq S= \sum\limits_{ k=1}^{ \infty } a_k\]
+        \par Если сделать предельный переход: \( \tilde{ S}= \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)} \leq S\). То есть любая перестановка не увеличивает сумму ряда. Но если она уменьшает её, значит обратная перестановка должна увеличивать сумму ряда. Значит в этом случае перестановка сохраняет сумму ряда. 
+        \item Случай \( a_k \in \R \). Если ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится, то ряды из компонент \( \sum\limits_{ k=1}^{ \infty } a_{k\pm}\) тоже сходятся, но их общий член неотрицателен. Поэтому из пункта 1:
+        \[ \sum\limits_{ k=1}^{ \infty } \left| a_k\right|= \sum\limits_{ k=1}^{ \infty } a_{k+}+ \sum\limits_{ k=1}^{ \infty } a_{k-}= \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)+}+ \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)-}= \sum\limits_{ k=1}^{ \infty } \left| a_{ \varphi \left( k\right)}\right|\]
+        \par То есть ряд \( \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)}\) сходится абсолютно. Что же касается суммы этого ряда:
+        \[ \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)}= \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)+}- \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)-}= \sum\limits_{ k=1}^{ \infty } a_{k+}- \sum\limits_{ k=1}^{ \infty } a_{k-}= \sum\limits_{ k=1}^{ \infty} a_k\]
+        \item \(a_k \in \C\). Если ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится абсолютно, то оба ряда \( \sum\limits_{ k=1}^{ \infty } \operatorname{Re}a_k\) и \( \sum\limits_{ k=1}^{ \infty } \operatorname{Im}a_k\) оба сходятся абсолютно, но это вещественные ряды, для которых перестановка ничего не меняет. Поэтому:
+        \[ \sum\limits_{ k=1}^{ \infty } \left| a_{ \varphi \left( k\right)}\right| \leq \sum\limits_{ k=1}^{ \infty } \left| \operatorname{Re}a_{ \varphi \left( k\right)}\right|+ \sum\limits_{ k=1}^{ \infty } \left| \operatorname{Im}a_{ \varphi \left( k\right)}\right|= \sum\limits_{ k=1}^{ \infty } \left| \operatorname{Re}a_k\right|+ \sum\limits_{ k=1}^{ \infty } \left| \operatorname{Im}a_k\right| \textrm{ - сходится}\]
+        \[ \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)}= \sum\limits_{ k=1}^{ \infty } \operatorname{Re}a_{ \varphi \left( k\right)}+ i \sum\limits_{ k=1}^{ \infty } \operatorname{Im}a_{ \varphi \left( k\right)}= \sum\limits_{ k=1}^{ \infty } \operatorname{Re}a_k+i \sum\limits_{ k=1}^{ \infty } \operatorname{Im}a_k= \sum\limits_{ k=1}^{ \infty } a_k\]
+    \end{enumerate}
+\end{proof}
+
+\begin{note}
+    Если ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится условно, то его компоненты \( \sum\limits_{ k=1}^{ \infty } a_{k+}\) и \( \sum\limits_{ k=1}^{ \infty } a_{k-}\) обе расходятся. 
+
+    Потому что если бы сходилась только одна из них, то ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) расходился бы. А если бы сходились обе, то они сходились бы и абсолютно, ведь \( a_{k\pm} \geq 0\). А значит и ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) сходился бы абсолютно.
+\end{note}
+
+\begin{thm}[Теорема Римана]
+    
+    ~
+
+    \( \Let \; \left\{ a_k\right\} \subseteq \R,\quad \sum\limits_{ k=1}^{ \infty } a_k\) сходится условно. 
+
+    Тогда 
+    \[ \forall \; A \in \overline{\R}\quad \exists \; \textrm{перестановка } \sum\limits_{ k=1}^{ \infty } a_{ \varphi \left( k\right)}=A\]
+\end{thm}
+
+\end{document}

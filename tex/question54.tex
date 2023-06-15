@@ -1,0 +1,68 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Связь сходимости вещественного ряда с абсолютной сходимостью и сходимостью рядов из компонент членов данного ряда. Связь сходимости ряда из комплексных чисел с его абсолютной сходимостью а также сходимостью рядов из вещественных частей и мнимых частей членов исходного ряда}
+
+Ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) называется \emph{абсолютно сходящимся}, если ряд \( \sum\limits_{ k=1}^{ \infty } \left| a_k\right|\) сходится.
+
+\begin{thm}
+    
+    ~
+
+    Пусть \( a_+= \max\limits_{ } \left( a,0\right),\quad a_-= \max\limits_{ } \left( -a, 0\right)\). По свойствам таких функций \( a_+, a_- \geq 0,\quad a_++a_-=\left| a\right|,\quad a_+-a_-=a\).
+
+    \begin{enumerate}
+        \item \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится абсолютно \( \Longleftrightarrow \sum\limits_{ k=1}^{ \infty } a_{k+}\) и \( \sum\limits_{ k=1}^{ \infty } a_{k-}\) оба сходятся.
+        \item Из абсолютной сходимости следует сходимость. 
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item ~\\ \(\boxed{\Longrightarrow}\)\par 
+        \( a_{k+} \leq \left| a_{k}\right|,\quad a_{k-} \leq \left| a_k\right|\). Если \( \sum\limits_{ k=1}^{ \infty } \left| a_k\right|\) сходится, то по признаку сравнения сходятся \( \sum\limits_{ k=1}^{ \infty } a_{k+},\quad \sum\limits_{ k=1}^{ \infty } a_{k-}\).
+        ~\\ \( \boxed{\Longleftarrow}\) \par 
+        \( \sum\limits_{ k=1}^{ \infty } \left| a_k\right|= \sum\limits_{ k=1}^{ \infty } a_{k+}+ \sum\limits_{ k=1}^{ \infty } a_{k-}\). Ряд \( \sum\limits_{ k=1}^{ \infty } \left| a_k\right|\) сходится как сумма двух сходящихся. 
+        \item\quad\quad 
+        \par \( \sum\limits_{ k=1}^{ \infty } a_k= \sum\limits_{ k=1}^{ \infty } a_{k+}- \sum\limits_{ k=1}^{ \infty } a_{k-}\). Но ряды \( \sum\limits_{ k=1}^{ \infty } a_{k\pm}\) сходятся, т.к. ряд \( \sum\limits_{ k=1}^{ \infty } \left| a_k\right|\) сходится. Тогда ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) сходится как разность двух сходящихся.
+    \end{enumerate}
+\end{proof}
+
+\begin{thm}
+    
+    ~
+
+    \( \Let \; \left\{ z_k\right\}\) - комплексная последовательность, \( \forall \; k\quad x_k = \operatorname{Re}\left( z_k\right),\quad y_k=\operatorname{Im}\left( z_k\right)\).
+
+    Тогда 
+    \( \sum\limits_{ k=1}^{ \infty } z_k\) сходится \( \Longleftrightarrow \sum\limits_{ k=1}^{ \infty } x_k,\quad \sum\limits_{ k=1}^{ \infty } y_k \) оба сходятся и в случае сходимости \( \sum\limits_{ k=1}^{ \infty } z_k= \sum\limits_{ k=1}^{ \infty } x_k+ \sum\limits_{ k=1}^{ \infty } y_k\).
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Если \( \sum\limits_{ k=1}^{ \infty } x_k,\quad \sum\limits_{ k=1}^{ \infty } y_k\) оба сходятся, то \( \sum\limits_{ k=1}^{ \infty } z_k\) сходится как сумма двух сходящихся. 
+    
+    Если \( \sum\limits_{ k=1}^{ \infty } z_k\) сходится, то последовательность частичных сумм сходится, а сходимость равносильна покоординатной сходимости, значит частичные суммы рядов \( \sum\limits_{ k=1}^{ \infty } x_k,\quad \sum\limits_{ k=1}^{ \infty } y_k\) тоже сходятся. 
+
+    А равенство вытекает из предельного перехода. 
+\end{proof}
+
+\begin{thm}
+    
+    ~
+
+    \( \Let \; \left\{ z_k\right\}\) - комплексная последовательность, \( \forall \; k\quad x_k = \operatorname{Re}\left( z_k\right),\quad y_k=\operatorname{Im}\left( z_k\right)\).
+
+    Тогда 
+    \( \sum\limits_{ k=1}^{ \infty } z_k\) сходится абсолютно \( \Longleftrightarrow \sum\limits_{ k=1}^{ \infty } x_k,\quad \sum\limits_{ k=1}^{ \infty } y_k \) оба сходятся абсолютно.
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Это получается из неравенств \( \left| x_k\right| \leq \left| z_k\right|,\quad \left| y_k\right| \leq \left| z_k\right|,\quad \left| z_k\right| \leq \left| x_k\right|+\left| y_k\right|\) и признака сравнения.
+\end{proof}
+\end{document}

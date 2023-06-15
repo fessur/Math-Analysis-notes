@@ -1,0 +1,80 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Интегральный признак сходимости рядов. Примеры оценок частичных сумм рядов с помощью интегралов. Асимптотика гармонических чисел.}
+
+\begin{thm}[Интегральный признак Коши сходимости рядов]
+    
+    ~
+
+    \( \Let \; f \in C\left[ 1, + \infty \right),\quad f\left( x\right) \geq 0, \quad f\) монотонна. 
+
+    Тогда
+    \[ \sum\limits_{ k=1}^{ \infty } f\left( k\right) \text{ сходится } \Longleftrightarrow \displaystyle\int\limits_{ 1}^{ + \infty } f\left( x\right)dx \text{ сходится}\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \( f\) монотонна \( \Longrightarrow f\) сохраняет знак в какой-то окрестности \( + \infty \). Не умаляя общности, будем считать, что \( f\) положительна на \( \left[ 1, + \infty \right],\quad f\) убывает. Тогда 
+    \begin{equation*}
+        \begin{aligned}
+            & f\left( k+1\right)\cdot 1 \leq \displaystyle\int\limits_{ k}^{ k+1} f\left( x\right)dx \leq f\left( k\right)\cdot 1\\ 
+            & \sum\limits_{ k=2}^{ \infty } f\left( k\right) \leq \displaystyle\int\limits_{ 1}^{ + \infty } f\left( x\right)dx \leq \sum\limits_{ k=1}^{ \infty } f\left( k\right)
+        \end{aligned}
+    \end{equation*} 
+
+    При этом \( f\) положительна и ряд положителен. 
+
+    Если \( \displaystyle\int\limits_{ 1}^{ + \infty } f\left( x\right)dx\) расходится, то \( \displaystyle\int\limits_{ 1}^{ + \infty } f\left( x\right)dx = + \infty,\quad \sum\limits_{ k=1}^{ \infty } f\left( k\right) \geq + \infty \Longrightarrow \) ряд расходится. Если \( \displaystyle\int\limits_{ 1}^{ + \infty } f\left( x\right)dx\) сходится, то остаток \( \sum\limits_{ k=2}^{ \infty } f\left( k\right)\) ограничен, значит ряд \( \sum\limits_{ k=1}^{ \infty } f\left( k\right)\) сходится.
+\end{proof}
+
+\begin{example}
+    
+    ~
+
+    \( \sum\limits_{ k=1}^{ \infty } \dfrac{ 1}{ k^p} \) сходится \( \Longleftrightarrow \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ dx}{ x^p} \) сходится \( \Longleftrightarrow p > 1\).
+
+    \( \sum\limits_{ k=1}^{ \infty } \dfrac{ 1}{ k^p \ln ^qk} \) сходится \( \Longleftrightarrow \displaystyle\int\limits_{ 1}^{ + \infty } \dfrac{ dx}{ x^p \ln ^qx} \) сходится \( \Longleftrightarrow \left[ \begin{aligned}
+        & p > 1\\ 
+        & p=1, q > 1
+    \end{aligned}\right.\)
+\end{example}
+
+\begin{example}[\hypertarget{ex:harmonic_sim}{Рассуждения на тему интегрального признака}]
+    
+    ~
+
+    Пусть \( f \in C\left[ 1, + \infty \right),\quad f \geq 0,\quad f\) убывает. Тогда в доказательстве интегрального признака мы уже поняли, что 
+    \begin{equation}\label{lab:int_series_sign}
+        \begin{aligned}
+            & f\left( k+1\right) \leq \displaystyle\int\limits_{ k}^{ k+1} f\left( x\right)dx \leq f\left( k\right)\\ 
+            & \sum\limits_{ k=1}^{ n} f\left( k+1\right) \leq \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx \leq \sum\limits_{ k=1}^{ n} f\left( k\right)
+        \end{aligned}
+    \end{equation}
+
+    Пусть \( A_n= \sum\limits_{ k=1}^{ n} f\left( k\right)- \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx \geq 0\).
+
+    \( A_{n+1}-A_n= \sum\limits_{ k=1}^{ n+1} f\left( k\right) - \sum\limits_{ k=1}^{ n} f\left( k\right) + \displaystyle\int\limits_{ 1}^{ n+2} f\left( x\right)dx- \displaystyle\int\limits_{ 1}^{ n + 1} f\left( x\right)dx=f\left( n+1\right) -\displaystyle\int\limits_{ n+1}^{ n+2} f\left( x\right)dx \geq 0 \Longrightarrow A_n\) возрастает. 
+
+    С другой стороны \\\( A_n = \sum\limits_{ k=1}^{ n} f\left( k\right)- \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx \leq \sum\limits_{ k=1}^{ n} f\left( k\right)- \sum\limits_{ k=1}^{ n} f\left( k+1\right)=f\left( 1\right)-f\left( k+1\right) \leq f\left( 1\right)\).
+
+    Таким образом последовательность \( \left\{ A_n\right\}\) ограничена и возрастает. Значит \\\( \exists \; \lim\limits_{ n \rightarrow \infty } A_n=A \in \R \). \( A_n\) определяется равенством \( \sum\limits_{k=1}^{ n}f\left( k\right)=A_n+ \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx\). 
+
+    Если ряд (и интеграл) сходится, то \( \boxed{ \sum\limits_{ k=1}^{ \infty } f\left( k\right)=A+ \displaystyle\int\limits_{ 1}^{ + \infty } f\left( x\right)dx}\).
+
+    Если ряд (и интеграл) расходится, то \( \sum\limits_{ k=1}^{ n} f\left( k\right) \longrightarrow + \infty ,\quad \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx \longrightarrow + \infty \). Разделим в неравенстве \ref{lab:int_series_sign} все части на \( \displaystyle\int\limits_{ 1}^{ n + 1} f\left( x\right)dx\). Получим 
+   
+    \[\dfrac{ \sum\limits_{k=1}^{n}f\left(k\right)-f\left(1\right)+f\left(n+1\right)}{ \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx} \leq 1 \leq \dfrac{ \sum\limits_{k=1}^{n}f\left(k\right)}{ \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx} \]
+    \[\dfrac{ \sum\limits_{k=1}^{n}f\left(k\right)-f\left(1\right)}{ \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx} \leq 1 \leq \dfrac{ \sum\limits_{k=1}^{n}f\left(k\right)}{ \displaystyle\int\limits_{ 1}^{ n+1} f\left( x\right)dx} \]
+  
+
+    Если \( n \longrightarrow + \infty \), то первая и третья части стремятся к одному и тому же, но между ними есть 1. Значит \( \lim\limits_{ n \rightarrow \infty } \dfrac{ \sum\limits_{k=1}^{\infty}f\left(k\right)}{ \displaystyle\int\limits_{ 1}^{ + \infty } f\left( x\right)dx}=1 \Longrightarrow \sum\limits_{ k=1}^{ n } f\left( k\right) \sim \displaystyle\int\limits_{ 1}^{ n+1 } f\left( x\right)dx\).
+
+    В частности \( \sum\limits_{ k=1}^{ n} \dfrac{ 1}{ k} \sim \displaystyle\int\limits_{ 1}^{ n+1} \dfrac{ dx}{ x} = \ln \left( n+1\right) \sim \ln \left( n\right)\). Но можно сказать больше:
+
+    \( \displaystyle\int\limits_{ 1}^{ n+1} \dfrac{ dx}{ x} = \ln \left( n+1\right)= \sum\limits_{ k=1}^{ n} \ln \left( k+1\right) - \ln \left( k\right)= \sum\limits_{ k=1}^{ n} \ln \left( 1+ \dfrac{ 1}{ k} \right)\), поэтому \\\( A_n= \sum\limits_{ k=1}^{ n} \dfrac{ 1}{ k} - \ln \left( 1+ \dfrac{ 1}{ k} \right)\).
+
+    \[ \boxed{ \lim\limits_{ n \rightarrow \infty } A_n=C_{\textrm{э}} \approx 0,57} \text{ - константа Эйлера}\]
+\end{example}
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\newpage
+\section{Теорема о группировке членов ряда.}
+
+\( \Let \; \sum\limits_{ k=1}^{ \infty } a_k\) - числовой ряд, \( \left\{ k_j\right\}_{j=1}^ \infty \subset \N\) - строго возрастающая последовательность, \( k_0=0\),  \( \forall \; j \in \N\quad A_j= \sum\limits_{ k_{j-1}+1}^{ k_j} a_k\).
+Тогда говорят, что ряд \( \sum\limits_{ j=1}^{ \infty } A_j\) получен из ряда \( \sum\limits_{ k=1}^{ \infty } a_k\) \emph{группировкой}. Последовательность \( \left\{ k_j+1\right\}_{j=1}^ \infty \) здесь указывает номера начал групп.
+
+\begin{thm}[\hypertarget{thm:series_group}{Теорема о группировке членов ряда}]
+    
+    ~
+
+    В условии определения группировки имеет место:
+    \begin{enumerate}
+        \item Если ряд \( \sum\limits_{ k=1}^{ \infty } a_k\) имеет сумму \( S\) (не обязательно конечную), то ряд \( \sum\limits_{ j=1}^{ \infty } A_j\) имеет ту же сумму. 
+        \item Если \( \exists \; N \in \N:\quad \forall \; j\quad k_j-k_{j-1} \leq N\) (то есть количество элементов в группе ограничено) и \( a_k \longrightarrow 0\), то из условия \( \sum\limits_{ j=1}^{ \infty } A_j=S\) следует \( \sum\limits_{ k=1}^{ \infty } a_k=S\).
+        \item Если \( \forall \; j \in \N\) все слагаемые \( a_k\), входящие в \( j\)-ую группу, имеют один знак, то из условия \( \sum\limits_{ j=1}^{ \infty } A_j=S\) следует \( \sum\limits_{ k=1}^{ \infty } a_k=S\).
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item Если \( \left\{ S_n\right\}\) - частичные суммы ряда \( \sum\limits_{ k=1}^{ \infty } a_k\), то частичные суммы ряда \( \sum\limits_{ j=1}^{ \infty } A_j\) образуют подпоследовательность \( \left\{ S_{n_j}\right\}\) последовательности \( \left\{ S_n\right\}\). А если последовательность имеет предел, то любая подпоследовательность имеет тот же предел.
+        \item Рассмотрим конечный случай ( \( S= \infty \) рассмотреть даже проще).
+        \par По определению предела \( \forall \; \varepsilon >0\) \par 
+        \( \begin{aligned}
+            &\exists \; J:\quad \forall \; j \geq  J\quad \left| S_{n_j}-S\right|< \dfrac{ \varepsilon}{ 2}\\ 
+            &\exists \; K:\quad \forall \; k \geq  K\quad \left| a_k\right| < \dfrac{ \varepsilon}{ 2N} 
+        \end{aligned}\)
+        \par Рассмотрим \( n_i + 1> \max\limits_{ } (K, n_{J})\) (то есть все элементы в \(i\)-й и последующих группах удовлетворяют обоим неравенствам выше). Пусть \( n \geq n_i+1\), \( j\) - наибольшее число, такое что \( n \geq n_j+1\) (то есть элемент номер \( n\) попадает в \( j\)-ую группу, \( j \geq i\), поэтому для всех элементов последовательности, начиная с \( n_j+1\)-ого неравенства тоже выполнены). Количество элементов последовательности \( a_k\) от \( n_{j}+1\)-ого до \( n\)-ого ограничено \( N\) из условия. 
+        \begin{equation*}
+            \begin{aligned}
+                &\left| S_n-S\right|=\left| S_n-S_{n_j}+S_{n_j}-S\right| \leq \left| S_n-S_{n_j}\right|+\left| S_{n_j}-S\right|= \left|\sum\limits_{ k=n_{j}+1}^{ n} a_k \right| + \left| S_{n_j}-S\right| \leq \\ 
+                & \leq \sum\limits_{ k=n{j}+1}^{ n} \left| a_k\right| + \left| S_{n_j}-S\right| < N\cdot \dfrac{ \varepsilon}{ 2N} + \dfrac{ \varepsilon}{ 2} = \varepsilon   
+            \end{aligned}
+        \end{equation*}
+        \par Получается \( \forall \; \varepsilon >0\quad \exists \; \tilde{ N}=n_i+1:\quad \forall \; n \geq \tilde{ N}\quad \left| S_n-S\right|< \varepsilon \Longrightarrow S_n \longrightarrow S\)
+        \item Пусть \( n\)-ый элемент попадает в \( j\)-ую группу.
+        \[ S_n = S_{n_j}+ \sum\limits_{ k=n_j+1}^{ n} a_k = S_{n_{j+1}}- \sum\limits_{ k=n+1}^{ n_{j+1}} a_k\]
+        \par Если все \( a_k\) в \( j\)-ой группе положительны, то \( S_{n_j} \leq S_n \leq S_{n_{j+1}}\), а если отрицательны, то \( S_{n_j} \geq S_n \geq S_{n_{j+1}}\). В любом случае 
+        \[ \min\limits_{ } \left( S_{n_j}, S_{n_{j+1}}\right) \leq S_n \leq \max\limits_{ } \left( S_{n_j}, S_{n_{j+1}}\right) \]
+        \par \( S_{n_j} \longrightarrow S,\quad S_{n_{j+1}} \longrightarrow S\), поэтому минимум и максимум тоже стремятся к \( S\). \( S_n\) зажата между двумя последовательностями, которые стремятся к \( S\). Значит она тоже стремится к \( S\).
+    \end{enumerate}
+\end{proof}
+
+\end{document}
