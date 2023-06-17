@@ -21,12 +21,10 @@ n-й \emph{частичной суммой} ряда \( \sum\limits_{ k=1}^{ \in
 
     Последовательность \( \left\{ S_k\right\}\) числовая, а для числовых последовательностей выполняется критерий Коши: 
 
-    \[ \exists \; \lim\limits_{ n \rightarrow \infty } S_n \Longleftrightarrow \forall \; \varepsilon >0\quad \exists \; n,m \geq N:\quad \left| S_m-S_n\right|< \varepsilon \]
+    \[ \exists \; \lim\limits_{ n \rightarrow \infty } S_n \Longleftrightarrow \forall \; \varepsilon >0\quad \exists \tilde{N}:\quad \forall \; \; n,m \geq \tilde{ N}:\quad \left| S_m-S_n\right|< \varepsilon \]
 
-    В этом утверждении можно рассматривать только \( m \geq n\), т.к. под модулем \( x_m\) и \( x_n\) можно всегда поменять местами. Обозначим \( p = m - n\):
-    \[ \left| \sum\limits_{ k=n}^{ n+p} a_k\right|=\left| S_m-S_{n-1}\right|=\left| S_m-S_n+a_n\right| \leq \left| S_m-S_n\right|+\left| a_n\right| \leq \left| S_m-S_n\right|< \varepsilon\]
-
-    Тогда критерий Коши для последовательностей превращается в критерий Коши для числовых рядов.
+    В этом утверждении можно рассматривать только \( m \geq n\), т.к. под модулем \( S_m\) и \( S_n\) можно всегда поменять местами. Обозначим \( p = m - n,\quad N= \tilde{ N}+1\). Тогда если \( n,m \geq N\), то \( n-1,\;m \geq \tilde{ N}\), значит:
+    \[ \left| \sum\limits_{ k=n}^{ n+p} a_k\right|=\left| S_m-S_{n-1}\right|< \varepsilon \]
 \end{proof}
 
 \begin{crl}[\hyperlink{thm:nes_converge_series}{Необходимое условие сходимости ряда}]
