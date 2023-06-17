@@ -3,7 +3,7 @@
 \newpage
 \section{Теорема об интегральных суммах. Определенный интеграл как предел сумм. Примеры вычисления пределов сумм с помощью интегралов.}
 Пусть есть отрезок \( \left[ a,b\right]\), \( a=x_0<x_1< \ldots <x_n=b\). Тогда \( X=\left\{ x_k\right\}_{k=0}^n\) называется \emph{дроблением} отрезка \( \left[ a,b\right]\). 
-Длина \( k\)-ого отрезка дробления обозначается \( \Delta x=x_k-x_{k-1}\). \emph{Мелкостью (рангом) дробления} называется \( \lambda \left( X\right)= \max\limits_{ k=1 \ldots n} \Delta x_k\). 
+Длина \( k\)-ого отрезка дробления обозначается \( \Delta x_k=x_k-x_{k-1}\). \emph{Мелкостью (рангом) дробления} называется \( \lambda \left( X\right)= \max\limits_{ k=1 \ldots n} \Delta x_k\). 
 
 Если \( \forall \; k=1 \ldots n\quad t_k \in \left[ x_{k-1}, x_k\right]\), то \( T=\left\{ t_k\right\}_{k=1}^n\) называется \emph{оснащением дробления \( X\)}. 
 
@@ -70,7 +70,7 @@
     \[ \lim\limits_{ n\rightarrow \infty } \sum\limits_{ k=1}^{ n} \dfrac{ n}{ n^2+k^2}=\lim\limits_{ n\rightarrow \infty } \sum\limits_{ k=1}^{ n} \dfrac{ \dfrac{ 1}{ n} }{ 1+ \left(\dfrac{ k}{ n} \right)^2}\]
 
     Заметим, что эта сумма является суммой Римана для 
-    \[ f\left( x\right)= \dfrac{ 1}{ 1+x^2} ,\quad x_k= \dfrac{ 1}{ k} ,\quad \Delta x_k= \dfrac{ 1}{ n} ,\quad \left[ a,b\right]=\left[ 0,1\right]\] 
+    \[ f\left( x\right)= \dfrac{ 1}{ 1+x^2} ,\quad x_k= \dfrac{ k}{ n} ,\quad \Delta x_k= \dfrac{ 1}{ n} ,\quad \left[ a,b\right]=\left[ 0,1\right]\] 
     
     Поэтому по теореме \ref{lab:thm:riman} эта сумма равна интегралу 
     \[ \displaystyle\int\limits_{ 0}^{ 1} \dfrac{ dx}{ 1+x^2} = \arctg x \bigg|_0^1 = \dfrac{ \pi}{ 4} \]
