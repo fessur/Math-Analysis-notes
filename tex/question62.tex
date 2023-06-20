@@ -2,4 +2,58 @@
 \begin{document}
 \newpage
 \section{Норма линейного оператора, способы вычисления нормы.}
+
+\hypertarget{def:op_norm}{Определение нормы линейного оператора дано в 61 билете}. 
+
+\begin{thm}
+    
+    \hyperlink{thm:op_norm}{~}
+
+    \( \Let \; X, Y\) - нормированные пространства, \( A:\; X \longrightarrow Y\) - линйеный оператор. 
+
+    Тогда 
+    \begin{align*}
+        \underset{\left( 1\right)}{\sup\limits_{ \left| \left| x\right|\right| \leq 1} \left| \left| A\left( x\right)\right|\right|}&= \underset{\left( 2\right)}{\sup\limits_{ \left| \left| x\right|\right|=1} \left| \left| A\left( x\right)\right|\right|}= \underset{\left( 3\right)}{\sup\limits_{ \left| \left| x\right|\right|<1} \left| \left| A\left( x\right)\right|\right|}= \underset{\left( 4\right)}{\sup\limits_{ x \in X \backslash \left\{ 0\right\}} \dfrac{ \left|\left|A\left(x\right)\right|\right|}{ \left| \left| x\right|\right|}} = \\ 
+        &=\underset{\left( 5\right)}{\inf\limits_{} \left\{ C \in \R:\; \forall \; x \in X\;\; \left| \left| A\left( x\right)\right|\right| \leq C\left| \left| x\right|\right|\right\}}
+    \end{align*}
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item Если \( x \neq 0\), рассмотрим \( \tilde{ x}= \dfrac{ x}{ \left| \left| x\right|\right|} \implies \left| \left| \tilde{ x}\right|\right|=1\).
+        \[ \dfrac{ \left|\left|A\left(x\right)\right|\right|}{ \left| \left| x\right|\right|} = \dfrac{ \left|\left|A\left(\left|\left|x\right|\right|\cdot\tilde{x}\right)\right|\right|}{ \left| \left| x\right|\right|} = \left| \left| A\left( \tilde{ x}\right)\right|\right| \leq \left( 2\right) \implies \left( 4\right) \leq \left( 2\right)\]
+        \item Рассмотрми \(x :\quad \left| \left| x\right|\right|=1,\quad \varepsilon >0 \implies \left| \left| \dfrac{ x}{ 1+ \varepsilon } \right|\right|= \dfrac{ 1}{ 1+ \varepsilon } < 1\)
+        \[ \left| \left| A\left( \dfrac{ x}{ 1 + \varepsilon }\right)\right|\right| \leq  \left( 3\right)\]
+        \[ \dfrac{ 1}{ 1+ \varepsilon } \left| \left| A\left( x\right)\right|\right| \leq  \left( 3\right) \]
+        \[ \left| \left| A\left( x\right)\right|\right| \leq  \left( 3\right)\cdot\left( 1+ \varepsilon \right)\]
+        \par Если \( \varepsilon \longrightarrow 0\), то получаем \( \left| \left| A\left( x\right)\right|\right| \leq \left( 3\right) \implies \left( 2\right) \leq \left( 3\right)\)
+        \item Очевидно \( \left( 3\right) \leq \left( 1\right)\)
+        \item Пусть \( x_0 \in X,\quad \left| \left| x_0\right|\right| \leq 1,\quad C \in \R,\quad \forall \; x \in X\quad \left| \left| A\left( x\right)\right|\right| \leq C\cdot \left| \left| x\right|\right|\). 
+        \par Тогда \( \left| \left| A\left( x_0\right)\right|\right| \leq C\cdot \left| \left| x_0\right|\right| \leq C\). Переходя к супремуму в левой части, а затем к инфимуму в правой, полчуаем \( \left( 1\right) \leq \left( 5\right)\)
+        \item Если \( x \neq 0\), то \( \dfrac{ \left|\left|A\left(x\right)\right|\right|}{ \left| \left| x\right|\right|} \leq \left( 4\right) \implies \left| \left| A\left( x\right)\right|\right| \leq \left( 4\right)\cdot \left| \left| x\right|\right|\). При \( x=0\) это неравенство превращается в равенство и оно тоже верно. Но \( \left( 5\right)\) это инфимум таких чисел как \( \left( 4\right)\), которые удовлетворяют этому равенству. Значит \( \left( 5\right) \leq \left( 4\right)\).
+    \end{enumerate}
+
+    Итого \( \left( 4\right) \leq \left( 2\right) \leq \left( 3\right) \leq \left( 1\right) \leq \left( 5\right) \leq \left( 4\right)\). Значит они все равны. 
+\end{proof}
+
+\begin{crl}
+    
+    ~
+
+    \begin{enumerate}
+        \item \( \forall \; A:\;X \longrightarrow Y\) - линейного оператора, \( \forall \; x \in X\quad \left| \left| A\left( x\right)\right|\right| \leq \left| \left| A\right|\right|\cdot \left| \left| x\right|\right|\)
+        \item \( \Let \; \exists \; \delta >0:\quad \forall \; x \neq 0\quad \left| \left| A\left( x\right)\right|\right| \geq \delta \cdot \left| \left| x\right|\right|\). Тогда \( \left| \left| A\right|\right| \geq \delta \)
+    \end{enumerate}
+\end{crl}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item Верно по \( \left( 5\right)\) определению нормы. 
+        \item \( \left| \left| A\right|\right|=\left( 4\right) \geq \dfrac{ \left|\left|A\left(x\right)\right|\right|}{ \left| \left| x\right|\right|} \geq \delta\)
+    \end{enumerate}
+\end{proof}
 \end{document}

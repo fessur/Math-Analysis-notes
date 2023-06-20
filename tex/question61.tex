@@ -2,4 +2,93 @@
 \begin{document}
 \newpage
 \section{Связь между ограниченностью линейного оператора в нормированном пространстве и его непрерывностью.}
+\( \Let \; \left( X, K\right)\) - линейное пространство. \emph{Нормой} называется отображение \( \left| \left| \cdot\right|\right|:X \longrightarrow \left[ 0, + \infty \right)\), обладающее свойствами:
+\begin{enumerate}
+    \item \( \left| \left| x\right|\right|=0 \Longleftrightarrow x=0\)
+    \item \( \forall \; t \geq 0\quad \left| \left| tx\right|\right|=t\left| \left| x\right|\right|\)
+    \item \( \left| \left| x+y\right|\right| \leq \left| \left| x\right|\right|+\left| \left| y\right|\right|\)
+\end{enumerate} 
+
+Пара \( \left( \left( X, K\right), \left| \left| \cdot\right|\right|\right)\) называется \emph{нормированным пространством}. 
+\begin{examples}
+    \begin{enumerate}
+        \item \( X = \R ^n,\quad \left| \left| x\right|\right|_2= \;\sqrt[]{ \sum\limits_{ k=1}^{ n} x_k^2}\)
+        \item \( X = \R ^n,\quad \left| \left| x\right|\right|_p= \left( \sum\limits_{ k=1}^{ n} x_k^p\right)^{ \frac{ 1}{ p} }\)
+        \item \( X = \R ^n,\quad \left| \left| x\right|\right|_{ \infty }= \max\limits_{ k=1 \ldots n} x_k\)
+        \item \( X = C\left[ a,b\right],\quad K= \R ,\quad \left| \left| f\right|\right|= \max\limits_{ t \in \left[ a,b\right]} \left| f\left( t\right)\right|\)
+        \item \( X = \rho\) - пространство многочленов c той же нормой, что и для функций. Оно бесконечномерное.
+        \par При этом заметим, что \( \rho \leq C_{ \left[ a,b\right]}^{ \infty } \leq C_{\left[ a,b\right]}^p \leq C_{\left[ a,b\right]}\). А так как \( \rho\) бесконечномерное, то и 3 других пространства бесконечномерные.
+    \end{enumerate}
+\end{examples}
+
+Линейное отображение \( A:X \longrightarrow Y\), где \( X\) и \( Y\) - линейные пространства над полем \( K\), называется \emph{линейным оператором}. 
+\begin{example}
+    \( X=C^1_{\left[ a,b\right]},\quad Y=C_{\left[ a,b\right]}\).
+
+    \( A_1:X \longrightarrow Y\quad A_1\left( f\right)=f'\) - линейный оператор. Он является сюръекцией, т.к. у любой непрерывной функции есть первообразная. Но он не является инъекцией, т.к. у функций, отличающихся на константу, будет одинаковый образ. 
+
+    \( A_2: Y \longrightarrow X\quad A_2\left( f\right)= \displaystyle\int\limits_{ a}^{ x} f\left( t\right)dt\) - линейный оператор. Он не является сюръекцией, так как каждой функции сопоставляет только одну из её первообразных. Но он является инъекцией, потому что у функций совпадает первообразная только если функции равны.
+\end{example}
+
+Линейному оператору \( A\) соответствует матрица \( \left[ A\right]\) в паре базисов. Если речь идёт про \( \R ^n\), то мы обычно будем говорить про стандартный базис.
+\begin{align*}
+    \begin{pmatrix}
+        \ldots & a_{1i} & \ldots \\ 
+        \ldots & a_{2i} & \ldots \\ 
+        \vdots & \vdots & \vdots \\ 
+        \ldots & a_{mi} & \ldots 
+    \end{pmatrix}
+    \explain{ \( A: \;\R ^n \longrightarrow \R ^m \) \\ \( \left\{ e_k\right\}_{k=1}^n\) - базис \( \R ^n\) \\ \( a_i= \left( a_{1i}, \;a_{2i},\; \ldots ,\; a_{mi}\right)\) \\ \( a_i=A\left( e_i\right)\)}
+\end{align*}
+
+Пусть \( X\) и \( Y\) - нормированные пространства.
+
+\hyperlink{def:op_norm}{\emph{Норма оператора}} \( A\) по определению равна \( \left| \left| A\right|\right|= \sup\limits_{ \left| \left| x\right|\right| \leq 1} \left| \left| A\left( x\right)\right|\right|\) 
+
+Линейный оператор \( A\) называется \emph{ограниченным}, если множество \( A\left( \left\{ x:\; \left| \left| x\right|\right| \leq 1\right\}\right)\) ограничено. То есть оператор \( A\) ограничен \( \Longleftrightarrow \left| \left| A\right|\right| < + \infty \)
+
+Если \( \exists \; x \in X:\quad A\left( x\right) \neq 0\) то множество значений \( A\left( tx\right),\quad t \in \R \) не ограничено. То есть ограниченный оператор это не то же самое, что ограниченное отображение. 
+
+\begin{thm}[Критерий ограниченности линейного оператора]
+    
+    ~
+
+    Следующие утверждения равносильны:
+    \begin{enumerate}
+        \item \( A\) - ограниченный оператор 
+        \item \( A\) непрерывно в 0
+        \item \( A\) непрерывно всюду на \( X\)
+        \item \( A\) равномерно непрерывно на \( X\)
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    
+    ~\\
+    \( \boxed{ 2\Longrightarrow 1}:\) 
+
+    \( A\) непрерывно в 0, значит 
+    \[ \forall \; \varepsilon >0\quad \exists \; \delta >0:\quad \underbrace{\left| \left| x-0\right|\right|}_{\left| \left| x\right|\right|}< \delta \implies \underbrace{\left| \left| A\left( x\right)-A\left( 0\right)\right|\right|}_{\left| \left| A\left( x\right)\right|\right|}< \varepsilon \]
+
+    Рассмотрим \( x:\quad \left| \left| x\right|\right| <1 \implies \left| \left| \delta x\right|\right|< \delta \). Значит для \( \delta x\) верно \( \left| \left| A\left( \delta x\right)\right|\right|< \varepsilon \). 
+
+    Выносим \( \delta \) по однородности и получаем, что \( \forall \; x :\quad \left| \left| x\right|\right|<1\quad  \left| \left| A\left( x\right)\right|\right|< \dfrac{ \varepsilon}{ \delta } \), что означает ограниченность 
+
+    ~\\
+    \( \boxed{ 1\Longrightarrow 4}:\) 
+
+    Нужно доказать, что \( \forall \; \varepsilon >0\quad \exists \; \delta >0:\quad \left| \left| x- \tilde{ x}\right|\right|< \delta \implies \left| \left| A\left( x\right)-A\left( \tilde{ x}\right)\right|\right|< \varepsilon \)
+
+    Возьмём \( \delta = \dfrac{ \varepsilon}{ \left| \left| A\right|\right|} \). Тогда если \( \left| \left| x- \tilde{ x}\right|\right|< \delta \), то:
+    \[ \left| \left| A\left( x\right)-A\left( \tilde{ x}\right)\right|\right|=\left| \left| A\left( x- \tilde{ x}\right)\right|\right| \leq \left| \left| A\right|\right| \cdot\left| \left| x- \tilde{ x}\right|\right| < \varepsilon \]
+
+    ~\\
+    \( \boxed{ 4\Longrightarrow 3}:\) 
+
+    Очевидно: из равномерной непрерывности следует непрерывность. 
+
+    ~\\
+    \( \boxed{ 3\Longrightarrow 2}:\) 
+
+    Очевидно.
+\end{proof}
 \end{document}

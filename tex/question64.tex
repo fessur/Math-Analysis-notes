@@ -2,4 +2,226 @@
 \begin{document}
 \newpage
 \section{Окрестности точек в топологических пространствах и в пространстве \(  \widehat{\R} ^n\). Предел последовательности в \( \R ^n\) и его элементарные свойства. Сходимость и покоординатная сходимость последовательностей. Предел и арифметические операции, предел подпоследовательности.}
+Пусть \( X\) - множество, \( \Omega \subseteq 2^X\), \( \Omega\) обладает свойствами:
+\begin{enumerate}
+    \item \( \varnothing , X \in \Omega \)
+    \item \( \forall \; \left\{ O_{\alpha}\right\}_{ \alpha \in A} \subset \Omega \) верно \( \underset{ \alpha \in A}{ \cup} O_{ \alpha } \in \Omega \)
+    \item \( \forall \; \left\{ O_1, O_2, \ldots , O_N\right\} \subset \Omega \) верно \( \underset{j=1 \ldots N}{\cap} O_j\)
+\end{enumerate}
+
+Тогда \( \Omega \) называется \emph{топологической структурой (топологией)} на \( X\). Пара \( \left( X, \Omega \right)\) называется топологическим пространством.
+
+Элементы \( \Omega \) называют \emph{открытыми множествами} в топологии \( \Omega \). Множество \( U \subset X\) называется \emph{окрестностью} точки \( x \in X\) в топологическом пространстве, если \( U\) открыто. 
+
+\begin{examples}
+
+    ~
+
+    \begin{enumerate}
+        \item \( X\) любое, \( \Omega =2^X\). \( \left( X, \Omega \right)\) - дискретное пространство. 
+        \item \( X\) любое, \( \Omega = \left\{ \varnothing , X\right\}\). \( \left( X, \Omega \right)\) - антидискретное пространство. 
+        \item \( X= \R,\quad \Omega =\left\{ O:\quad \forall \; x \in O\quad x\textrm{ внутренняя для } O\right\}\).
+        \par Это действительно топология, потому что \( \varnothing , \R \in \Omega\), то есть первое свойство выполняется. Кроме того
+        \[ x \in O_1 \cap O_2 \cap \ldots \cap O_N \implies \forall \; j=1 \ldots N\quad \exists \; \delta _j:\quad \left( x- \delta_j , x+ \delta_j \right) \subset O_j\]
+        \par Возьмём \( \delta = \min\limits_{ j=1 \ldots N} \delta _j \implies \left( x- \delta, x+ \delta\right) \subseteq \underset{j=1 \ldots N}{\cap}O_j \implies \underset{j=1 \ldots N}{\cap}O_j \in \Omega \)
+        \par Для объединения проверяется аналогично.
+    \end{enumerate}
+\end{examples}
+
+\( \Let \; X\) - множество. \emph{Метрикой} на \( X\) называется отображение \( \rho:\; X\times X \longrightarrow \left[ 0, + \infty \right)\), обладающее свойствами:
+\begin{enumerate}
+    \item \( \rho\left( x, y\right)=0 \Longleftrightarrow x=y\)
+    \item \( \forall \; x,y \in X\quad \rho\left( x,y\right)= \rho\left( y,x\right)\)
+    \item \( \forall \; x,y,z \in X\quad \rho\left( x, z\right) \leq \rho\left( x,y\right)+ \rho\left( y,z\right)\)
+\end{enumerate}
+
+Пара \( \left( X, \rho\right)\) называется \emph{метрическим пространством}. 
+
+\begin{examples}
+
+    ~
+
+    \begin{enumerate}
+        \item \( X= \R ,\quad \rho\left( x,y\right)=\left| x-y\right|\)
+        \item \( X= \R ^n,\quad \rho\left( x, y\right)= \left| \left| x-y\right|\right|\) - Евклидова метрика. Если не написано другое, под \( \R ^n\) понимают \( \R ^n\) вместе с этой метрикой.
+        \item \( X\) - произвольное множество, \( \rho\left( x,y\right)= \left\{\begin{aligned}
+            &0, \textrm{ если } x=y\\ 
+            &1, \textrm{ если } x \neq y
+        \end{aligned}\right.\) - дискретная метрика
+    \end{enumerate}
+\end{examples}
+
+\( \Let \; \left( X, \rho\right)\) - метрическое пространство, \( r>0,\; a \in X\). Множество \( B_r\left( a\right)=\left\{ x \in X:\; \rho\left( x,a\right)<r\right\}\) называется \emph{открытым шаром} с центром в точке \( a\) радиуса \( r\). 
+В метрическом пространстве открытый шар с центром в точке \( a\) считается окрестностью точки \( a\).
+
+\begin{examples}
+
+    ~
+
+    \item \( X=R\). Открытый шар это интервал \( \left( a-r, a+r\right)\).
+    \item \( X= \R ^2\). Открытый шар это круг с центром в точке \( a\) радиуса \( r\), не включающий границу
+    \item \( X\) - любое множество, \( \rho\) - дискретная метрика. Тогда открытый шар это \( B_r\left( a\right)=\left\{\begin{aligned}
+        &\left\{ a\right\}, \textrm{ если } r \leq 1 \\ 
+        &X, \textrm{ если } r > 1
+    \end{aligned}\right.\)
+\end{examples} 
+
+\begin{thm}
+    
+    ~
+
+    \( \Let \; \left( X, \rho\right)\) - метрическое пространство, \( \Omega =\left\{ O \subseteq X:\quad \forall \; a \in O\quad \exists \; r>0:\quad B_r\left( a\right) \subseteq O\right\}\).
+
+    Тогда \( \Omega \) - топология на \( X\) (эта топология называется \emph{порождённой} метрикой \( \rho\)).
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Понятно, что \( \varnothing , X \in \Omega \). 
+    
+    \( \Let \; \left\{ O_{ \alpha }\right\}_{ \alpha \in A} \subset \Omega\).
+
+    \( \Let \; a \in \underset{ \alpha \in A}{\cup}O_{ \alpha } \implies \exists \; \alpha _0 \in A:\quad a \in O_{ \alpha _0} \implies \exists \; r > 0:\quad B_r\left( a\right) \subset O_{ \alpha _0} \implies B_r\left( a\right) \subset \underset{ \alpha \in A}{\cup} O_{ \alpha }\). Значит \( \underset{ \alpha \in A}{\cup} O_{ \alpha } \in \Omega \).
+
+    \( \Let \; a \in \underset{ \alpha \in A}{\cap} O_{ \alpha } \implies \forall \; \alpha \in A\quad a \in O_{ \alpha } \implies \forall \; \alpha \in A\quad \exists \; r_{ \alpha} >0:\quad B_r\left( a\right) \subset O_{ \alpha}\). 
+    
+    Если взять \( r = \min\limits_{ \alpha \in A} r_{ \alpha }\), то \( B_r\left( a\right) \subset \underset{ \alpha \in A}{\cap}O_{ \alpha }\). Значит \( \underset{ \alpha \in A}{\cap} O_{ \alpha } \in \Omega \).
+\end{proof}
+
+Множество \( B_r\left[ a\right]=\left\{ x \in X:\quad \rho\left( x,a\right) \leq r\right\}\) называется \emph{замкнутым шаром}. 
+
+\begin{thm}
+    
+    ~
+
+    В топологии, порождённой метрикой, любой открытый шар - открытое множество и \( X \backslash B_r\left[ a\right]\) - открытое множество. 
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item Рассмотрим произвольное \( b \in B_R\left( a\right) \implies \rho\left( b,a\right)=d<R\).
+        \par \( \Let \; r=R-d >0\). Если \( c \in B_r\left( b\right)\), то \( \rho\left( c,b\right)<r=R-d\). 
+        \par По определению метрики \( \rho\left( c,a\right) \leq \underbrace{\rho\left( c,b\right)}_{<R-d}+ \underbrace{\rho\left( b,a\right)}_{=d}<R\).
+        \par Получили, что \( \forall \; c \in B_r\left( b\right) \implies c \in B_R\left( a\right)\). 
+        \par Значит \( \forall \; b\quad B_r\left( b\right) \subset B_R\left( a\right) \implies B_R\left( a\right) \in \Omega \).
+        \item \( \Let \; b \notin B_R\left[ a\right] \implies \rho\left( b,a\right)>R\).
+        \par \( \Let \; r=d-R>0\). Если \( c \in B_r\left( b\right)\), то \( \rho\left( c,b\right)<r=d-R\).
+        \par По определению метрики \( \rho\left( a,b\right) \leq \rho\left( a,c\right)+ \rho\left( c,b\right) \implies \rho\left( a,c\right) \geq \rho\left( a,b\right)- \rho\left( c,b\right)>R\).
+        \par Получили, что \( \forall \; c \in B_r\left( b\right) \implies c \notin B_R\left[ a\right] \implies c \in X \backslash B_R\left[ a\right]\).
+        \par Значит \( \forall \; b\quad B_r\left( b\right) \subset X \backslash B_R\left[ a\right] \implies X \backslash B_R\left[ a\right] \in \Omega \).
+    \end{enumerate}
+\end{proof}
+
+Топология называется \emph{метризуемой}, если существует метрика, порождающая её.
+
+Если \( \rho_1, \rho_2\) - метрики на \( X\), то они называются \emph{эквивалентными} ( \( \rho_1 \sim \rho_2\)), если они порождают одинаковые топологии. 
+
+Пример: \( X= \R ^n,\quad \rho_1\left( x,y\right)=\left| \left| x-y\right|\right|,\quad \rho_2\left( x,y\right)= \dfrac{ 1}{ 2} \left| \left| x-y\right|\right| \implies \rho_1 \sim \rho_2\) 
+
+\begin{note}
+    Любая норма порождает метрику: \( \rho \left( x,y\right)=\left| \left| x-y\right|\right|\)
+\end{note}
+
+Пусть \( \left( X, \Omega \right)\) - топологическое пространство. Отображение \( x:\; \N \longrightarrow X\) называется \emph{последовательностью} в \( X\). Обозначается \( \left\{ x_k\right\}_k\), но для векторов в \( \R ^n\) лучше обозначать \( \left\{ x^k\right\}_k\) или \( \left\{ x^{\left( k\right)}\right\}_k\) (индекс сверху), чтобы не путать с координатами.  
+
+Число \( x \in X\) называется \emph{пределом} последовательности \( \left\{ x^k\right\}_k\) в топологическом пространстве \( X\), если \( \forall \; O \in \Omega :\;x \in O\quad \exists \; N \in \N:\quad \forall \; k \geq N\quad x^k \in O\). 
+
+Число \( x \in X\) называется \emph{пределом} последовательности \( \left\{ x^k\right\}_k\) в метрическом пространстве \( X\), есои \( \forall \; \varepsilon >0\quad \exists \; N \in \N:\quad \forall \; k \geq N\quad \rho\left( x^k,x\right)< \varepsilon \).
+
+\begin{note}
+    Пусть \( \left\{ b_k\right\} \subset \R :\quad b_k= \rho\left( x^k, x\right)\).
+
+    Тогда 
+    \[ x^k \underset{ k \rightarrow \infty }{\longrightarrow} x \Longleftrightarrow \left\{ b_k\right\}\textrm{ - бесконечно малая последовательность}\]
+\end{note}
+
+\begin{thm}
+    
+    ~
+
+    В метрическом пространстве любая последовательность имеет не более одного предела.
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \( \Let \; x^k \longrightarrow a,\quad x^k \longrightarrow b\). Возьмём \( \varepsilon = \dfrac{ \rho\left(a,b\right)}{ 2} \).
+
+    Тогда \( B_{ \varepsilon }\left( a\right) \cap B_{ \varepsilon }\left( b\right)= \varnothing \), иначе не выполняется неравенство треугольника (третье свойство метрики). По определению предела: 
+    \[ \exists \; N_a:\quad \forall \; k \geq N_a\quad x^k \in B_{ \varepsilon }\left( a\right)\]
+    \[ \exists \; N_b:\quad \forall \; k \geq N_b\quad x^k \in B_{ \varepsilon }\left( b\right)\]
+
+    Возьмём \( N = \max\limits_{ } \left( N_a, N_b\right) \implies \forall \; k \geq N\quad x^k \in B_{ \varepsilon } \left( a\right)\) и \( x^k \in B_{ \varepsilon }\left( b\right)\). Но шары не пересекаются. Противоречие. 
+\end{proof}
+
+Для топологических пространств это неверно. Можно рассмотреть любое \( X\) и антидискретную топологию. Тогда любая последовательность имеет пределом любую точку из \( X\).
+
+Пусть \( \left( X, \rho\right)\) - метрическое пространство, \( E \subseteq X\). \( E\) называется \emph{ограниченным}, если \( \exists \; a \in X,\quad \exists \; r>0:\quad E \subseteq B_r\left( a\right)\) 
+
+\begin{thm}
+    
+    ~
+
+    В метрическом пространстве любая сходящаяся последовательность ограничена.
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \( \Let \; x= \lim\limits_{ k \rightarrow \infty } x^k \implies \exists \; N:\quad \forall \; k \geq N\quad \rho\left( x^k, x\right)<1\).
+
+    Возьмём \(R= \max\limits_{ } \left\{ 1, \rho\left( x,x_1\right), \rho\left( x,x_2\right), \ldots , \rho\left( x,x_{N-1}\right)\right\}+1\). Тогда \( \left\{ x^k\right\} \subset B_R\left( x\right) \implies\) ограничена.
+\end{proof}
+
+\begin{thm}
+    
+    ~
+
+    \( \Let \; \left\{ x^k\right\} \subset \R ^n,\quad x^k=\left( x^k_1, x^k_2, \ldots , x^k_n\right)\).
+
+    Тогда 
+    \[ x^k \longrightarrow x \Longleftrightarrow \forall \; j=1 \ldots n\quad x^k_j \longrightarrow x_j\]
+\end{thm}
+\begin{proof}
+    
+    ~\\
+    \( \boxed{ \implies }\)
+
+    \[ \left| \left| x^k-x\right|\right|= \;\sqrt[]{ \sum\limits_{ j=1}^{ n} \left( x^k_j-x_j\right)^2} \longrightarrow 0 \implies x^k_j-x \longrightarrow 0 \implies  x^k_j \longrightarrow x\]
+    \\ 
+    \( \boxed{ \Longleftarrow}\)
+
+    \[ \left| \left| x^k-x\right|\right|= \;\sqrt[]{ \sum\limits_{ j=1}^{ n} \left( \underbrace{x^k_j-x_j}_{\textrm{беск. малая}}\right)^2} \implies x^k-x \textrm{ - беск. малая} \implies x^k \longrightarrow x\]
+\end{proof}
+
+\begin{thm}[Об арифметических действиях над сходящимися последовательностями в \( \R ^n\)]
+    
+    ~
+
+    \( \Let \; \left\{ x^k\right\}_k \subset \R ^n,\quad \left\{ y^k\right\}_k \subset \R ^n,\quad \left\{ \alpha ^k\right\}_k \subset \R,\quad x^k \longrightarrow x,\quad y^k \longrightarrow y,\quad \alpha^k \longrightarrow \alpha \).
+
+    Тогда 
+
+    \begin{enumerate}
+        \item \( x^k+y^k \longrightarrow x+y\)
+        \item \( \alpha ^kx^k \longrightarrow \alpha x\)
+        \item \( \langle x^k,y^k \rangle \longrightarrow xy\)
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    \begin{enumerate}
+        \item \( \left| \left| \left( x^k+y^k\right)-\left( x+y\right)\right|\right| \leq \underbrace{\left| \left| x^k-x\right|\right|}_{\textrm{беск. мал.}}+\underbrace{\left| \left| y^k-y\right|\right|}_{\textrm{беск. мал.}} \implies \left| \left| \left(x^k+y^k\right)-\left( x+y\right)\right|\right|\textrm{ - беск. мал.}\)
+        \item \begin{align*}
+            \left| \left| \alpha ^kx^k- \alpha x\right|\right|&=\left| \left| \alpha ^k x^k- \alpha x^k+ \alpha x^k- \alpha x\right|\right| \leq \left| \left| \alpha ^kx^k- \alpha x^k\right|\right|+\left| \left| \alpha x^k- \alpha x\right|\right| \leq \\
+            &\leq \underbrace{\left| \alpha ^k- \alpha \right|}_{\textrm{беск. мал.}}\cdot\underbrace{\left| \left| x^k\right|\right|}_{\textrm{огр.}}+ \underbrace{\left| \alpha \right|}_{\textrm{огр.}}\cdot\underbrace{\left| \left| x^k-x\right|\right|}_{\textrm{беск. мал.}} \implies \left| \left| \alpha ^kx^k- \alpha x\right|\right|\textrm{ - беск. мал.}
+        \end{align*} 
+        \item \[ \langle x^k,y^k \rangle = \sum\limits_{ j=1}^{ n} \underbrace{x^k_jy^k_j}_{ \rightarrow x_jy_j} \longrightarrow \langle x,y \rangle \]
+    \end{enumerate}
+\end{proof}
 \end{document}

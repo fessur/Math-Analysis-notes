@@ -2,4 +2,44 @@
 \begin{document}
 \newpage
 \section{Оценка нормы линейного оператора в \( \R ^n\), два примера ситуаций, в которых данная оценка является точной.}
+\begin{thm}
+    
+    ~
+
+    \( \Let \; A:\; \R ^n \longrightarrow \R ^m\) - линейный оператор, \( \left[ A\right]=\left( a_{ij}\right)_{\substack{i=1 \ldots m\\j=1 \ldots n}}\).
+
+    Тогда 
+    \[ \left| \left| A\right|\right| \leq \;\sqrt[]{ \sum\limits_{ i=1}^{ m} \sum\limits_{ j=1}^{ n} a_{ij}^2}\]
+\end{thm}
+\begin{proof}
+    
+    ~
+
+    Будем пользоваться \hypertarget{thm:op_norm}{\( \left( 2\right)\) определением нормы линейного оператора}. Рассмотрим \( x \in \R ^n:\quad \left| \left| x\right|\right|=1\), воспользуемся \hypertarget{thm:kbsh}{неравенством КБШ}:
+    \begin{align*}
+        \left| \left| A\left( x\right)\right|\right|^2&= \sum\limits_{ i=1}^{ m} \left( \sum\limits_{ j=1}^{ n} a_{ij}x_j\right)^2 \leq \sum\limits_{ i=1}^{ m} \left( \;\sqrt[]{ \sum\limits_{ j=1}^{ n} a_{ij}^2} \cdot\;\sqrt[]{ \sum\limits_{ j=1}^{ n} x_j^2}\right)^2 = \sum\limits_{ i=1}^{ m} \left( \;\sqrt[]{ \sum\limits_{ j=1}^{ n} a_{ij}^2}\cdot \left| \left| x\right|\right|\right)^2= \\
+        &=\sum\limits_{ i=1}^{ m} \left( \;\sqrt[]{ \sum\limits_{ j=1}^{ n} a_{ij}^2}\right)^2= \sum\limits_{ i=1}^{ m} \sum\limits_{ j=1}^{ n} a_{ij}^2
+    \end{align*}
+    \[ \left| \left| A\left( x\right)\right|\right| \leq \;\sqrt[]{ \sum\limits_{ i=1}^{ m} \sum\limits_{ j=1}^{ n} a_{ij}^2}\]
+
+    Переходя в неравенстве к супремуму в левой части, получаем \( \left| \left| A\right|\right| \leq \;\sqrt[]{ \sum\limits_{ i=1}^{ m} \sum\limits_{ j=1}^{ n} a_{ij}^2}\)
+\end{proof}
+
+\begin{examples}[Два примера, когда оценка нормы оператора является точной]
+    
+    ~
+
+    Пусть \( A:\; \R ^n \longrightarrow \R ^m\) - линейный оператор.
+    \begin{enumerate}
+        \item Если \( n=1\), то есть \( A:\; \R \longrightarrow \R ^m\). 
+        \par Матрица оператора \( A\) выглядит как столбец \( a=\left( a_1, a_2, \ldots , a_m\right)\), \( \forall \; t \in \R\quad A\left( t\right)=a\cdot t\).
+        \par \( t \in \R \implies \left| \left| t\right|\right|=1 \Longleftrightarrow \left| t\right|=1\). Тогда
+        \[ \left| \left| A\right|\right|= \sup\limits_{ \left| \left| t\right|\right| =1} \left| \left| A\left( t\right)\right|\right|= \sup\limits_{ \left| t\right|=1} \left| \left| a\cdot t\right|\right|= \max\limits_{ } \left\{ \left| \left| a\right|\right|, \left| \left| -a\right|\right|\right\}= \left| \left| a\right|\right|= \;\sqrt[]{\sum\limits_{ k=1}^{ m} a_k^2}\]
+        \item Если \( m=1\), то есть \( A:\; \R ^n \longrightarrow \R \).
+        \par Матрица оператора \( A\) выглядит как сстрока \( a=\left( a_1, a_2, \ldots , a_n\right)\), \( \forall \; x \in \R^n \)\\\(A\left( x\right)= \langle a,x \rangle \).
+        \par Рассмотрим \( v \in X\), который выглядит как матрица оператора \( A\), то есть \( v = a\), \\\( x = \dfrac{ v}{ \left| \left| v\right|\right|} \implies \left| \left| x\right|\right|=1\). Тогда:
+        \[ A\left( x\right)= \langle x, v \rangle = \langle \dfrac{ v}{ \left| \left| v\right|\right|} , v \rangle= \dfrac{ 1}{ \left| \left| v\right|\right|} \langle v,v \rangle = \left| \left| v\right|\right|= \;\sqrt[]{ \sum\limits_{ k=1}^{ n} a_k^2}=\;\sqrt[]{ \sum\limits_{ k=1}^{ n} a_k^2} \cdot \left| \left| x\right|\right|\]
+        \par Получается, в этой ситуации оценка \( \left| \left| A\left( x\right)\right|\right| \leq \left| \left| A\right|\right| \cdot \left| \left| x\right|\right|\) является точной.
+    \end{enumerate}
+\end{examples}
 \end{document}
